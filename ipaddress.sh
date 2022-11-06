@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ipaddr=`dig +short registry.agt.thousandeyes.com| grep -v thousandeyes.com | sed 's/ /\n/g'`
-echo $ipaddr | while read line 
-  do 
-  echo $line 
-  done
+ipaddr=`dig +short registry.agt.thousandeyes.com |grep -v thousandeyes.com`
+addresses=`echo $ipaddr | sed 's/ /,/'`
+iptables -A OUTPUT -d $addresses -p tcp --dport 5200 -j DROP

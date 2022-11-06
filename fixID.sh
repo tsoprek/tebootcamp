@@ -3,7 +3,6 @@ echo 'Cleaning identity'
 if sqlite3 /var/lib/te-agent/te-agent-config.sqlite 'select * from tb_agent_id' ;
   then
   echo 'Identity found'
-
   if systemctl status te-agent;
     then systemctl stop te-agent
     echo 'Stopping servie'
@@ -19,4 +18,4 @@ else
     echo 'Starting service.'
   fi
 fi
-./fixID.sh
+
