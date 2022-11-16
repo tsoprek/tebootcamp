@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+
+        <link rel="stylesheet" href="/static/css/cui-standard.min.css">
+        <link href="http://www.cisco.com/web/fw/cisco-ui/2.0.5/dist/css/cui-standard.min.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+        <script src="/static/js/styleguide.js"></script>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="steps">
+            <div class="step visited">
+                <div class="step__icon">
+                    <span class="icon-check"></span>
+                </div>
+                <div class="step__label">Visited</div>
+            </div>
+            <div class="step active">
+                <div class="step__icon">2</div>
+                <div class="step__label">Active</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">3</div>
+                <div class="step__label">Inactive</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-3">
+        <ul id="vleft" class="tabs tabs--vertical">
+            <li id="vleft-1" class="tab active">
+                <a tabindex="0" href="/">INSTRUCTIONS</a>
+            </li>
+            <li id="vleft-2" class="tab">
+                <a tabindex="0" href="/task1">TASK1</a>
+            </li>
+            <li id="vleft-3" class="tab">
+                <a tabindex="0" href="/task2">TASK2</a>
+            </li>
+            <li id="vleft-4" class="tab">
+                <a tabindex="0" href="/task3">TASK3</a>
+            </li>
+            <li id="vleft-5" class="tab">
+                <a tabindex="0" href="/task4">TASK4</a>
+            </li>
+            <li id="vleft-6" class="tab">
+                <a tabindex="0" href="/task5">TASK5</a>
+            </li>
+            <li id="vleft-7" class="tab">
+                <a tabindex="0" href="/task6">TASK6</a>
+            </li>
+            <li id="vleft-8" class="tab">
+                <a tabindex="0">SOLUTIONS</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div id="vleft-content" class="tab-content">
+            <div id="vleft-1-content" class="tab-pane active">
+                <p>INSTRUCTIONS</p>
+            </div>
+            <div id="vleft-2-content" class="tab-pane">
+                <p>TASK1</p>
+            </div>
+            <div id="vleft-3-content" class="tab-pane">
+                <p>TASK2</p>
+            </div>
+            <div id="vleft-4-content" class="tab-pane">
+                <p>TASK3</p>
+            <div id="vleft-5-content" class="tab-pane">
+                <p>TASK4</p>
+            <div id="vleft-6-content" class="tab-pane">
+                <p>TASK5</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK6</p>
+            </div>
+            <div id="vleft-8-content" class="tab-pane">
+                <p>SOLUTIONS</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<body>
+  {% block body %}
+  {% endblock body %}
+</body>
+<body class="cui" >
+
+            <footer class="footer">
+                <div class="footer__links">
+                    <ul class="list list--inline">
+                        <li><a href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a></li>
+                        <li><a href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a></li>
+                        <li><a href="https://www.cisco.com/c/en/us/about/help.html" target="_blank">Help</a></li>
+                        <li><a href="http://www.cisco.com/c/en/us/about/sitemap.html" target="_blank">Site Map</a></li>
+                        <li><a href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html" target="_blank">Terms & Conditions</a></li></li>
+                        <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html" target="_blank">Privacy Statement</a></li>
+                        <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies" target="_blank">Cookie Policy</a></li>
+                        <li><a href="https://www.cisco.com/c/en/us/about/legal/trademarks.html" target="_blank">Trademarks</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+    </div>
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
