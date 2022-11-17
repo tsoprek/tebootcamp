@@ -1,7 +1,21 @@
 from flask import Flask, render_template, url_for, request
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+#SQLite flask configuration
+db = SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///tasks.db'
+db.init_app(app)
+
+class Tasks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    status= db.Column(db.Integer, default=0)
+
+    def __repr__(self):
+        return '<status %r>' %self.status
+
+# Flask routes
 @app.route('/', methods=['POST','GET'])
 def home():
     return render_template('home.html')
@@ -61,4 +75,3 @@ def solutionT7():
 
 if __name__ == "__main__":
     app.run(debug=True)
-

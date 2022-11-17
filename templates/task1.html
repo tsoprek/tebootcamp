@@ -107,5 +107,26 @@
     Partner was messing around with agent and services are not starting. We asked partner what changes were done and replay was that no changes were done! <br>
     Troubleshoot the te-agent service down and resolve the issue<br>
     </p>
+
+
+<button class="btn" onclick="openModal('modal-full')">Full Width</button>
+<br>
+<div class="modal modal--full hide" id="modal-full">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <a class="modal__close" onclick="closeModal('modal-full')"><span class="icon-close"></span></a>
+            <div class="modal__header">
+                <div class="modal__title">Full Width Modal</div>
+            </div>
+            <div class="modal__body">
+               <p class="subtitle">This is a full width modal</p>
+            </div>
+            <div class="modal__footer">
+                <button class="btn" onclick="closeModal('modal-full')">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 {% endblock %}
