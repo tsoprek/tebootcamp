@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1 class="display-3"><center>TASK 2 CLEAR IDENTITY AND CHANGE TOKEN</center></h1>
+<h1 class="display-3"><center>WELCOME TO THOUSANDEYES BOOTCAMP TS LAB</center></h1>
 <div class="row" <center>>
     <div class="col-md-6">
         <div class="steps">
-            <div class="step visited">
+            <div class="step active">
                 <div class="step__icon">
-                    <span class="icon-check"></span>
+                    <span class="icon-active"></span>
                 </div>
                 <div class="step__label">Instructions</div>
             </div>
-            <div class="step visited">
+            <div class="step">
                 <div class="step__icon">1</div>
-                <div class="icon-check">TASK 1</div>
+                <div class="step__label">TASK 1</div>
             </div>
-            <div class="step active">
+            <div class="step">
                 <div class="step__icon">2</div>
                 <div class="step__label">TASK 2</div>
             </div>
@@ -42,19 +42,19 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock head%}
 
 {% block body%}
 <div class="row">
     <div class="col-md-3">
         <ul id="vleft" class="tabs tabs--vertical">
-            <li id="vleft-1" class="tab">
+            <li id="vleft-1" class="tab active">
                 <a tabindex="0" href="/">INSTRUCTIONS</a>
             </li>
             <li id="vleft-2" class="tab">
                 <a tabindex="0" href="/task1">TASK1</a>
             </li>
-            <li id="vleft-3" class="tab active">
+            <li id="vleft-3" class="tab">
                 <a tabindex="0" href="/task2">TASK2</a>
             </li>
             <li id="vleft-4" class="tab">
@@ -76,13 +76,13 @@
     </div>
     <div class="col-md-9">
         <div id="vleft-content" class="tab-content">
-            <div id="vleft-1-content" class="tab-pane">
+            <div id="vleft-1-content" class="tab-pane active">
                 <p>INSTRUCTIONS</p>
             </div>
             <div id="vleft-2-content" class="tab-pane">
                 <p>TASK1</p>
             </div>
-            <div id="vleft-3-content" class="tab-pane active">
+            <div id="vleft-3-content" class="tab-pane">
                 <p>TASK2</p>
             </div>
             <div id="vleft-4-content" class="tab-pane">
@@ -102,12 +102,19 @@
     </div>
 </div>
 <body class="cui" data-theme="dark">
-<p class="display-4">
-    Do you remember from scenario that endpoint was used for POV and agent was registered in different organization? We need to fix that!<br>
-    Change Account Group toke to match your account group and
-    clear identity <br>
-</p>
-</body>
-<a href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/managing/replacing-an-enterprise-agent-using-agent-identity-files#delete-the-agent-identity-files-from-your-original-agent">Hint</a>
+    <h4 class="display-4"<center>Objective:</center></h4>
+    <p>
+    The lab's objective is to understand the flow of registration, check-in, and data submission, and see all issues and symptoms as they happen. resolve them when possible or pinpoint the issue and provide proof in terms of logs and commands.
+    Resolve issues in order as they are in this document.<br>
+    The goal is to understand the agent flow and identify issue at appropriate step.
+    Identifying issue with NTP (and I can tell you now there is an issue with NTP) while troubleshooting registration is not what we want to achieve.
+    </p>
 
+    <h4 class="display-4"<center>Scenario:</center></h4>
+    <p>
+    The user is asking for help with the TE agent's installation.  Partner installed agent and had an issue with registering the agent to the portal. The same agent was previously used for POV which is in a different account group.<br>
+    During troubleshooting, they made some changes and now the te-agent service is not starting.<br>
+    They would also like to schedule tests and get data and need help with that.<br>
+    </p>
+</body>
 {% endblock %}
