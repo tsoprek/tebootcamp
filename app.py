@@ -1,19 +1,75 @@
+import os.path
+from sqlite3 import OperationalError
 from flask import Flask, render_template, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+import sqlite3
+import os.path
 
 app = Flask(__name__)
+tasks_db=('tasks.db')
+
+# SQLite check if this is first run. If first run create table with tasks.
+conn=sqlite3.connect('tasks.db')
+first_run=conn.execute("SELECT status FROM first_run").fetchall()
+for row in first_run:
+    for i in row:
+        first_run=i
+        print(first_run)
+        if first_run == 0:
+            print('This is first run')
+            conn.execute("""
+            CREATE TABLE IF NOT EXISTS tasks ( 
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            status INTEGER)
+            """)
+            cursor=conn.cursor()
+            cursor.execute('UPDATE first_run SET status=1 where status=0;')
+            req=cursor.execute('SELECT status from first_run').fetchall()
+            cursor.close()
+            conn.commit()
+            print(req)
+        else:
+            print('You have been here before.')
+conn.close()
+
+def get_task_status(taskID):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    print(cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID)).fetchall())
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def update_task_status(taskID, status):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    cursor.execute('UPDATE tasks SET status = ?  WHERE id = ?', (status, taskID))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 
 #SQLite flask configuration
-db = SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///tasks.db'
-db.init_app(app)
+db = SQLAlchemy(app)
+
+class FirstRun(db.Model):
+    status= db.Column(db.Integer, primary_key=True, default=0)
+
+    def __init__(self,status):
+        self.status = status
 
 class Tasks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     status= db.Column(db.Integer, default=0)
 
+    def __init__(self,id,status):
+        self.id = id
+        self.status = status
+
     def __repr__(self):
         return '<status %r>' %self.status
+
 
 # Flask routes
 @app.route('/', methods=['POST','GET'])
