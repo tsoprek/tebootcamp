@@ -32,6 +32,7 @@ for row in first_run:
             print('You have been here before.')
 conn.close()
 
+
 def get_task_status(taskID):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
