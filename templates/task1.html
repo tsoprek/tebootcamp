@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1 class="display-3"><center>TASK 1 TE-AGENT SERVICE FAILED TO START</center></h1>
-<div class="row" <center>>
+<div class="panel panel--dark">
+    <h1 class="display-3 flex flex-center" style="margin-top: 75px;"></h1>
+</div>
+<div class="row base-margin-top flex flex-center">
     <div class="col-md-6">
         <div class="steps">
             <div class="step visited">
@@ -47,28 +49,28 @@
 {% block body%}
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <ul id="vleft" class="tabs tabs--vertical">
             <li id="vleft-1" class="tab">
                 <a tabindex="0" href="/">INSTRUCTIONS</a>
             </li>
             <li id="vleft-2" class="tab active">
-                <a tabindex="0" href="/task1">TASK1</a>
+                <a tabindex="0" href="/task1">TASK 1</a>
             </li>
             <li id="vleft-3" class="tab">
-                <a tabindex="0" href="/task2">TASK2</a>
+                <a tabindex="0" href="/task2">TASK 2</a>
             </li>
             <li id="vleft-4" class="tab">
-                <a tabindex="0" href="/task3">TASK3</a>
+                <a tabindex="0" href="/task3">TASK 3</a>
             </li>
             <li id="vleft-5" class="tab">
-                <a tabindex="0" href="/task4">TASK4</a>
+                <a tabindex="0" href="/task4">TASK 4</a>
             </li>
             <li id="vleft-6" class="tab">
-                <a tabindex="0" href="/task5">TASK5</a>
+                <a tabindex="0" href="/task5">TASK 5</a>
             </li>
             <li id="vleft-7" class="tab">
-                <a tabindex="0" href="/task6">TASK6</a>
+                <a tabindex="0" href="/task6">TASK 6</a>
             </li>
             <li id="vleft-8" class="tab">
                 <a tabindex="0">SOLUTIONS</a>
@@ -81,20 +83,19 @@
                 <p>INSTRUCTIONS</p>
             </div>
             <div id="vleft-2-content" class="tab-pane active">
-                <p>TASK1</p>
             </div>
             <div id="vleft-3-content" class="tab-pane">
-                <p>TASK2</p>
+                <p>TASK 2</p>
             </div>
             <div id="vleft-4-content" class="tab-pane">
-                <p>TASK3</p>
+                <p>TASK 3</p>
             <div id="vleft-5-content" class="tab-pane">
-                <p>TASK4</p>
+                <p>TASK 4</p>
             <div id="vleft-6-content" class="tab-pane">
-                <p>TASK5</p>
+                <p>TASK 5</p>
             </div>
             <div id="vleft-7-content" class="tab-pane">
-                <p>TASK6</p>
+                <p>TASK 6</p>
             </div>
             <div id="vleft-8-content" class="tab-pane">
                 <p>SOLUTIONS</p>
@@ -103,30 +104,10 @@
     </div>
 </div>
 <body class="cui" data-theme="dark">
-    <p class="display-4">
-    Partner was messing around with agent and services are not starting. We asked partner what changes were done and replay was that no changes were done! <br>
+    <h4 class="text-size-28 text-weight-300 panel panel--dark">TE-agent Service Failed to Start</h4>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Partner was messing around with agent and services are not starting. We asked partner what changes were done and replay was that no changes were done!
     Troubleshoot the te-agent service down and resolve the issue<br>
     </p>
-
-
-<button class="btn" onclick="openModal('modal-full')">Full Width</button>
-<br>
-<div class="modal modal--full hide" id="modal-full">
-    <div class="modal__dialog">
-        <div class="modal__content">
-            <a class="modal__close" onclick="closeModal('modal-full')"><span class="icon-close"></span></a>
-            <div class="modal__header">
-                <div class="modal__title">Full Width Modal</div>
-            </div>
-            <div class="modal__body">
-               <p class="subtitle">This is a full width modal</p>
-            </div>
-            <div class="modal__footer">
-                <button class="btn" onclick="closeModal('modal-full')">Ok</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 </body>
 {% endblock %}
