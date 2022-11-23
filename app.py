@@ -1,20 +1,51 @@
 import os.path
 from sqlite3 import OperationalError
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 import os.path
 
+# Definition for GET request to get status of task
+def get_task_status(taskID):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    print(cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID)).fetchall())
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+# Definition for POST request to update status of task
+def update_task_status(taskID, status):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    cursor.execute('UPDATE tasks SET status = ?  WHERE id = ?', (status, taskID))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+# Definition for creating tasks
+def add_new_task(taskID, status):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO tasks VALUES (?, ?)', (taskID, status))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+
+# Flask init
 app = Flask(__name__)
-tasks_db=('tasks.db')
+tasks_db=('tasks.db') #Flask DB config
 
 # SQLite check if this is first run. If first run create table with tasks.
+
 conn=sqlite3.connect('tasks.db')
-first_run=conn.execute("SELECT status FROM first_run").fetchall()
+first_run=conn.execute("SELECT status FROM first_run WHERE ID=1").fetchall()
 for row in first_run:
     for i in row:
         first_run=i
         print(first_run)
+        # First run is expected to have ID 1 and status 0
         if first_run == 0:
             print('This is first run')
             conn.execute("""
@@ -24,33 +55,21 @@ for row in first_run:
             """)
             cursor=conn.cursor()
             cursor.execute('UPDATE first_run SET status=1 where status=0;')
-            req=cursor.execute('SELECT status from first_run').fetchall()
             cursor.close()
             conn.commit()
-            print(req)
+            for task_id in range (11):
+                task_id=str(task_id)
+                add_new_task(task_id,0)
         else:
             print('You have been here before.')
 conn.close()
 
 
-def get_task_status(taskID):
-    conn = sqlite3.connect('tasks.db')
-    cursor = conn.cursor()
-    print(cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID)).fetchall())
-    conn.commit()
-    cursor.close()
-    conn.close()
 
-def update_task_status(taskID, status):
-    conn = sqlite3.connect('tasks.db')
-    cursor = conn.cursor()
-    cursor.execute('UPDATE tasks SET status = ?  WHERE id = ?', (status, taskID))
-    conn.commit()
-    cursor.close()
-    conn.close()
+# SQLite flask configuration
+# This is redundant as above definitions exist
+# Still to decide which style to use
 
-
-#SQLite flask configuration
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///tasks.db'
 db = SQLAlchemy(app)
 
@@ -69,13 +88,36 @@ class Tasks(db.Model):
         self.status = status
 
     def __repr__(self):
-        return '<status %r>' %self.status
+        return '<status %r>' % self.status
 
 
 # Flask routes
 @app.route('/', methods=['POST','GET'])
 def home():
-    return render_template('home.html')
+    if request.method == 'POST':
+        # We run scrip to clear all tasks as HOME page should have button to clear or enable all tasks.
+        # POST should send id and status. Task ID on home page must be 0 and it should be used
+        # to 'fix' lab (status 0) or 'break' the lab (status 1)
+
+        # Class way: Alternative method is to assign Tasks class to variable and use db.session to commit.
+        # Example inline:
+        task_id=request.form['id'] #this part os same for class and def
+        task_status=request.form['status']
+        # Instead below update_task method we can do:
+        #  task_status = Task(status=task_status)
+
+        # def way: We update db with status
+        update_task_status(task_id,task_status)
+
+        # Class way of passing and committing data to db:
+        # try:
+        #   db.session.add(new_task)
+        #   db.session.commit()
+
+        return redirect('/')
+    elif request.method == 'GET':
+        task_status=get_task_status(0)
+        return render_template('home.html'. )
 
 @app.route('/task1/', methods=['POST','GET'])
 def task1():
