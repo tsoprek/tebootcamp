@@ -5,46 +5,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
     <!-- Bootstrap CSS -->
-
         <link rel="stylesheet" href="/static/css/cui-standard.min.css">
         <link href="http://www.cisco.com/web/fw/cisco-ui/2.0.5/dist/css/cui-standard.min.css" rel="stylesheet" type="text/css">
         <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
         <script src="/static/js/styleguide.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     {% block head %}
     {% endblock head %}
 </head>
 
 <body>
-  {% block body %}
-  {% endblock body %}
-</body>
-<body class="cui" >
-
-            <footer class="footer">
-                <div class="footer__links">
-                    <ul class="list list--inline">
-                        <li><a href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a></li>
-                        <li><a href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a></li>
-                        <li><a href="https://www.cisco.com/c/en/us/about/help.html" target="_blank">Help</a></li>
-                        <li><a href="http://www.cisco.com/c/en/us/about/sitemap.html" target="_blank">Site Map</a></li>
-                        <li><a href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html" target="_blank">Terms & Conditions</a></li></li>
-                        <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html" target="_blank">Privacy Statement</a></li>
-                        <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies" target="_blank">Cookie Policy</a></li>
-                        <li><a href="https://www.cisco.com/c/en/us/about/legal/trademarks.html" target="_blank">Trademarks</a></li>
-                    </ul>
+    <header class="header qtr-padding-top">
+        <div class="container">
+            <div class="header-panels">
+                <div class="header-panel">
+                    <a class="header__logo" href="https://app.thousandeyes.com" target="_blank">
+                        <img src="/static/img/icon-te.png" height="45px" width="45px" class"qtr-padding-top"/>
+                    </a>
+                    <div class="header__title text-size-20 text-weight-300">Customer Engineering</div>
                 </div>
-            </footer>
+                <div class="header-panel header-panel--center">
+                    <h2 class="text-size-20 text-weight-400 text-monospace 0 half-margin-top">ThousandEyes Bootcamp</h2>
+                </div>
+                <div class="header-panel header-panel--right">
+                    <a class="header-item" href="https://docs.thousandeyes.com/" target="_blank">
+                        <span class="icon-question-circle icon-size-20"></span>
+                        <span class="qtr-margin-left">Documentations</span>
+                    </a>
+                    <a class="header-item" href="https://www.thousandeyes.com/blog/" target="_blank">
+                        <span class="icon-micro-blog icon-size-20"></span>
+                        <span class="qtr-margin-left">Blog Resources</span>
+                    </a>
+
+                </div>
+            </div>
         </div>
+    </header>
+{% block body %}
+{% endblock body %}
+
+<footer class="footer" style = "position:fixed; bottom: 0; float: left;width: 100%;">
+    <div class="footer__links">
+        <ul class="list list--inline">
+            <li><a href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a></li>
+            <li><a href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/about/help.html" target="_blank">Help</a></li>
+            <li><a href="http://www.cisco.com/c/en/us/about/sitemap.html" target="_blank">Site Map</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html" target="_blank">Terms & Conditions</a></li></li>
+            <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html" target="_blank">Privacy Statement</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies" target="_blank">Cookie Policy</a></li>
+            <li><a href="https://www.cisco.com/c/en/us/about/legal/trademarks.html" target="_blank">Trademarks</a></li>
+        </ul>
     </div>
-    </div>
+</footer>
 </body>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
