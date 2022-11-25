@@ -227,7 +227,7 @@ def task6():
         task_status=get_task_status('1')
     return render_template('task6.html', task_status=task_status)
 
-@app.route('/solutions/T1', methods=['POST','GET'])
+@app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
     if request.method == 'POST':
         task_id = '2'
@@ -241,9 +241,9 @@ def solutionT1():
         return redirect('/task2/')
     elif request.method == 'GET':
         task_status=get_task_status('1')
-    return render_template('solutionT1.html', task_status=task_status)
+        return render_template('solutionT1.html', task_status=task_status)
 
-@app.route('/solutions/T2', methods=['POST','GET'])
+@app.route('/solutionsT2', methods=['POST','GET'])
 def solutionT2():
     if request.method == 'POST':
         task_id = '2'
