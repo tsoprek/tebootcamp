@@ -108,7 +108,7 @@
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         The issue with te-agent service.<br>
     </p>
-    <p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         First step would be to check the status of service.
     </p>
         <pre>
@@ -120,11 +120,11 @@
             Main PID: 1153267 (code=exited, status=64)
         </pre>
     </p>
-    <p>Second step restarting agent service. It will not help, but it is important to know how to restart service</p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">Second step restarting agent service. It will not help, but it is important to know how to restart service</p>
         <pre>
         # systemctl restart te-agent
         </pre>
-    <p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         If you check te-agent logs, you will notice that logs are empty.
         The reason for this is that service didn't start. We will need to dig a little deeper into Linux.
         <pre>
@@ -132,7 +132,7 @@
         0
     </pre>
     </p>
-    <p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         We can use journal logs to check Linux services. Command <span class="text-success">journalctl</span> will provide huge output including all services.
         We can filter those using -u (for unit) and specify te-agent as a service. We are interested in any errors
         and log level WARNING, ERROR, FATAL, CRITICAL.
@@ -172,10 +172,77 @@
         kerberos-rdns=1
         crash-reports=1
         </pre>
-    <p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         We can confirm that log level is indeed set to <span class="text-danger">debug</span> where the valid option is
         <span class="text-success">DEBUG</span>.
         We need to change this. You can use nano or vi.
+        With nano you can navigate with arrows and edit log level, control+o to save file. Control+x to exit.
+        In case you decide to use vim you will need to press 'i'.
+        This will get you into --INSERT-- mode (bottom left corner). To exit 'insert' mode hit ESC. Hit ':'
+        to enter command mode and wq! for write and quit.
+        <pre>
+        NANO
+
+        # sudo nano /etc/te-agent.cfg
+        log-level=DEBUG
+        .....
+
+        -------------------------------------------------------
+        ^G Get Help     ^O Write Out    ^W Where Is     ^K Cut Text     ^J Justify      ^C Cur Pos      M-U Undo        M-A Mark Text   M-] To Bracket
+        ^X Exit         ^R Read File    ^\ Replace      ^U Paste Text   ^T To Spell     ^_ Go To Line   M-E Redo        M-6 Copy Text   ^Q Where Was
+        -------------------------------------------------------
+
+
+        # After pressing control+O you need to confirm file name (hit enter)
+
+        File Name to Write: /etc/te-agent.cfg
+        -------------------------------------------------------
+        ^G Get Help                M-D DOS Format             M-A Append                  M-B Backup File
+        ^C Cancel                  M-M Mac Format             M-P Prepend                 ^T To Files
+        -------------------------------------------------------
+
+
+        VIM
+
+        # sudo vi /etc/te-agent.cfg
+
+        # Enter Insert mode by pressing 'i' and bottom left corner indicate you are in -- INSERT --
+        ~
+        ~
+        ~
+        -- INSERT --
+
+        # Save and quit!
+        ~
+        ~
+        ~
+        ~
+        :wq!
+        </pre>
     </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Now we need to restart service and see if the service is starting!
+        <pre>
+        # systemctl restart te-agent
+        # systemctl status te-agent
+        ● te-agent.service - ThousandEyes Agent
+             Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
+             Active: active (running) since Fri 2022-11-25 16:48:53 UTC; 6s ago
+           Main PID: 1156088 (te-agent)
+              Tasks: 10 (limit: 9406)
+             Memory: 4.6M
+             CGroup: /system.slice/te-agent.service
+                     └─1156088 /usr/local/bin/te-agent -C /etc/te-agent.cfg
+
+        Nov 25 16:48:53 bootcamp4 systemd[1]: Started ThousandEyes Agent.
+        </pre>
+   </p>
+<div class="row">
+        <div class="col-md-12">
+            <button class="btn btn--danger--center" style="float: center"><a style="color: black" href="/task2/">TASK2</a></button>
+        </div>
+    </div>
+<br>
+    <br>
 </body>
 {% endblock %}

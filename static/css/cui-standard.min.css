@@ -6571,6 +6571,16 @@ html {
     background-color: var(--cui-theme-danger);
     border-color: var(--cui-theme-danger);
     color: var(--cui-theme-danger-color); }
+  .cui .btn.btn--danger--right {
+    background-color: var(--cui-theme-danger);
+    border-color: var(--cui-theme-danger);
+    color: var(--cui-theme-danger-color);
+    float: right;}
+  .cui .btn.btn--danger--center {
+    background-color: var(--cui-theme-danger);
+    border-color: var(--cui-theme-danger);
+    color: var(--cui-theme-danger-color);
+    float: centered;}
     .cui .btn.btn--danger.hover, .cui .btn.btn--danger:hover {
       transition: all var(--cui-animate-speed) var(--cui-animate-timing-function);
       background-color: var(--cui-theme-danger-lighter);
