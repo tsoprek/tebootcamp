@@ -133,8 +133,8 @@ def home():
 
 @app.route('/task1/', methods=['POST','GET'])
 def task1():
+    task_id = '1'
     if request.method == 'POST':
-        task_id = '1'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -144,13 +144,13 @@ def task1():
             os.system('./breakTeServ.sh')
         return redirect('/task1/')
     elif request.method == 'GET':
-        task_status=get_task_status('1')
+        task_status=get_task_status(task_id)
         return render_template('task1.html', task_status=task_status )
 
 @app.route('/task2/', methods=['POST','GET'])
 def task2():
+    task_id = '2'
     if request.method == 'POST':
-        task_id = '2'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -160,15 +160,15 @@ def task2():
             os.system('./fixID.sh')
         return redirect('/task2/')
     elif request.method == 'GET':
-        task_status=get_task_status('2')
+        task_status=get_task_status(task_id)
         return render_template('task2.html', task_status=task_status)
 
 @app.route('/task3/', methods=['POST','GET'])
 def task3():
+    task_id = '3'
     if request.method == 'POST':
         task_status = request.form['status']
         task_status = str(task_status)
-        task_id = '3'
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixDNS.sh')
@@ -176,13 +176,13 @@ def task3():
             os.system('./breakDNS.sh')
         return redirect('/task3/')
     elif request.method == 'GET':
-        task_status=get_task_status('3')
+        task_status=get_task_status(task_id)
         return render_template('task3.html', task_status=task_status)
 
 @app.route('/task4/', methods=['POST','GET'])
 def task4():
+    task_id = '4'
     if request.method == 'POST':
-        task_id = '4'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -192,13 +192,13 @@ def task4():
             os.system('./registryDrop.sh')
         return redirect('/task4/')
     elif request.method == 'GET':
-        task_status=get_task_status('4')
+        task_status=get_task_status(task_id)
         return render_template('task4.html', task_status=task_status)
 
 @app.route('/task5/', methods=['POST','GET'])
 def task5():
+    task_id = '5'
     if request.method == 'POST':
-        task_id = '5'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -208,13 +208,13 @@ def task5():
             os.system('./breakCAcert.sh')
         return redirect('/task5/')
     elif request.method == 'GET':
-        task_status=get_task_status('5')
+        task_status=get_task_status(task_id)
         return render_template('task5.html', task_status=task_status)
 
 @app.route('/task6/', methods=['POST','GET'])
 def task6():
+    task_id = '6'
     if request.method == 'POST':
-        task_id = '6'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -224,13 +224,13 @@ def task6():
             os.system('./c1Drop.sh')
         return redirect('/task6/')
     elif request.method == 'GET':
-        task_status=get_task_status('1')
+        task_status=get_task_status(task_id)
         return render_template('task6.html', task_status=task_status)
 
 @app.route('/task7/', methods=['POST','GET'])
 def task7():
+    task_id = '7'
     if request.method == 'POST':
-        task_id = '7'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -240,13 +240,13 @@ def task7():
             os.system('./c1Drop.sh')
         return redirect('/task7/')
     elif request.method == 'GET':
-        task_status=get_task_status('1')
+        task_status=get_task_status(task_id)
         return render_template('task7.html', task_status=task_status)
 
 @app.route('/task8/', methods=['POST','GET'])
 def task8():
+    task_id = '8'
     if request.method == 'POST':
-        task_id = '8'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -256,13 +256,13 @@ def task8():
             os.system('./c1Drop.sh')
         return redirect('/task8/')
     elif request.method == 'GET':
-        task_status=get_task_status('1')
+        task_status=get_task_status(task_id)
         return render_template('task8.html', task_status=task_status)
 
 @app.route('/task9/', methods=['POST','GET'])
 def task9():
+    task_id = '9'
     if request.method == 'POST':
-        task_id = '9'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -272,13 +272,13 @@ def task9():
             os.system('./c1Drop.sh')
         return redirect('/task9/')
     elif request.method == 'GET':
-        task_status=get_task_status('1')
+        task_status=get_task_status(task_id)
         return render_template('task9.html', task_status=task_status)
 
 @app.route('/task10/', methods=['POST','GET'])
 def task10():
+    task_id = '10'
     if request.method == 'POST':
-        task_id = '10'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -288,127 +288,68 @@ def task10():
             os.system('./c1Drop.sh')
         return redirect('/task10/')
     elif request.method == 'GET':
-        task_status=get_task_status('1')
+        task_status=get_task_status(task_id)
         return render_template('task10.html', task_status=task_status)
 
 @app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        update_task_status(task_id, task_status)
-        if task_status == '0':
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
-        return render_template('solutionT1.html', task_status=task_status)
+    task_id = '1'
+    task_status=get_task_status(task_id)
+    return render_template('solutionT1.html', task_status=task_status)
 
 @app.route('/solutionsT2', methods=['POST','GET'])
 def solutionT2():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        if task_status == '0':
-            update_task_status(task_id, task_status)
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            update_task_status(task_id, task_status)
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
+    task_id = '2'
+    task_status=get_task_status(task_id)
     return render_template('solutionT2.html', task_status=task_status)
 
 @app.route('/solutionsT3', methods=['POST','GET'])
 def solutionT3():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        if task_status == '0':
-            update_task_status(task_id, task_status)
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            update_task_status(task_id, task_status)
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
+    task_id = '3'
+    task_status=get_task_status(task_id)
     return render_template('solutionT3.html', task_status=task_status)
 
-@app.route('/solutions/T4', methods=['POST','GET'])
+@app.route('/solutionsT4', methods=['POST','GET'])
 def solutionT4():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        if task_status == '0':
-            update_task_status(task_id, task_status)
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            update_task_status(task_id, task_status)
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
+    task_id = '4'
+    task_status=get_task_status(task_id)
     return render_template('solutionT4.html', task_status=task_status)
 
-@app.route('/solutions/T5', methods=['POST','GET'])
+@app.route('/solutionsT5', methods=['POST','GET'])
 def solutionT5():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        if task_status == '0':
-            update_task_status(task_id, task_status)
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            update_task_status(task_id, task_status)
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
+    task_id = '5'
+    task_status=get_task_status(task_id)
     return render_template('solutionT5.html', task_status=task_status)
 
-@app.route('/solutions/T6', methods=['POST','GET'])
+@app.route('/solutionsT6', methods=['POST','GET'])
 def solutionT6():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        if task_status == '0':
-            update_task_status(task_id, task_status)
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            update_task_status(task_id, task_status)
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
+    task_id = '6'
+    task_status=get_task_status(task_id)
     return render_template('solutionT6.html', task_status=task_status)
 
-@app.route('/solutions/T7', methods=['POST','GET'])
+@app.route('/solutionsT7', methods=['POST','GET'])
 def solutionT7():
-    if request.method == 'POST':
-        task_id = '2'
-        task_status = request.form['status']
-        task_status = str(task_status)
-        if task_status == '0':
-            update_task_status(task_id, task_status)
-            os.system('./fixTeServ.sh')
-        elif task_status == '1':
-            update_task_status(task_id, task_status)
-            os.system('./breakTeServ.sh')
-        return redirect('/task2/')
-    elif request.method == 'GET':
-        task_status=get_task_status('1')
+    task_id = '7'
+    task_status=get_task_status(task_id)
     return render_template('solutionT7.html', task_status=task_status)
 
+@app.route('/solutionsT8', methods=['POST','GET'])
+def solutionT8():
+    task_id = '8'
+    task_status=get_task_status(task_id)
+    return render_template('solutionT8.html', task_status=task_status)
+
+@app.route('/solutionsT9', methods=['POST','GET'])
+def solutionT9():
+    task_id = '9'
+    task_status=get_task_status(task_id)
+    return render_template('solutionT9.html', task_status=task_status)
+
+@app.route('/solutionsT10', methods=['POST','GET'])
+def solutionT10():
+    task_id = '10'
+    task_status=get_task_status(task_id)
+    return render_template('solutionT10.html', task_status=task_status)
 
 if __name__ == "__main__":
     app.run(debug=True)

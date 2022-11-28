@@ -110,6 +110,19 @@
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     When you want to connect to specific URL, first thing that happens is that URL is translated to IP address.<br>
     DNS is responsible for translating FQDN to IP address.<br>
+    If you look into the te-agent logs you will easily spot the first error.
+    </p>
+    <pre>
+        $ grep -i error /var/log/te-agent.log
+        2022-11-25 16:49:07.501 ERROR [53130f00] [te.agent.main] {} Error calling getController: Curl error - Couldn't resolve host name
+        2022-11-25 16:49:26.699 WARN  [53130f00] [te.agent.ClockOffsetCalculator] {} Error getting NTP clock offset: resolve: Host not found (non-authoritative), try again later
+        2022-11-25 16:49:47.282 ERROR [53130f00] [te.agent.main] {} Error calling checkIn: Curl error - Couldn't resolve host name
+        2022-11-25 16:50:36.817 ERROR [53130f00] [te.agent.main] {} Error calling getController: Curl error - Couldn't resolve host name
+        2022-11-25 16:50:56.786 WARN  [53130f00] [te.agent.ClockOffsetCalculator] {} Error getting NTP clock offset: resolve: Host not found (non-authoritative), try again later
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Even though this one is easy to detect from logs, there is an issue with DNS, we might need to convince the customer.
+        Let's check what tools we can use and how to prove to the customer that there is an issue with DNS.
     </p>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     1. Check if DNS is working using command nslookup or dig.
@@ -141,7 +154,14 @@
 
     </pre>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    2. Check if UDP port 53 is permitted and server reachable.
+    2. Check if UDP port 53 is permitted and server reachable.<br>
+        Traceroute will depending on OS version and distro run over different default protocol (tcp, udp icmp).<br>
+        It is best practice to use specific protocol and port.<br>
+        -U UDP<br>
+        -T TCP<br>
+        -I ICMP<br>
+        -p port<br>
+        -i interface <br>
     </p>
     <pre>
         $ traceroute -U -p 43 10.48.26.73
@@ -216,8 +236,8 @@
         Now we know that UDP port 53 is not blocked and that 10.48.26.73 is able to resolve cisco.com.
         This is already proof that something is wrong with DNS configuration.
         Following step is specific to distribution. Some will have DNS server in /etc/resolv.cfg while others
-        will have some kind of network manager which will override resolve.cfg. In this case it is netplan.<br>
-        You can use <span style="color: green">resolvectl</span> or <span style="color: green">systemd-resolve --status</span>.
+        will have some kind of network manager which will override resolve.cfg. In this case it is netplan.<br><br>
+        5. You can use <span style="color: green">resolvectl</span> or <span style="color: green">systemd-resolve --status</span>.
 
     <pre>
         $ systemd-resolve --status
@@ -290,14 +310,34 @@
           DNSOverTLS setting: no
               DNSSEC setting: no
             DNSSEC supported: no
-          <span style="color: red">Current DNS Server: 10.48.26.74
+       <span style="color: red">Current DNS Server: 10.48.26.74
               DNS Servers: 10.48.26.74</span>
               DNS Domain: example.com
     </pre>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         As you can see we have incorrect IP address 10.48.26.74 instead of 10.48.26.73.
-        Run Fix to resolve the issue.
+        Run Fix to resolve the issue.<br>
+        FYI only (don't do this manually, run Fix script):
+    </p>
+    <pre>
+        # Network configuration is stored in netplan directory and any changes to /etc/resolve.cfg will not persist on reboot or service restart.
 
+        $ cat /etc/netplan/00-installer-config.yaml
+        # This is the network config written by 'subiquity'
+        network:
+          ethernets:
+            ens32:
+              addresses:
+              - 192.168.2.20/24
+              gateway4: 192.168.2.99
+              nameservers:
+                addresses:
+                - 10.48.26.74
+                search:
+                - example.com
+          version: 2
+        # After editing nameserver address it is required to run netplan apply to apply configuration.
+    </pre>
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn--danger--right" ><a style="color: black" href="/task4">Task 4</a></button>
