@@ -104,11 +104,107 @@
 </div>
 <body class="cui" data-theme="dark">
 <h4 class="text-size-28 text-weight-300 panel panel--dark">Clear Identity and Change Token</h4>
-<p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Do you remember from scenario that endpoint was used for POV and agent was registered in different organization? We need to fix that!
-    Change Account Group token to match your account group and clear identity
-</p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Process for changing account group and clearing identity is:<br>
+        1. Stop te-agent services<br>
+        2. Edit /etc/te-agent.cfg and change account group<br>
+        3. Remove identity database files from /var/lib/te-agent/ <br>
+        4. Start services<br>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        1. Stop te-agent service
+    </p>
+    <pre>
+        $ sudo systemctl status te-agent
+        [sudo] password for tetraining:
+        ● te-agent.service - ThousandEyes Agent
+             Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
+             Active: active (running) since Fri 2022-11-25 16:48:53 UTC; 2 days ago
+           Main PID: 1156088 (te-agent)
+              Tasks: 9 (limit: 9406)
+             Memory: 9.7M
+             CGroup: /system.slice/te-agent.service
+                     └─1156088 /usr/local/bin/te-agent -C /etc/te-agent.cfg
+
+        Nov 25 16:48:53 bootcamp4 systemd[1]: Started ThousandEyes Agent.
+
+        <span class="text-success">$ sudo systemctl stop te-agent</span>
+
+        $ sudo systemctl status te-agent
+        ● te-agent.service - ThousandEyes Agent
+             Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
+             Active: inactive (dead) since Mon 2022-11-28 08:06:53 UTC; 15s ago
+            Process: 1156088 ExecStart=/usr/local/bin/te-agent -C /etc/te-agent.cfg (code=killed, signal=TERM)
+           Main PID: 1156088 (code=killed, signal=TERM)
+
+        Nov 25 16:48:53 bootcamp4 systemd[1]: Started ThousandEyes Agent.
+        Nov 28 08:06:53 bootcamp4 systemd[1]: Stopping ThousandEyes Agent...
+        Nov 28 08:06:53 bootcamp4 systemd[1]: te-agent.service: Succeeded.
+        Nov 28 08:06:53 bootcamp4 systemd[1]: Stopped ThousandEyes Agent.
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">2. Edit /etc/te-agent.cfg and change account group</p>
+    <pre>
+        log-path=/var/log
+        log-file-size=10
+        log-level=DEBUG
+        num-log-files=13
+        <span class="text-success">account-token=k4qcugs8yvi8bmhulm9fflz4al0kt237</span>
+        proxy-type=DIRECT
+        proxy-location=
+        proxy-user=
+        proxy-pass=
+        proxy-auth-type=
+        proxy-bypass-list=
+        kdc-user=
+        kdc-pass=
+        kdc-realm=
+        kdc-host=
+        kdc-port=88
+        kerberos-whitelist=
+        kerberos-rdns=1
+        crash-reports=1
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">3. Remove identity database files from /var/lib/te-agent/ </p>
+    <pre>
+    $ ll /var/lib/te-agent/
+    total 22232
+    drwxr-xr-x  2 root root     4096 Nov 28 08:06 ./
+    drwxr-xr-x 49 root root     4096 Nov 10 14:47 ../
+    -rw-r--r--  1 root root    36864 Nov 25 16:48 te-agent-config.sqlite
+    -rw-r--r--  1 root root 22716416 Nov 28 08:06 te-agent.sqlite
+
+    $ sudo rm -rf /var/lib/te-agent/te-agent*.sqlite
+
+    $ ll /var/lib/te-agent/
+    total 8
+    drwxr-xr-x  2 root root 4096 Nov 28 08:12 ./
+    drwxr-xr-x 49 root root 4096 Nov 10 14:47 ../
+
+    </pre>
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">4. Start services</p>
+    <pre>
+        $ sudo systemctl start te-agent
+        [sudo] password for tetraining:
+
+        $ sudo systemctl status te-agent
+        ● te-agent.service - ThousandEyes Agent
+             Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
+             Active: active (running) since Mon 2022-11-28 08:44:59 UTC; 30s ago
+           Main PID: 1256188 (te-agent)
+              Tasks: 9 (limit: 9406)
+             Memory: 4.1M
+             CGroup: /system.slice/te-agent.service
+                     └─1256188 /usr/local/bin/te-agent -C /etc/te-agent.cfg
+
+        Nov 28 08:44:59 bootcamp4 systemd[1]: Started ThousandEyes Agent.
+    </pre>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn--danger--center" style="float: center"><a style="color: black" href="/task3/">TASK3</a></button>
+        </div>
+    </div>
+    <br>
+    <br>
 </body>
-<a href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/managing/replacing-an-enterprise-agent-using-agent-identity-files#delete-the-agent-identity-files-from-your-original-agent" target="_blank">Hint</a>
 
 {% endblock %}
