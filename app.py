@@ -209,12 +209,12 @@ def task5():
         return redirect('/task5/')
     elif request.method == 'GET':
         task_status=get_task_status('5')
-    return render_template('task5.html', task_status=task_status)
+        return render_template('task5.html', task_status=task_status)
 
 @app.route('/task6/', methods=['POST','GET'])
 def task6():
     if request.method == 'POST':
-        task_id = '2'
+        task_id = '6'
         task_status = request.form['status']
         task_status = str(task_status)
         update_task_status(task_id, task_status)
@@ -222,10 +222,74 @@ def task6():
             os.system('./c1Accept.sh')
         elif task_status == '1':
             os.system('./c1Drop.sh')
-        return redirect('/task2/')
+        return redirect('/task6/')
     elif request.method == 'GET':
         task_status=get_task_status('1')
-    return render_template('task6.html', task_status=task_status)
+        return render_template('task6.html', task_status=task_status)
+
+@app.route('/task7/', methods=['POST','GET'])
+def task7():
+    if request.method == 'POST':
+        task_id = '7'
+        task_status = request.form['status']
+        task_status = str(task_status)
+        update_task_status(task_id, task_status)
+        if task_status == '0':
+            os.system('./c1Accept.sh')
+        elif task_status == '1':
+            os.system('./c1Drop.sh')
+        return redirect('/task7/')
+    elif request.method == 'GET':
+        task_status=get_task_status('1')
+        return render_template('task7.html', task_status=task_status)
+
+@app.route('/task8/', methods=['POST','GET'])
+def task8():
+    if request.method == 'POST':
+        task_id = '8'
+        task_status = request.form['status']
+        task_status = str(task_status)
+        update_task_status(task_id, task_status)
+        if task_status == '0':
+            os.system('./c1Accept.sh')
+        elif task_status == '1':
+            os.system('./c1Drop.sh')
+        return redirect('/task8/')
+    elif request.method == 'GET':
+        task_status=get_task_status('1')
+        return render_template('task8.html', task_status=task_status)
+
+@app.route('/task9/', methods=['POST','GET'])
+def task9():
+    if request.method == 'POST':
+        task_id = '9'
+        task_status = request.form['status']
+        task_status = str(task_status)
+        update_task_status(task_id, task_status)
+        if task_status == '0':
+            os.system('./c1Accept.sh')
+        elif task_status == '1':
+            os.system('./c1Drop.sh')
+        return redirect('/task9/')
+    elif request.method == 'GET':
+        task_status=get_task_status('1')
+        return render_template('task9.html', task_status=task_status)
+
+@app.route('/task10/', methods=['POST','GET'])
+def task10():
+    if request.method == 'POST':
+        task_id = '10'
+        task_status = request.form['status']
+        task_status = str(task_status)
+        update_task_status(task_id, task_status)
+        if task_status == '0':
+            os.system('./c1Accept.sh')
+        elif task_status == '1':
+            os.system('./c1Drop.sh')
+        return redirect('/task10/')
+    elif request.method == 'GET':
+        task_status=get_task_status('1')
+        return render_template('task10.html', task_status=task_status)
 
 @app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
@@ -260,7 +324,7 @@ def solutionT2():
         task_status=get_task_status('1')
     return render_template('solutionT2.html', task_status=task_status)
 
-@app.route('/solutions/T3', methods=['POST','GET'])
+@app.route('/solutionsT3', methods=['POST','GET'])
 def solutionT3():
     if request.method == 'POST':
         task_id = '2'

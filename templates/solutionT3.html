@@ -1,10 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block head %}
+
+<div class="panel panel--dark">
+    <h1 class="display-3 flex flex-center" style="margin-top: 75px;"></h1>
+</div>
+<div class="row base-margin-top flex flex-center">
+    <div class="col-md-6">
+        <div class="steps">
+            <div class="step visited">
+                <div class="step__icon">
+                    <span class="icon-check"></span>
+                </div>
+                <div class="step__label">Instructions</div>
+            </div>
+            <div class="step visited">
+                <span class="step__icon">1</span>
+                <div class="step__label">TASK 1</div>
+            </div>
+
+            <div class="step visited">
+                <div class="step__icon">2</div>
+                <div class="step__label">TASK 2</div>
+            </div>
+            <div class="step active">
+                <div class="step__icon">3</div>
+                <div class="step__label">TASK 3</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">4</div>
+                <div class="step__label">TASK 4</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">5</div>
+                <div class="step__label">TASK 5</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">6</div>
+                <div class="step__label">TASK 6</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 7</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body%}
+<div class="row">
+    <div class="col-md-2">
+        <ul id="vleft" class="tabs tabs--vertical">
+            <li id="vleft-1" class="tab">
+                <a tabindex="0" href="/">INSTRUCTIONS</a>
+            </li>
+            <li id="vleft-2" class="tab">
+                <a tabindex="0" href="/task1">TASK 1</a>
+            </li>
+            <li id="vleft-3" class="tab">
+                <a tabindex="0" href="/task2">TASK 2</a>
+            </li>
+            <li id="vleft-4" class="tab active">
+                <a tabindex="0" href="/task3">TASK 3</a>
+            </li>
+            <li id="vleft-5" class="tab">
+                <a tabindex="0" href="/task4">TASK 4</a>
+            </li>
+            <li id="vleft-6" class="tab">
+                <a tabindex="0" href="/task5">TASK 5</a>
+            </li>
+            <li id="vleft-7" class="tab">
+                <a tabindex="0" href="/task6">TASK 6</a>
+            </li>
+            <li id="vleft-8" class="tab">
+                <a tabindex="0">SOLUTIONS</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div id="vleft-content" class="tab-content">
+            <div id="vleft-1-content" class="tab-pane">
+                <p>INSTRUCTIONS</p>
+            </div>
+            <div id="vleft-2-content" class="tab-pane">
+                <p>TASK 1</p>
+            </div>
+            <div id="vleft-3-content" class="tab-pane">
+                <p>TASK 2</p>
+            </div>
+            <div id="vleft-4-content" class="tab-pane active">
+
+            <div id="vleft-5-content" class="tab-pane">
+                <p>TASK 4</p>
+            <div id="vleft-6-content" class="tab-pane">
+                <p>TASK 5</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 6</p>
+            </div>
+            <div id="vleft-8-content" class="tab-pane">
+                <p>SOLUTIONS</p>
+            </div>
+        </div>
+    </div>
+</div>
+<body class="cui" data-theme="dark">
+    <h4 class="text-size-28 text-weight-300 panel panel--dark">Issues with Registration to ThousandEyes Portal</h4>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    When you want to connect to specific URL, first thing that happens is that URL is translated to IP address.<br>
+    DNS is responsible for translating FQDN to IP address.<br>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    1. Check if DNS is working using command nslookup or dig.
+    </p>
+    <pre>
+    $ nslookup cisco.com
+    Server:		127.0.0.53
+    Address:	127.0.0.53#53
+
+    ** server can't find cisco.com: SERVFAIL
+
+    $ dig cisco.com
+
+    ; <<>> DiG 9.16.1-Ubuntu <<>> cisco.com
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 64721
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+
+    ;; OPT PSEUDOSECTION:
+    ; EDNS: version: 0, flags:; udp: 65494
+    ;; QUESTION SECTION:
+    ;cisco.com.			IN	A
+
+    ;; Query time: 1908 msec
+    ;; SERVER: 127.0.0.53#53(127.0.0.53)
+    ;; WHEN: Mon Nov 28 10:18:57 UTC 2022
+    ;; MSG SIZE  rcvd: 38
+
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    2. Check if UDP port 53 is permitted and server reachable.
+    </p>
+    <pre>
+        $ traceroute -U -p 43 10.48.26.73
+        traceroute to 10.48.26.73 (10.48.26.73), 30 hops max, 60 byte packets
+         1  192.168.2.99 (192.168.2.99)  0.728 ms * *
+         2  10.48.26.73 (10.48.26.73)  1.115 ms * *
+    </pre>
+     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    3. Inspecting /etc/resolv.cnf works in some Linux distributions but not all.<br>
+    Don't get confused by the lack of DNS server in /etc/resolv.cnf.
+     </p>
+    <pre>
+        $ cat /etc/resolv.conf
+        # This file is managed by man:systemd-resolved(8). Do not edit.
+        #
+        # This is a dynamic resolv.conf file for connecting local clients to the
+        # internal DNS stub resolver of systemd-resolved. This file lists all
+        # configured search domains.
+        #
+        # Run "resolvectl status" to see details about the uplink DNS servers
+        # currently in use.
+        #
+        # Third party programs must not access this file directly, but only through the
+        # symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a different way,
+        # replace this symlink by a static file or a different symlink.
+        #
+        # See man:systemd-resolved.service(8) for details about the supported modes of
+        # operation for /etc/resolv.conf.
+
+        nameserver 127.0.0.53
+        options edns0 trust-ad
+        search example.com
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    4. Test with specific DNS server.
+    <pre>
+        $ nslookup @10.48.26.73 google.com
+        nslookup: couldn't get address for 'google.com': failure
+        tetraining@bootcamp4:~$ nslookup cisco.com 10.48.26.73
+        Server:		10.48.26.73
+        Address:	10.48.26.73#53
+
+        Non-authoritative answer:
+        Name:	cisco.com
+        Address: 72.163.4.161
+        Name:	cisco.com
+        Address: 2001:420:1101:1::a
+
+        tetraining@bootcamp4:~$ dig cisco.com @10.48.26.73
+
+        ; <<>> DiG 9.16.1-Ubuntu <<>> cisco.com @10.48.26.73
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38266
+        ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+        ;; OPT PSEUDOSECTION:
+        ; EDNS: version: 0, flags:; udp: 4000
+        ;; QUESTION SECTION:
+        ;cisco.com.			IN	A
+
+        ;; ANSWER SECTION:
+        cisco.com.		1779	IN	A	72.163.4.161
+
+        ;; Query time: 0 msec
+        ;; SERVER: 10.48.26.73#53(10.48.26.73)
+        ;; WHEN: Mon Nov 28 13:08:07 UTC 2022
+        ;; MSG SIZE  rcvd: 54
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        From above output we can see that when we specify correct server we are able to resolve cisco.com.<br>
+        Now we know that UDP port 53 is not blocked and that 10.48.26.73 is able to resolve cisco.com.
+        This is already proof that something is wrong with DNS configuration.
+        Following step is specific to distribution. Some will have DNS server in /etc/resolv.cfg while others
+        will have some kind of network manager which will override resolve.cfg. In this case it is netplan.<br>
+        You can use <span style="color: green">resolvectl</span> or <span style="color: green">systemd-resolve --status</span>.
+
+    <pre>
+        $ systemd-resolve --status
+        Global
+               LLMNR setting: no
+        MulticastDNS setting: no
+          DNSOverTLS setting: no
+              DNSSEC setting: no
+            DNSSEC supported: no
+                  DNSSEC NTA: 10.in-addr.arpa
+                              16.172.in-addr.arpa
+                              168.192.in-addr.arpa
+                              17.172.in-addr.arpa
+                              18.172.in-addr.arpa
+                              19.172.in-addr.arpa
+                              20.172.in-addr.arpa
+                              21.172.in-addr.arpa
+                              22.172.in-addr.arpa
+                              23.172.in-addr.arpa
+                              24.172.in-addr.arpa
+                              25.172.in-addr.arpa
+                              26.172.in-addr.arpa
+                              27.172.in-addr.arpa
+                              28.172.in-addr.arpa
+                              29.172.in-addr.arpa
+                              30.172.in-addr.arpa
+                              31.172.in-addr.arpa
+                              corp
+                              d.f.ip6.arpa
+                              home
+                              internal
+                              intranet
+                              lan
+                              local
+                              private
+                              test
+
+        Link 18 (vethe04d9713)
+              Current Scopes: none
+        DefaultRoute setting: no
+               LLMNR setting: yes
+        MulticastDNS setting: no
+          DNSOverTLS setting: no
+              DNSSEC setting: no
+            DNSSEC supported: no
+
+        Link 9 (docker0)
+              Current Scopes: none
+        DefaultRoute setting: no
+               LLMNR setting: yes
+        MulticastDNS setting: no
+          DNSOverTLS setting: no
+              DNSSEC setting: no
+            DNSSEC supported: no
+
+        Link 3 (te-bbot-ipv4-6)
+              Current Scopes: none
+        DefaultRoute setting: no
+               LLMNR setting: yes
+        MulticastDNS setting: no
+          DNSOverTLS setting: no
+              DNSSEC setting: no
+            DNSSEC supported: no
+
+        Link 2 (ens32)
+              Current Scopes: DNS
+        DefaultRoute setting: yes
+               LLMNR setting: yes
+        MulticastDNS setting: no
+          DNSOverTLS setting: no
+              DNSSEC setting: no
+            DNSSEC supported: no
+          <span style="color: red">Current DNS Server: 10.48.26.74
+              DNS Servers: 10.48.26.74</span>
+              DNS Domain: example.com
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        As you can see we have incorrect IP address 10.48.26.74 instead of 10.48.26.73.
+        Run Fix to resolve the issue.
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn--danger--right" ><a style="color: black" href="/task4">Task 4</a></button>
+        </div>
+    </div>
+<br>
 </body>
-</html>
+{% endblock %}
