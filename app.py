@@ -129,7 +129,13 @@ def home():
         return redirect('/')
     elif request.method == 'GET':
         task_status = get_task_status('0')
-        return render_template('home.html', task_status=task_status )
+        host=os.system('hostname')
+        sshconn='10.48.26.76:2317'
+        if host == 'TSOPREK-M-C25E':
+            sshconn='href="ssh://127.0.0.1'
+            # return sshconn
+            # return render_template('home.html', task_status=task_status, sshconn=sshconn)
+        return render_template('home.html', task_status=task_status, sshconn=sshconn)
 
 @app.route('/task1/', methods=['POST','GET'])
 def task1():
