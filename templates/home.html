@@ -116,7 +116,7 @@
     </div>
 </div>
 <body class="cui" data-theme="dark">
-    <h4 class="text-size-28 text-weight-300 panel panel--dark">Objective</h4>
+    <h4 class="text-size-28 text-weight-300 panel panel--dark" id="test">Objective</h4>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     The lab's objective is to understand the flow of registration, check-in, and data submission, and see all issues and symptoms as they happen. resolve them when possible or pinpoint the issue and provide proof in terms of logs and commands.
     Resolve issues in order as they are in this document. The goal is to understand the agent flow and identify issue at appropriate step.
@@ -129,6 +129,13 @@
     During troubleshooting, they made some changes and now the te-agent service is not starting.
     They would also like to schedule tests and get data and need help with that.
     </p>
+    <div class="flex flex-right">
+        <div class="btn-group">
+            <button class="btn btn--ghost selected" id="on-btn" onclick="taskson()">On</button>
+            <button class="btn btn--ghost" id="off-btn" onclick="tasksoff()">Off</button>
+        </div>
+    </div>
+
     <h4 class="text-size-28 text-weight-300 panel panel--dark dbl-margin-top">How to interact with the lab devices</h4>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     <a href="ssh://tetraining@10.48.26.76:2317">Open SSH connection</a><br>
