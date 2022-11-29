@@ -13,23 +13,23 @@
                 </div>
                 <div class="step__label">Instructions</div>
             </div>
-            <div class="step active">
-                <div class="step__icon">1</div>
+            <div class="step visited">
+                <span class="step__icon">1</span>
                 <div class="step__label">TASK 1</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">2</div>
                 <div class="step__label">TASK 2</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">3</div>
                 <div class="step__label">TASK 3</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">4</div>
                 <div class="step__label">TASK 4</div>
             </div>
-            <div class="step">
+            <div class="step active">
                 <div class="step__icon">5</div>
                 <div class="step__label">TASK 5</div>
             </div>
@@ -47,14 +47,13 @@
 {% endblock %}
 
 {% block body%}
-
-<div class="row">
+    <div class="row">
     <div class="col-md-2">
         <ul id="vleft" class="tabs tabs--vertical">
             <li id="vleft-1" class="tab">
                 <a tabindex="0" href="/">INSTRUCTIONS</a>
             </li>
-            <li id="vleft-2" class="tab active">
+            <li id="vleft-2" class="tab">
                 <a tabindex="0" href="/task1">TASK 1</a>
             </li>
             <li id="vleft-3" class="tab">
@@ -75,7 +74,7 @@
             <li id="vleft-8" class="tab">
                 <a tabindex="0" href="/task7">TASK 7</a>
             </li>
-            <li id="vleft-9" class="tab">
+            <li id="vleft-9" class="tab active">
                 <a tabindex="0" href="/task8">TASK 8</a>
             </li>
             <li id="vleft-10" class="tab">
@@ -94,7 +93,8 @@
             <div id="vleft-1-content" class="tab-pane">
                 <p>INSTRUCTIONS</p>
             </div>
-            <div id="vleft-2-content" class="tab-pane active">
+            <div id="vleft-2-content" class="tab-pane">
+                <p>TASK 1</p>
             </div>
             <div id="vleft-3-content" class="tab-pane">
                 <p>TASK 2</p>
@@ -110,22 +110,27 @@
                 <p>TASK 6</p>
             </div>
             <div id="vleft-8-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-9-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 8</p>
+            </div>
+            <div id="vleft-10-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-11-content" class="tab-pane">
+                <p>TASK 10</p>
+            </div>
+            <div id="vleft-12-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
         </div>
     </div>
 </div>
 <body class="cui" data-theme="dark">
-    <h4 class="text-size-28 text-weight-300 panel panel--dark">TE-agent Service Failed to Start</h4>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Partner was messing around with agent and services are not starting. We asked partner what changes were done and replay was that no changes were done!
-    Troubleshoot the te-agent service down and resolve the issue<br>
-    </p>
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT1">SOLUTION</a></button>
-        </div>
-    </div>
+<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent UI Issues</h4>
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">
+Diagnose any issues reported in TE UI for the agent
+</p>
 </body>
-
 {% endblock %}

@@ -1,10 +1,248 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block head %}
+<div class="panel panel--dark">
+    <h1 class="display-3 flex flex-center" style="margin-top: 75px;"></h1>
+</div>
+<div class="row base-margin-top flex flex-center">
+    <div class="col-md-6">
+        <div class="steps">
+            <div class="step visited">
+                <div class="step__icon">
+                    <span class="icon-check"></span>
+                </div>
+                <div class="step__label">Instructions</div>
+            </div>
+            <div class="step active">
+                <div class="step__icon">1</div>
+                <div class="step__label">TASK 1</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">2</div>
+                <div class="step__label">TASK 2</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">3</div>
+                <div class="step__label">TASK 3</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">4</div>
+                <div class="step__label">TASK 4</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">5</div>
+                <div class="step__label">TASK 5</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">6</div>
+                <div class="step__label">TASK 6</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 7</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body%}
+
+<div class="row">
+    <div class="col-md-2">
+        <ul id="vleft" class="tabs tabs--vertical">
+            <li id="vleft-1" class="tab">
+                <a tabindex="0" href="/">INSTRUCTIONS</a>
+            </li>
+            <li id="vleft-2" class="tab active">
+                <a tabindex="0" href="/task1">TASK 1</a>
+            </li>
+            <li id="vleft-3" class="tab">
+                <a tabindex="0" href="/task2">TASK 2</a>
+            </li>
+            <li id="vleft-4" class="tab">
+                <a tabindex="0" href="/task3">TASK 3</a>
+            </li>
+            <li id="vleft-5" class="tab">
+                <a tabindex="0" href="/task4">TASK 4</a>
+            </li>
+            <li id="vleft-6" class="tab">
+                <a tabindex="0" href="/task5">TASK 5</a>
+            </li>
+            <li id="vleft-7" class="tab">
+                <a tabindex="0" href="/task6">TASK 6</a>
+            </li>
+            <li id="vleft-8" class="tab">
+                <a tabindex="0">SOLUTIONS</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div id="vleft-content" class="tab-content">
+            <div id="vleft-1-content" class="tab-pane">
+                <p>INSTRUCTIONS</p>
+            </div>
+            <div id="vleft-2-content" class="tab-pane active">
+            </div>
+            <div id="vleft-3-content" class="tab-pane">
+                <p>TASK 2</p>
+            </div>
+            <div id="vleft-4-content" class="tab-pane">
+                <p>TASK 3</p>
+            <div id="vleft-5-content" class="tab-pane">
+                <p>TASK 4</p>
+            <div id="vleft-6-content" class="tab-pane">
+                <p>TASK 5</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 6</p>
+            </div>
+            <div id="vleft-8-content" class="tab-pane">
+                <p>SOLUTIONS</p>
+            </div>
+        </div>
+    </div>
+</div>
+<body class="cui" data-theme="dark">
+    <h4 class="text-size-28 text-weight-300 panel panel--dark">TE-agent Service Failed to Start</h4>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        The issue with te-agent service.<br>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        First step would be to check the status of service.
+    </p>
+        <pre>
+        # systemctl status te-agent
+         te-agent.service - ThousandEyes Agent
+            Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
+            Active: activating (auto-restart) (Result: exit-code) since Fri 2022-11-25 15:03:26 UTC; 2s ago
+            Process: 1153267 ExecStart=/usr/local/bin/te-agent -C /etc/te-agent.cfg (code=exited, status=64)
+            Main PID: 1153267 (code=exited, status=64)
+        </pre>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">Second step restarting agent service. It will not help, but it is important to know how to restart service</p>
+        <pre>
+        # systemctl restart te-agent
+        </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        If you check te-agent logs, you will notice that logs are empty.
+        The reason for this is that service didn't start. We will need to dig a little deeper into Linux.
+        <pre>
+        # cat /var/log/te-agent.log | wc -l
+        0
+    </pre>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        We can use journal logs to check Linux services. Command <span class="text-success">journalctl</span> will provide huge output including all services.
+        We can filter those using -u (for unit) and specify te-agent as a service. We are interested in any errors
+        and log level WARNING, ERROR, FATAL, CRITICAL.
+
+        <pre>
+        # journalctl -u te-agent
+        -- Logs begin at Mon 2022-10-24 13:47:59 UTC, end at Fri 2022-11-25 15:51:12 UTC. --
+        Oct 27 12:06:27 bootcamp1 systemd[1]: Started ThousandEyes Agent.
+        Oct 27 12:07:37 bootcamp1 systemd[1]: Stopping ThousandEyes Agent...
+        Oct 27 12:07:37 bootcamp1 systemd[1]: te-agent.service: Succeeded.
+        Oct 27 12:07:37 bootcamp1 systemd[1]: Stopped ThousandEyes Agent.
+        Oct 27 12:08:38 bootcamp1 systemd[1]: Started ThousandEyes Agent.
+        Oct 27 12:08:38 bootcamp1 te-agent[124543]: 2022-10-27 12:08:38.161 FATAL Invalid log level debug specified.  Valid options are DEBUG or TRACE.
+        Oct 27 12:08:38 bootcamp1 systemd[1]: te-agent.service: Main process exited, code=exited, status=64/USAGE
+        </pre>
+        From above output we can see an FATAL error: FATAL Invalid log level debug specified.  Valid options are DEBUG or TRACE.
+    </p>
+        <pre>
+        # cat /etc/te-agent.cfg
+        log-path=/var/log
+        log-file-size=10
+        log-level=debug
+        num-log-files=13
+        account-token=k4qcugs8yvi8bmhulm9fflz4al0kt237
+        proxy-type=DIRECT
+        proxy-location=
+        proxy-user=
+        proxy-pass=
+        proxy-auth-type=
+        proxy-bypass-list=
+        kdc-user=
+        kdc-pass=
+        kdc-realm=
+        kdc-host=
+        kdc-port=88
+        kerberos-whitelist=
+        kerberos-rdns=1
+        crash-reports=1
+        </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        We can confirm that log level is indeed set to <span class="text-danger">debug</span> where the valid option is
+        <span class="text-success">DEBUG</span>.
+        We need to change this. You can use nano or vi.
+        With nano you can navigate with arrows and edit log level, control+o to save file. Control+x to exit.
+        In case you decide to use vim you will need to press 'i'.
+        This will get you into --INSERT-- mode (bottom left corner). To exit 'insert' mode hit ESC. Hit ':'
+        to enter command mode and wq! for write and quit.
+        <pre>
+        NANO
+
+        # sudo nano /etc/te-agent.cfg
+        log-level=DEBUG
+        .....
+
+        -------------------------------------------------------
+        ^G Get Help     ^O Write Out    ^W Where Is     ^K Cut Text     ^J Justify      ^C Cur Pos      M-U Undo        M-A Mark Text   M-] To Bracket
+        ^X Exit         ^R Read File    ^\ Replace      ^U Paste Text   ^T To Spell     ^_ Go To Line   M-E Redo        M-6 Copy Text   ^Q Where Was
+        -------------------------------------------------------
+
+
+        # After pressing control+O you need to confirm file name (hit enter)
+
+        File Name to Write: /etc/te-agent.cfg
+        -------------------------------------------------------
+        ^G Get Help                M-D DOS Format             M-A Append                  M-B Backup File
+        ^C Cancel                  M-M Mac Format             M-P Prepend                 ^T To Files
+        -------------------------------------------------------
+
+
+        VIM
+
+        # sudo vi /etc/te-agent.cfg
+
+        # Enter Insert mode by pressing 'i' and bottom left corner indicate you are in -- INSERT --
+        ~
+        ~
+        ~
+        -- INSERT --
+
+        # Save and quit!
+        ~
+        ~
+        ~
+        ~
+        :wq!
+        </pre>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Now we need to restart service and see if the service is starting!
+        <pre>
+        # systemctl restart te-agent
+        # systemctl status te-agent
+        ● te-agent.service - ThousandEyes Agent
+             Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
+             Active: active (running) since Fri 2022-11-25 16:48:53 UTC; 6s ago
+           Main PID: 1156088 (te-agent)
+              Tasks: 10 (limit: 9406)
+             Memory: 4.6M
+             CGroup: /system.slice/te-agent.service
+                     └─1156088 /usr/local/bin/te-agent -C /etc/te-agent.cfg
+
+        Nov 25 16:48:53 bootcamp4 systemd[1]: Started ThousandEyes Agent.
+        </pre>
+   </p>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn--danger--center" style="float: center"><a style="color: black" href="/task2/">TASK2</a></button>
+        </div>
+    </div>
+    <br>
+    <br>
 </body>
-</html>
+{% endblock %}
