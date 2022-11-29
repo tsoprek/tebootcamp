@@ -1,9 +1,9 @@
 function taskson(response) {
-    document.getElementById("test").innerHTML = "Hello World";
     console.log('Tasks On', response);
+    return 1;
 }
 
 function tasksoff(response) {
-    document.getElementById("test").innerHTML = "Hello World";
     console.log('Tasks Off', response);
+    return 0;
 }
