@@ -8,7 +8,7 @@ import os
 def get_task_status(taskID):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID)).fetchall()
+    task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
     conn.commit()
     cursor.close()
     conn.close()
@@ -18,7 +18,7 @@ def get_task_status(taskID):
 def update_task_status(taskID, status):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('UPDATE tasks SET status = ?  WHERE id = ?', (status, taskID))
+    cursor.execute('UPDATE tasks SET status = ?  WHERE id = ?', (status, taskID,))
     conn.commit()
     cursor.close()
     conn.close()
@@ -27,7 +27,7 @@ def update_task_status(taskID, status):
 def add_new_task(taskID, status):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO tasks VALUES (?, ?)', (taskID, status))
+    cursor.execute('INSERT INTO tasks VALUES (?, ?)', (taskID, status,))
     conn.commit()
     cursor.close()
     conn.close()
