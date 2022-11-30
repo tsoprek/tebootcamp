@@ -120,27 +120,26 @@
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     The lab's objective is to understand the flow of registration, check-in, and data submission, and see all issues and symptoms as they happen. resolve them when possible or pinpoint the issue and provide proof in terms of logs and commands.
     Resolve issues in order as they are in this document. The goal is to understand the agent flow and identify issue at appropriate step.
-    Identifying issue with NTP (and I can tell you now there is an issue with NTP) while troubleshooting registration is not what we want to achieve.
+    Identifying issue with NTP (and I can tell you now there is an issue with NTP) while troubleshooting registration is not what we want to achieve.<br>
+        <br>All tasks are enabled by default. You can toggle all tasks Enabled/Disabled on this page or individual tasks on the task page.
     </p>
 
     <h4 class="text-size-28 text-weight-300 panel panel--dark dbl-margin-top">Scenario</h4>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     The user is asking for help with the TE agent's installation.  Partner installed agent and had an issue with registering the agent to the portal. The same agent was previously used for POV which is in a different account group.<br>
     During troubleshooting, they made some changes and now the te-agent service is not starting.
-    They would also like to schedule tests and get data and need help with that.
+    They would also like to schedule tests and get data and need help with that.<br>
     </p>
+    <form method="POST" action="/">
     <div class="flex flex-right">
         <div class="btn-group">
-            <button class="btn btn--ghost selected" id="on-btn" onclick="taskson(1)">On</button>
-            <button class="btn btn--ghost" id="off-btn" onclick="tasksoff(0)">Off</button>
+            <button class="btn btn--ghost" id="on-btn" name="on-btn" value="0" onclick="taskson(1)">Enable ALL tasks</button>
+            <button class="btn btn--ghost" id="off-btn" name="off-btn" value="1" onclick="tasksoff(0)">Disable ALL tasks</button>
         </div>
     </div>
-
+    </form>
     <h4 class="text-size-28 text-weight-300 panel panel--dark dbl-margin-top">How to interact with the lab devices</h4>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    <a href="ssh://tetraining@10.48.26.76:2317">Open SSH connection</a><br>
-    <a {{ sshconn }}>DynSSH</a>
-    <img src="/static/LabTopology.png" alt="Lab Topology">
-
+    <a class="text-size-28 text-weight-300 base-margin-top text-justify" {{ sshconn }}>Open SSH connection</a>
+    <img src="/static/LabTopology.png" alt="Lab Topology" class="base-margin-center">
 </body>
 {% endblock %}

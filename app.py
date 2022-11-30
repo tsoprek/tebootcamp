@@ -3,13 +3,13 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 import os
+import socket
 
 # Definition for GET request to get status of task
 def get_task_status(taskID):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
     task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
-    conn.commit()
     cursor.close()
     conn.close()
     return task_status
@@ -108,20 +108,25 @@ def home():
         # Class way: Alternative method is to assign Tasks class to variable and use db.session to commit.
         # Example inline:
         #task_id=request.form['id'] #this part os same for class and def ## Removing as decision is to HC code per page
-        new_status=request.form['status']
-        new_status=str(new_status)
+        #task status was replaced with offbtn and on btn
+        onbtn=(request.form.get("on-btn"))
+        offbtn=(request.form.get("off-btn"))
+
+        print('ON: ', onbtn,'OFF: ',offbtn)
         # Instead below update_task method we can do:
         #  task_status = Task(status=task_status)
 
         # def way: We update db with status and run .sh script
-        if new_status == '0':
-            current_status='1'
-            update_all_tasks_status(new_status, current_status)
-            os.system('./fixLab.sh')
-        elif new_status == '1':
-            current_status = '0'
+        if onbtn == '1':
+            new_status='1'
+            current_status='0'
             update_all_tasks_status(new_status, current_status)
             os.system('./breakLab.sh')
+        elif offbtn == '1':
+            new_status = '0'
+            current_status = '1'
+            update_all_tasks_status(new_status, current_status)
+            os.system('./fixLab.sh')
         # Class way of passing and committing data to db:
         # try:
         #   db.session.add(new_task)
@@ -129,12 +134,15 @@ def home():
         return redirect('/')
     elif request.method == 'GET':
         task_status = get_task_status('0')
-        host=os.system('hostname')
+        host=socket.gethostname()
+        print(host, 'Type : ', type(host))
+        host=str(host)
         sshconn='10.48.26.76:2317'
-        if host == 'TSOPREK-M-C25E':
-            sshconn='href="ssh://127.0.0.1'
+        if host in 'TSOPREK-M-C25E':
+            print ('changing conn')
+            sshconn='href=ssh://127.0.0.1'
             # return sshconn
-            # return render_template('home.html', task_status=task_status, sshconn=sshconn)
+            return render_template('home.html', task_status=task_status, sshconn=sshconn)
         return render_template('home.html', task_status=task_status, sshconn=sshconn)
 
 @app.route('/task1/', methods=['POST','GET'])
