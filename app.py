@@ -109,24 +109,23 @@ def home():
         # Example inline:
         #task_id=request.form['id'] #this part os same for class and def ## Removing as decision is to HC code per page
         #task status was replaced with offbtn and on btn
-        onbtn=(request.form.get("on-btn"))
-        offbtn=(request.form.get("off-btn"))
-
-        print('ON: ', onbtn,'OFF: ',offbtn)
+        task_status=(request.form.get("task_status"))
         # Instead below update_task method we can do:
         #  task_status = Task(status=task_status)
 
         # def way: We update db with status and run .sh script
-        if onbtn == '1':
+        if task_status == '1':
             new_status='1'
             current_status='0'
             update_all_tasks_status(new_status, current_status)
-            os.system('./breakLab.sh')
-        elif offbtn == '1':
+            # os.system('./breakLab.sh')
+            print('Breaking LAB')
+        elif task_status == '0':
             new_status = '0'
             current_status = '1'
             update_all_tasks_status(new_status, current_status)
-            os.system('./fixLab.sh')
+            # os.system('./fixLab.sh')
+            print('Fixing LAB')
         # Class way of passing and committing data to db:
         # try:
         #   db.session.add(new_task)
@@ -139,9 +138,19 @@ def home():
         host=str(host)
         sshconn='10.48.26.76:2317'
         if host in 'TSOPREK-M-C25E':
-            print ('changing conn')
             sshconn='href=ssh://127.0.0.1'
-            # return sshconn
+            return render_template('home.html', task_status=task_status, sshconn=sshconn)
+        elif host == 'bootcamp1':
+            sshconn = 'href=ssh://10.48.26.76:2317'
+            return render_template('home.html', task_status=task_status, sshconn=sshconn)
+        elif host == 'bootcamp2':
+            sshconn = 'href=ssh://10.48.26.76:2318'
+            return render_template('home.html', task_status=task_status, sshconn=sshconn)
+        elif host == 'bootcamp3':
+            sshconn = 'href=ssh://10.48.26.76:2319'
+            return render_template('home.html', task_status=task_status, sshconn=sshconn)
+        elif host == 'bootcamp4':
+            sshconn = 'href=ssh://10.48.26.76:2320'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         return render_template('home.html', task_status=task_status, sshconn=sshconn)
 
@@ -149,8 +158,8 @@ def home():
 def task1():
     task_id = '1'
     if request.method == 'POST':
-        task_status = request.form['status']
-        task_status = str(task_status)
+        task_status = request.form.get('task_status')
+        print (task_status, type(task_status))
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixTeServ.sh')
@@ -165,7 +174,7 @@ def task1():
 def task2():
     task_id = '2'
     if request.method == 'POST':
-        task_status = request.form['status']
+        task_status = request.form.get('task_status')
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
@@ -181,7 +190,7 @@ def task2():
 def task3():
     task_id = '3'
     if request.method == 'POST':
-        task_status = request.form['status']
+        task_status = request.form.get('task_status')
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
