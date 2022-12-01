@@ -38,8 +38,21 @@
                 <div class="step__label">TASK 6</div>
             </div>
             <div class="step">
-                <div class="step__icon">END</div>
+                <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">8</div>
+                <div class="step__label">TASK 8</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">9</div>
+                <div class="step__label">TASK 9</div>
+            </div>
+
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 10</div>
             </div>
         </div>
     </div>
@@ -123,11 +136,23 @@
 </p>
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn--success" ><a style="color: black" target="_blank" href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/managing/replacing-an-enterprise-agent-using-agent-identity-files#delete-the-agent-identity-files-from-your-original-agent" target="_blank">HINT</a></button>
-            <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT2">SOLUTION</a></button>
+            <button class="btn btn--success" ><a style="color: black" target="_blank" href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/managing/replacing-an-enterprise-agent-using-agent-identity-files#delete-the-agent-identity-files-from-your-original-agent" >HINT</a></button>
         </div>
     </div>
-
+    <form method="POST" action="/task2">
+    <div class="flex flex-left" style="margin-top: 40px">
+        <div class="btn-group">
+            <button class="btn btn--ghost" id="on-btn" name="on-btn" value="0" onclick="taskson(1)">Enable task</button>
+            <button class="btn btn--ghost" id="off-btn" name="off-btn" value="1" onclick="tasksoff(0)">Disable task</button>
+        </div>
+    </div>
+    </form>
+    <div class="flex flex-right">
+        <button class="btn btn--secondary--right text-size-18">
+            <a style="color: black" href="/solutionsT2" class="qtr-margin-top">SOLUTION</a>
+            <span class="icon-arrow-right-tail text-size-18 text-weight-300 base-margin-center text-justify qtr-margin-bottom"/>
+        </button>
+    <div>
 </body>
 
 

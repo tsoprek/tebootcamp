@@ -1,9 +1,11 @@
 function taskson(response) {
     console.log('Tasks On', response);
-    return 1;
+    var dic=''{"on-btn":"1"}'
+    return dic;
 }
 
 function tasksoff(response) {
     console.log('Tasks Off', response);
-    return 0;
+    var dic='{"on-btn":"0"}'
+    return dic;
 }

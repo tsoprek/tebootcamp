@@ -39,8 +39,20 @@
                 <div class="step__label">TASK 6</div>
             </div>
             <div class="step">
-                <div class="step__icon">END</div>
+                <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">8</div>
+                <div class="step__label">TASK 8</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">9</div>
+                <div class="step__label">TASK 9</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 10</div>
             </div>
         </div>
     </div>
@@ -73,6 +85,18 @@
                 <a tabindex="0" href="/task6">TASK 6</a>
             </li>
             <li id="vleft-8" class="tab">
+                <a tabindex="0" href="/task7">TASK 7</a>
+            </li>
+            <li id="vleft-9" class="tab">
+                <a tabindex="0" href="/task8">TASK 8</a>
+            </li>
+            <li id="vleft-10" class="tab">
+                <a tabindex="0" href="/task9">TASK 9</a>
+            </li>
+            <li id="vleft-11" class="tab">
+                <a tabindex="0" href="/task10">TASK 10</a>
+            </li>
+            <li id="vleft-12" class="tab">
                 <a tabindex="0">SOLUTIONS</a>
             </li>
         </ul>
@@ -98,6 +122,18 @@
             <div id="vleft-7-content" class="tab-pane">
                 <p>TASK 6</p>
             </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 8</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 10</p>
+            </div>
             <div id="vleft-8-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
@@ -106,15 +142,222 @@
 </div>
 <body class="cui" data-theme="dark">
 <h4 class="text-size-28 text-weight-300 panel panel--dark">Issues with Registration to ThousandEyes Portal Part 2</h4>
-<p class="text-size-18 text-weight-300 base-margin-top text-justify">
-Diagnose and provide proof what is the second issues with registration: logs and use any tool that can be proof of the issue.<br><br>
-    Hint:
-        There are multiple issues with registering the agent to the portal. It is important to understand the flow of connection and diagnostic second issue with registration.
-</p>
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT4">SOLUTION</a></button>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Once the issue with DNS is resolved we can start thinking of next step in connection flow,
+        which is connection establishment - three-way handshake.<br>
+        SYN - ACK, SYN - ACK<br><br>
+        We register agent to <span style="color: green">registry.agt.thousandeyes.com</span>. We need to check what is
+        happening with connection to registry.agt.thousandeyes.com.
+        First thing first, lets check logs! I have used grep for ERROR log level and option -C 2 will include two lines before and after.<br>
+    </p>
+    <pre>
+        $ grep -C 2 ERROR /var/log/te-agent.log | grep -C 2 connect
+        --
+        2022-11-30 11:24:00.920 DEBUG [d204c700] [te.probe.ProbeTaskExecutor.realtime] {} Resources: 0 tasks
+        2022-11-30 11:24:00.920 DEBUG [d384f700] [te.probe.ServerTaskExecutor] {} Resources: 0 tasks
+        2022-11-30 11:24:39.294 ERROR [d4084f00] [te.agent.status] {} Error calling createAgent: Curl error - Couldn't connect to server
+        2022-11-30 11:24:39.298 INFO  [d4084f00] [te.agent.ClusterMasterAdapter] {} Set clustermaster URL to https://registry.agt.thousandeyes.com
+        2022-11-30 11:24:39.298 INFO  [d4084f00] [te.agent.main] {} Sleeping for 30 seconds
+        --
+    </pre>
+     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+     Logs are indication that there is an issue with curl. Let's check if that is correct!
+     </p>
+    <pre>
+        $ curl https://registry.agt.thousandeyes.com
+        curl: (7) Failed to connect to registry.agt.thousandeyes.com port 443: Connection timed out
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Ok, so curl is failing. This will in most cases not be enough for the customer, so let's dig a bit deeper.
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+     Ping to registry.agt.thousandeyes.com will also do nslookup so it is a good start. This is also what the customers
+        often do after you mention that something is blocked.
+    </p>
+    <pre>
+        $ ping registry.agt.thousandeyes.com
+        PING registry.agt.thousandeyes.com (99.83.165.166) 56(84) bytes of data.
+        64 bytes from ac789d293d6be6a5f.awsglobalaccelerator.com (99.83.165.166): icmp_seq=1 ttl=114 time=10.9 ms
+        64 bytes from ac789d293d6be6a5f.awsglobalaccelerator.com (99.83.165.166): icmp_seq=2 ttl=114 time=10.3 ms
+        64 bytes from ac789d293d6be6a5f.awsglobalaccelerator.com (99.83.165.166): icmp_seq=3 ttl=114 time=9.86 ms
+        ^C
+        --- registry.agt.thousandeyes.com ping statistics ---
+        3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+        rtt min/avg/max/mdev = 9.855/10.341/10.903/0.431 ms
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        As per above output we can conclude tht we are able to resolve registry.agt.thousandeyes.com, and it is reachable.
+        So why it doesn't work?<br>
+        Keep in mind that ping uses ICPM protocol, and we use TCP port 443.<br>
+        We can use traceroute or te-pathtrace to verify if there is an issue. As our cloud agents and TEVA doesn't have
+        traceroute and ping installed by default, so you should get comfortable with these commands.
+        You can find more information related to CLI tools on this
+        <a target="_blank" href="https://docs.thousandeyes.com/product-documentation/internet-and-wan-monitoring/troubleshooting/cli-network-troubleshooting-utilities#installing-cli-network-troubleshooting-utilities">link</a>.<br>
+        This tools should be already installed on your agent. In case it is missing you can install it in following way:
+    </p>
+    <pre>
+        $ sudo apt-get install te-agent-utils
+        Reading package lists... Done
+        Building dependency tree
+        Reading state information... Done
+        The following NEW packages will be installed:
+          te-agent-utils
+        0 upgraded, 1 newly installed, 0 to remove and 96 not upgraded.
+        Need to get 9885 kB of archives.
+        After this operation, 67.6 MB of additional disk space will be used.
+        Get:1 https://apt.thousandeyes.com focal/main amd64 te-agent-utils amd64 1.45.0-1~focal [9885 kB]
+        Fetched 9885 kB in 12s (841 kB/s)
+        Selecting previously unselected package te-agent-utils.
+        (Reading database ... 109008 files and directories currently installed.)
+        Preparing to unpack .../te-agent-utils_1.45.0-1~focal_amd64.deb ...
+        Unpacking te-agent-utils (1.45.0-1~focal) ...
+        Setting up te-agent-utils (1.45.0-1~focal) ...
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        2. You can enter te-pathtrace and get list of all options. We will focus on: <br>
+        a) option -M for mode and use tcp as protocol<br>
+        b) option -p for port<br>
+        We will also check with traceroute and options -T for TCP (other options are U for UDP and I for ICMP),
+        along with option -p for port. In case you would like to see ip address instead of hostname you can add option -n.<br>
+        As this is lab environment you will get message 'sendto: Operation not permitted'. This is due to firewall rule that
+        is implemented on this device (see example 1).
+        In a customer environment you will see in most cases few hops before the drop happens (example 2).
+    </p>
+    <pre>
+        EXAMPLE 1:
+        $ sudo te-pathtrace -M tcp -p 443 registry.agt.thousandeyes.com
+        sendto: Operation not permitted
+       ---omitted output---
+        sendto: Operation not permitted
+        sendto: Operation not permitted
+        Trace from 192.168.2.20 to 75.2.105.19:443
+
+        $ sudo traceroute -T -p 443 registry.agt.thousandeyes.com
+        traceroute to registry.agt.thousandeyes.com (99.83.165.166), 30 hops max, 60 byte packets
+        send: Operation not permitted
+
+        EXAMPLE 2:
+
+        $ sudo te-pathtrace -M tcp -p 443 registry.agt.thousandeyes.com
+        Trace from 192.168.2.20 to 142.251.39.110:443
+        1 192.168.2.99 (1 ms), q-ttl=1, q-dscp=0, respType=0, icmp=(type 11, code 0), r-ttl=71
+        2 10.48.90.65 (1 ms), q-ttl=1, q-dscp=0, respType=0, icmp=(type 11, code 0), r-ttl=253
+        3 10.48.82.17 (0 ms), q-ttl=1, q-dscp=8, respType=0, icmp=(type 11, code 0), r-ttl=253
+        4 10.63.42.243 (7 ms), q-ttl=1, q-dscp=8, respType=0, icmp=(type 11, code 0), r-ttl=248
+        5 *
+        6 *
+        7 *
+        8 * (latency=-13)
+
+        $ sudo traceroute -T -p 443 registry.agt.thousandeyes.com
+        traceroute to registry.agt.thousandeyes.com (75.2.105.19), 30 hops max, 60 byte packets
+         1  _gateway (192.168.2.99)  0.694 ms * *
+         2  lab-servers-gw1.cisco.com (10.48.90.65)  1.500 ms  1.629 ms  1.576 ms
+         3  dgm3-lab-gw1-po99.cisco.com (10.48.82.17)  1.248 ms  1.344 ms  1.497 ms
+         4  aer01-mda2-cp-pxtr1-gw2-lo101.cisco.com (10.63.42.243)  8.919 ms  8.894 ms  8.872 ms
+         5  * * *
+         6  * * *
+         7  * * *
+        --- omitted output ---
+        27  * * *
+        28  * * *
+        29  * * *
+        30  * * *
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        The customer is still not convinced and need more prove? Sure we can do that!<br>
+        We had a saying in TAC, in packet capture we trust. Let's see how to do a packet capture and how to read it!<br>
+        I like to have control over things that I do, so this is how I would do it.<br>
+        1. Open two SSH sessions<br>
+        2. On first SSH session start packet capture<br>
+        3. On second session restart te-agent service and tail logs<br>
+        For the packet capture I am using option -s0 for no limit in size, -i ens32 for the interface, -w /tmp/registry.pcap
+        for capture file destination and two destinations with option host ipAddress OR host ipAddress.<br>
+        For logs I use tail -f to get real time logs and option -n 0 to start from current line.<br>
+        We end this with reading capture with tcpdump -r option for reading and -n for no translation!<br>
+    </p>
+    <pre>
+        # First I need to know on which interface I would like to capture. I will use SSH session 1.
+        $ ip a
+        1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+            link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+            inet 127.0.0.1/8 scope host lo
+               valid_lft forever preferred_lft forever
+            inet6 ::1/128 scope host
+               valid_lft forever preferred_lft forever
+        2: ens32: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+            link/ether 00:50:56:8d:d0:33 brd ff:ff:ff:ff:ff:ff
+            inet 192.168.2.20/24 brd 192.168.2.255 scope global ens32
+               valid_lft forever preferred_lft forever
+            inet6 fe80::250:56ff:fe8d:d033/64 scope link
+               valid_lft forever preferred_lft forever
+
+        ---omitted output---
+
+        18: vethe04d9713@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master te-bbot-ipv4-6 state UP group default
+            link/ether 2a:0f:12:c5:67:36 brd ff:ff:ff:ff:ff:ff link-netns cni-f0546120-6897-f5b5-fc09-0e82c9ad6884
+            inet6 fe80::280f:12ff:fec5:6736/64 scope link
+               valid_lft forever preferred_lft forever
+
+        # Start capture in one SSH session
+        $ sudo tcpdump -s 0 -i ens32 -w /tmp/registry.pcap host 99.83.165.166 or host 75.2.105.19
+        tcpdump: listening on ens32, link-type EN10MB (Ethernet), capture size 262144 bytes
+
+        # At same time open second session, restart agent service, and tail logs.
+        # Second option is to be patient and wait for registration to fail.
+
+        $ sudo systemctl restart te-agent
+        [sudo] password for tetraining:
+        $ tail -f -n0 /var/log/te-agent.log
+        <span style="color: red">2022-11-30 12:40:52.159 INFO  [b936bf00] [te.agent.ClusterMasterAdapter] {} Attempting to get agent id from https://registry.agt.thousandeyes.com</span></span>
+        2022-11-30 12:41:22.073 DEBUG [b8b36700] [te.probe.ServerTaskExecutor] {} Resources: 0 tasks
+        2022-11-30 12:41:22.074 DEBUG [b37fe700] [te.probe.ProbeTaskExecutor.bandwidth] {} Resources: 0 tasks
+        2022-11-30 12:41:22.075 DEBUG [b2ffd700] [te.probe.ProbeTaskExecutor.realtime] {} Resources: 0 tasks
+        2022-11-30 12:41:22.076 DEBUG [b27fc700] [te.probe.ProbeTaskExecutor.throughput] {} Resources: 0 tasks
+        2022-11-30 12:41:37.194 ERROR [b936bf00] [te.agent.status] {} Error calling createAgent: Curl error - Couldn't connect to server
+        2022-11-30 12:41:37.197 INFO  [b936bf00] [te.agent.ClusterMasterAdapter] {} Set clustermaster URL to https://sc1.thousandeyes.com
+        2022-11-30 12:41:37.197 INFO  [b936bf00] [te.agent.main] {} Sleeping for 30 seconds
+
+        # Great! Lets stop capture with control+C
+
+        $ sudo tcpdump -s 0 -i ens32 -w /tmp/registry.pcap host 99.83.165.166 or host 75.2.105.19
+        tcpdump: listening on ens32, link-type EN10MB (Ethernet), capture size 262144 bytes
+        ^C9 packets captured
+        9 packets received by filter
+        0 packets dropped by kernel
+
+        # You can read capture from CLI, usually you would like to export it and open with wireshark.
+
+        $ tcpdump -n -r /tmp/registry.pcap
+        reading from file /tmp/registry.pcap, link-type EN10MB (Ethernet)
+        12:40:52.285037 IP 192.168.2.20.33534 > 99.83.165.166.443: Flags [S], seq 1330209776, win 64240, options [mss 1460,sackOK,TS val 799716168 ecr 0,nop,wscale 7], length 0
+        12:40:53.289423 IP 192.168.2.20.33534 > 99.83.165.166.443: Flags [S], seq 1330209776, win 64240, options [mss 1460,sackOK,TS val 799717173 ecr 0,nop,wscale 7], length 0
+        12:40:55.305462 IP 192.168.2.20.33534 > 99.83.165.166.443: Flags [S], seq 1330209776, win 64240, options [mss 1460,sackOK,TS val 799719189 ecr 0,nop,wscale 7], length 0
+        12:40:59.433449 IP 192.168.2.20.33534 > 99.83.165.166.443: Flags [S], seq 1330209776, win 64240, options [mss 1460,sackOK,TS val 799723317 ecr 0,nop,wscale 7], length 0
+        12:41:07.625454 IP 192.168.2.20.33534 > 99.83.165.166.443: Flags [S], seq 1330209776, win 64240, options [mss 1460,sackOK,TS val 799731509 ecr 0,nop,wscale 7], length 0
+        12:41:22.224597 IP 192.168.2.20.34082 > 75.2.105.19.443: Flags [S], seq 2196604475, win 64240, options [mss 1460,sackOK,TS val 1758109343 ecr 0,nop,wscale 7], length 0
+        12:41:23.241434 IP 192.168.2.20.34082 > 75.2.105.19.443: Flags [S], seq 2196604475, win 64240, options [mss 1460,sackOK,TS val 1758110360 ecr 0,nop,wscale 7], length 0
+        12:41:25.257407 IP 192.168.2.20.34082 > 75.2.105.19.443: Flags [S], seq 2196604475, win 64240, options [mss 1460,sackOK,TS val 1758112376 ecr 0,nop,wscale 7], length 0
+        12:41:29.389442 IP 192.168.2.20.34082 > 75.2.105.19.443: Flags [S], seq 2196604475, win 64240, options [mss 1460,sackOK,TS val 1758116508 ecr 0,nop,wscale 7], length 0
+
+        So we can see packets from 192.168.2.20.33534 to 99.83.165.166.443.<br>
+        These are all SYN packets indicated with <span style="color: green">Flags [S]</span> and no response from servers.
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        As per above tests, we can conclude that TCP port 443 for registry.agt.thousandeyes.com is blocked.<br>
+        Not only that we can prove to the customer that port is blocked, but we can point exact device that they need to check.<br>
+        Awesome work! Let's go for task 5! :)
+    </p>
+    <div class="row base-margin-top base-margin-bottom">
+        <div class="col-md-12 flex flex-right">
+            <div class="btn-group">
+                <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task3/">Previous Task</button>
+                <button class="btn btn--ghost" style="background-color:#495057;" onclick="window.location.href =/task4/">View Question</button>
+                <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task5/">Next Task</button>
+            </div>
         </div>
     </div>
+
+<br>
 </body>
 {% endblock %}

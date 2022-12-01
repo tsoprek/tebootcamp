@@ -14,7 +14,7 @@
                 <div class="step__label">Instructions</div>
             </div>
             <div class="step visited">
-                <span class="step__icon">1</span>
+                <div class="step__icon">1</div>
                 <div class="step__label">TASK 1</div>
             </div>
             <div class="step visited">
@@ -37,19 +37,18 @@
                 <div class="step__icon">6</div>
                 <div class="step__label">TASK 6</div>
             </div>
-            <div class="step visited">
+            <div class="step active">
                 <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
             </div>
-            <div class="step visited">
+            <div class="step">
                 <div class="step__icon">8</div>
                 <div class="step__label">TASK 8</div>
             </div>
-            <div class="step active">
+            <div class="step">
                 <div class="step__icon">9</div>
                 <div class="step__label">TASK 9</div>
             </div>
-
             <div class="step">
                 <div class="step__icon">END</div>
                 <div class="step__label">TASK 10</div>
@@ -60,7 +59,7 @@
 {% endblock %}
 
 {% block body%}
-    <div class="row">
+<div class="row">
     <div class="col-md-2">
         <ul id="vleft" class="tabs tabs--vertical">
             <li id="vleft-1" class="tab">
@@ -84,13 +83,13 @@
             <li id="vleft-7" class="tab">
                 <a tabindex="0" href="/task6">TASK 6</a>
             </li>
-            <li id="vleft-8" class="tab">
+            <li id="vleft-8" class="tab active">
                 <a tabindex="0" href="/task7">TASK 7</a>
             </li>
             <li id="vleft-9" class="tab">
                 <a tabindex="0" href="/task8">TASK 8</a>
             </li>
-            <li id="vleft-10" class="tab active">
+            <li id="vleft-10" class="tab">
                 <a tabindex="0" href="/task9">TASK 9</a>
             </li>
             <li id="vleft-11" class="tab">
@@ -122,33 +121,44 @@
             <div id="vleft-7-content" class="tab-pane">
                 <p>TASK 6</p>
             </div>
-            <div id="vleft-8-content" class="tab-pane">
-                <p>TASK 7</p>
+            <div id="vleft-7-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 7</p>
             </div>
-            <div id="vleft-9-content" class="tab-pane">
+            <div id="vleft-7-content" class="tab-pane">
                 <p>TASK 8</p>
             </div>
-            <div id="vleft-10-content" class="tab-pane active">
-                <p class="text-size-28 text-weight-300">TASK 9</p>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 9</p>
             </div>
-            <div id="vleft-11-content" class="tab-pane">
+            <div id="vleft-7-content" class="tab-pane">
                 <p>TASK 10</p>
             </div>
-            <div id="vleft-12-content" class="tab-pane">
+            <div id="vleft-8-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
         </div>
     </div>
 </div>
 <body class="cui" data-theme="dark">
-<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent UI Issues</h4>
-<p class="text-size-18 text-weight-300 base-margin-top text-justify">
-Diagnose any issues reported in TE UI for the agent Task 9
-</p>
-<div class="row">
-    <div class="col-md-12">
-        <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT9">SOLUTION</a></button>
+<h4 class="text-size-28 text-weight-300 panel panel--dark">Welcome to ThousandEyes TS Lab</h4>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        After registration is completed we report to super controller which provides controller 1 url. We do regular check-in to controller 1.
+        Online status is based on regular check-in. If agent is offline the first thing to check is sc1.thousandeyes.com and c1.thousandeyes.com connectivity.
+        Same as with registry we use TCP port 443.
+    </p>
+    <pre>
+        2022-11-30 16:53:47.260 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} Set clustermaster URL to https://sc1.thousandeyes.com
+        2022-11-30 16:53:47.260 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} Attempting to get controller assignment from https://sc1.thousandeyes.com
+        2022-11-30 16:53:48.178 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} https://sc1.thousandeyes.com told us we should talk to controller c1.thousandeyes.com
+    </pre>
+    <div class="row base-margin-top base-margin-bottom">
+        <div class="col-md-12 flex flex-right">
+            <div class="btn-group">
+                <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task6/">Previous Task</button>
+                <button class="btn btn--ghost" style="background-color:#495057;" onclick="window.location.href =/task7/">View Question</button>
+                <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task8/">Next Task</button>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 {% endblock %}

@@ -38,8 +38,21 @@
                 <div class="step__label">TASK 6</div>
             </div>
             <div class="step">
-                <div class="step__icon">END</div>
+                <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">8</div>
+                <div class="step__label">TASK 8</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">9</div>
+                <div class="step__label">TASK 9</div>
+            </div>
+
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 10</div>
             </div>
         </div>
     </div>
@@ -121,11 +134,26 @@
     Partner was messing around with agent and services are not starting. We asked partner what changes were done and replay was that no changes were done!
     Troubleshoot the te-agent service down and resolve the issue<br>
     </p>
-    <div class="row">
+
+    <div class="row base-margin-top base-margin-bottom">
         <div class="col-md-12">
-            <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT1">SOLUTION</a></button>
+            <form method="POST" action="/task1">
+                <div class="flex flex-left" style="margin-top: 40px">
+                    <div class="btn-group">
+                        <button class="btn btn--ghost" id="on-btn" name="on-btn" value="0" onclick="taskson(1)">Enable task</button>
+                        <button class="btn btn--ghost" id="off-btn" name="off-btn" value="1" onclick="tasksoff(0)">Disable task</button>
+                    </div>
+                </div>
+            </form>
+            <div class="flex flex-right">
+                <button class="btn btn--secondary--right">
+                    <a style="color: black" href="/solutionsT1" class="qtr-margin-top text-size-16">SOLUTION</a>
+                    <span class="icon-arrow-right-tail text-size-18 text-weight-300 base-margin-center text-justify qtr-margin-bottom"/>
+                </button>
+            <div>
         </div>
     </div>
+
 </body>
 
 {% endblock %}

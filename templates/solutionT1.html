@@ -38,8 +38,20 @@
                 <div class="step__label">TASK 6</div>
             </div>
             <div class="step">
-                <div class="step__icon">END</div>
+                <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">8</div>
+                <div class="step__label">TASK 8</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">9</div>
+                <div class="step__label">TASK 9</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 10</div>
             </div>
         </div>
     </div>
@@ -72,6 +84,18 @@
             <li id="vleft-7" class="tab">
                 <a tabindex="0" href="/task6">TASK 6</a>
             </li>
+            <li id="vleft-4" class="tab">
+                <a tabindex="0" href="/task3">TASK 7</a>
+            </li>
+            <li id="vleft-5" class="tab">
+                <a tabindex="0" href="/task4">TASK 8</a>
+            </li>
+            <li id="vleft-6" class="tab">
+                <a tabindex="0" href="/task5">TASK 9</a>
+            </li>
+            <li id="vleft-7" class="tab">
+                <a tabindex="0" href="/task6">TASK 10</a>
+            </li>            
             <li id="vleft-8" class="tab">
                 <a tabindex="0">SOLUTIONS</a>
             </li>
@@ -96,6 +120,18 @@
             </div>
             <div id="vleft-7-content" class="tab-pane">
                 <p>TASK 6</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 8</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 10</p>
             </div>
             <div id="vleft-8-content" class="tab-pane">
                 <p>SOLUTIONS</p>
@@ -136,7 +172,7 @@
         We can use journal logs to check Linux services. Command <span class="text-success">journalctl</span> will provide huge output including all services.
         We can filter those using -u (for unit) and specify te-agent as a service. We are interested in any errors
         and log level WARNING, ERROR, FATAL, CRITICAL.
-
+    </p>
         <pre>
         # journalctl -u te-agent
         -- Logs begin at Mon 2022-10-24 13:47:59 UTC, end at Fri 2022-11-25 15:51:12 UTC. --
@@ -148,7 +184,8 @@
         Oct 27 12:08:38 bootcamp1 te-agent[124543]: 2022-10-27 12:08:38.161 FATAL Invalid log level debug specified.  Valid options are DEBUG or TRACE.
         Oct 27 12:08:38 bootcamp1 systemd[1]: te-agent.service: Main process exited, code=exited, status=64/USAGE
         </pre>
-        From above output we can see an FATAL error: FATAL Invalid log level debug specified.  Valid options are DEBUG or TRACE.
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    From above output we can see an FATAL error: FATAL Invalid log level debug specified.  Valid options are DEBUG or TRACE.
     </p>
         <pre>
         # cat /etc/te-agent.cfg
@@ -175,11 +212,11 @@
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
         We can confirm that log level is indeed set to <span class="text-danger">debug</span> where the valid option is
         <span class="text-success">DEBUG</span>.
-        We need to change this. You can use nano or vi.
-        With nano you can navigate with arrows and edit log level, control+o to save file. Control+x to exit.
-        In case you decide to use vim you will need to press 'i'.
+        We need to change this. You can use nano or vi.<br>
+        With nano you can navigate with arrows and edit log level, control+o to save file. Control+x to exit.<br>
+        In case you decide to use vim you will need to press 'i'.<br>
         This will get you into --INSERT-- mode (bottom left corner). To exit 'insert' mode hit ESC. Hit ':'
-        to enter command mode and wq! for write and quit.
+        to enter command mode and wq! for write and quit.<br>
         <pre>
         NANO
 
@@ -237,12 +274,14 @@
         Nov 25 16:48:53 bootcamp4 systemd[1]: Started ThousandEyes Agent.
         </pre>
    </p>
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn--danger--center" style="float: center"><a style="color: black" href="/task2/">TASK2</a></button>
+   <div class="row base-margin-top base-margin-bottom">
+    <div class="col-md-12 flex flex-right">
+        <div class="btn-group">
+            <button class="btn btn--ghost" style="background-color:#495057;" onclick="window.location.href =/task1/">View Question</button>
+            <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task2/">Next Task</button>
         </div>
     </div>
-    <br>
+</div>
     <br>
 </body>
 {% endblock %}

@@ -1,10 +1,692 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block head %}
+<div class="panel panel--dark">
+    <h1 class="display-3 flex flex-center" style="margin-top: 75px;"></h1>
+</div>
+<div class="row base-margin-top flex flex-center">
+    <div class="col-md-6">
+        <div class="steps">
+            <div class="step visited">
+                <div class="step__icon">
+                    <span class="icon-check"></span>
+                </div>
+                <div class="step__label">Instructions</div>
+            </div>
+            <div class="step visited">
+                <span class="step__icon">1</span>
+                <div class="step__label">TASK 1</div>
+            </div>
+            <div class="step visited">
+                <div class="step__icon">2</div>
+                <div class="step__label">TASK 2</div>
+            </div>
+            <div class="step visited">
+                <div class="step__icon">3</div>
+                <div class="step__label">TASK 3</div>
+            </div>
+            <div class="step visited">
+                <div class="step__icon">4</div>
+                <div class="step__label">TASK 4</div>
+            </div>
+            <div class="step active">
+                <div class="step__icon">5</div>
+                <div class="step__label">TASK 5</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">6</div>
+                <div class="step__label">TASK 6</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">7</div>
+                <div class="step__label">TASK 7</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">8</div>
+                <div class="step__label">TASK 8</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">9</div>
+                <div class="step__label">TASK 9</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 10</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body%}
+    <div class="row">
+    <div class="col-md-2">
+        <ul id="vleft" class="tabs tabs--vertical">
+            <li id="vleft-1" class="tab">
+                <a tabindex="0" href="/">INSTRUCTIONS</a>
+            </li>
+            <li id="vleft-2" class="tab">
+                <a tabindex="0" href="/task1">TASK 1</a>
+            </li>
+            <li id="vleft-3" class="tab">
+                <a tabindex="0" href="/task2">TASK 2</a>
+            </li>
+            <li id="vleft-4" class="tab">
+                <a tabindex="0" href="/task3">TASK 3</a>
+            </li>
+            <li id="vleft-5" class="tab">
+                <a tabindex="0" href="/task4">TASK 4</a>
+            </li>
+            <li id="vleft-6" class="tab active">
+                <a tabindex="0" href="/task5">TASK 5</a>
+            </li>
+            <li id="vleft-7" class="tab">
+                <a tabindex="0" href="/task6">TASK 6</a>
+            </li>
+            <li id="vleft-8" class="tab">
+                <a tabindex="0" href="/task7">TASK 7</a>
+            </li>
+            <li id="vleft-9" class="tab">
+                <a tabindex="0" href="/task8">TASK 8</a>
+            </li>
+            <li id="vleft-10" class="tab">
+                <a tabindex="0" href="/task9">TASK 9</a>
+            </li>
+            <li id="vleft-11" class="tab">
+                <a tabindex="0" href="/task10">TASK 10</a>
+            </li>
+            <li id="vleft-12" class="tab">
+                <a tabindex="0">SOLUTIONS</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div id="vleft-content" class="tab-content">
+            <div id="vleft-1-content" class="tab-pane">
+                <p>INSTRUCTIONS</p>
+            </div>
+            <div id="vleft-2-content" class="tab-pane">
+                <p>TASK 1</p>
+            </div>
+            <div id="vleft-3-content" class="tab-pane">
+                <p>TASK 2</p>
+            </div>
+            <div id="vleft-4-content" class="tab-pane">
+                <p>TASK 3</p>
+            <div id="vleft-5-content" class="tab-pane">
+                <p>TASK 4</p>
+            <div id="vleft-6-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 5</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 6</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 8</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 10</p>
+            </div>
+            <div id="vleft-8-content" class="tab-pane">
+                <p>SOLUTIONS</p>
+            </div>
+        </div>
+    </div>
+</div>
+<body class="cui" data-theme="dark">
+<h4 class="text-size-28 text-weight-300 panel panel--dark">Issues with Registration to ThousandEyes Portal Part 3</h4>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        As always, first we will have a look at the logs. Let's do something different this time and tail logs.
+        Same as previous time, I am using -f and -n 0 options to see only latest live feed logs and soon enough we can see an ERROR.
+    </p>
+    <pre>
+        tail -f -n 0 /var/log/te-agent.log
+        2022-11-30 12:33:17.657 INFO  [d7314f00] [te.agent.ClusterMasterAdapter] {} Attempting to get agent id from https://registry.agt.thousandeyes.com
+        2022-11-30 12:33:18.103 ERROR [d7314f00] [te.agent.status] {} Error calling createAgent: Curl error - Peer certificate cannot be authenticated with given CA certificates
+        2022-11-30 12:33:18.106 INFO  [d7314f00] [te.agent.ClusterMasterAdapter] {} Set clustermaster URL to https://sc1.thousandeyes.com
+        2022-11-30 12:33:18.107 INFO  [d7314f00] [te.agent.main] {} Sleeping for 30 seconds
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        From above logs we can see that there is an issue with CA certificate. This is at the same time next phase of forming a connection, SSL handshake.
+        Client Hello, Server Hello, Certificate exchange
+        As at this point we don't know which certificate is used we need to check this.
+        We will use <span style="color: green">openssl s_client -connect</span>. In addition to this you can use an option -showcerts to view all certificates.
+    </p>
+    <pre>
+        $ openssl s_client -connect registry.agt.thousandeyes.com:443
+        CONNECTED(00000003)
+        depth=2 C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+        verify error:num=19:self signed certificate in certificate chain
+        verify return:1
+        depth=2 C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+        verify return:1
+        depth=1 C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+        verify return:1
+        depth=0 CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+        verify return:1
+        ---
+        Certificate chain
+         0 s:CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+           i:C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+         1 s:C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+           i:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+         2 s:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+           i:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+        ---
+        Server certificate
+        -----BEGIN CERTIFICATE-----
+        MIIHkDCCBnigAwIBAgIQQAGA3qsx59pbrhEQn43fgjANBgkqhkiG9w0BAQsFADBy
+        MQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MS4wLAYDVQQLEyVIeWRy
+        YW50SUQgVHJ1c3RlZCBDZXJ0aWZpY2F0ZSBTZXJ2aWNlMR8wHQYDVQQDExZIeWRy
+        YW50SUQgU2VydmVyIENBIE8xMB4XDTIyMDUxOTIzMzMyM1oXDTIzMDUxOTIzMzMy
+        MlowejEmMCQGA1UEAxMdcmVnaXN0cnkuYWd0LnRob3VzYW5kZXllcy5jb20xGzAZ
+        BgNVBAoTEkNpc2NvIFN5c3RlbXMgSW5jLjERMA8GA1UEBxMIU2FuIEpvc2UxEzAR
+        BgNVBAgTCkNhbGlmb3JuaWExCzAJBgNVBAYTAlVTMIIBIjANBgkqhkiG9w0BAQEF
+        AAOCAQ8AMIIBCgKCAQEAz9Spurmweif4/fbqjsf0zzkkPpAj1mpHuOspXQ1kYyd/
+        wlbtqybX2WgrT2rXDDMmdh27MyM4W7PZz0AHEf8ly4Z9RURBVg8JqrqCbi10FxT4
+        2ZtDiX+jY2XXusDP1uRJdLosrn4NjC6DN0EpX8q10udbhZAvlyRH03I3V2Us3Jr1
+        0a+Xu2pvIZQpMTZF8YecZJJNQkhdGDdHkcIdFbay+1s6BnFOmY2H2RAsfXBAQK18
+        DcZkU3D83/nHKmEiND8HqJ3kIe4CEsO9Bmm9y2zLW/O0zqQPUvSjBrs3/j+F03oS
+        Rs9kBEgm4j+VrO6TFOCCxkvhyC8j2XRa/jk3iXh87QIDAQABo4IEGDCCBBQwDgYD
+        VR0PAQH/BAQDAgWgMIGFBggrBgEFBQcBAQR5MHcwMAYIKwYBBQUHMAGGJGh0dHA6
+        Ly9jb21tZXJjaWFsLm9jc3AuaWRlbnRydXN0LmNvbTBDBggrBgEFBQcwAoY3aHR0
+        cDovL3ZhbGlkYXRpb24uaWRlbnRydXN0LmNvbS9jZXJ0cy9oeWRyYW50aWRjYU8x
+        LnA3YzAfBgNVHSMEGDAWgBSJuJu2nu37sMa9DexnTjyjkp0t+TCCASYGA1UdIASC
+        AR0wggEZMAwGCmCGSAGG+S8ABgMwggEHBgZngQwBAgIwgfwwQAYIKwYBBQUHAgEW
+        NGh0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20vY2VydGlmaWNhdGVzL3BvbGlj
+        eS90cy8wgbcGCCsGAQUFBwICMIGqDIGnVGhpcyBUcnVzdElEIFNlcnZlciBDZXJ0
+        aWZpY2F0ZSBoYXMgYmVlbiBpc3N1ZWQgaW4gYWNjb3JkYW5jZSB3aXRoIElkZW5U
+        cnVzdCdzIFRydXN0SUQgQ2VydGlmaWNhdGUgUG9saWN5IGZvdW5kIGF0IGh0dHBz
+        Oi8vc2VjdXJlLmlkZW50cnVzdC5jb20vY2VydGlmaWNhdGVzL3BvbGljeS90cy8w
+        RgYDVR0fBD8wPTA7oDmgN4Y1aHR0cDovL3ZhbGlkYXRpb24uaWRlbnRydXN0LmNv
+        bS9jcmwvaHlkcmFudGlkY2FvMS5jcmwwKAYDVR0RBCEwH4IdcmVnaXN0cnkuYWd0
+        LnRob3VzYW5kZXllcy5jb20wHQYDVR0OBBYEFD5xmcXlizF/7x88J4eva860k4qp
+        MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjCCAX0GCisGAQQB1nkCBAIE
+        ggFtBIIBaQFnAHcArfe++nz/EMiLnT2cHj4YarRnKV3PsQwkyoWGNOvcgooAAAGA
+        3qs1agAABAMASDBGAiEA/8f9sKD0qmEGq6It8I/n2u6Vxm2fFStNtUluVthYQGEC
+        IQDZkQPcP3Gz2JMg/zOv49j2MS6q6H15oHl5r8PUSpa7DwB1AOg+0No+9QY1MudX
+        KLyJa8kD08vREWvs62nhd31tBr1uAAABgN6rMykAAAQDAEYwRAIgHfW/LY37Cc6E
+        m6K6lU/uQQI+wmZEPmtPXVliL07anksCICTUNUCrGRY3UQZNpbmFNUjysfvZJ83a
+        QeyJgLwiz+UfAHUAejKMVNi3LbYg6jjgUh7phBZwMhOFTTvSK8E6V6NS61IAAAGA
+        3qsydwAABAMARjBEAiAtM5BFsRHp+lh/eo71wasHZhzADSCfVrol0UINSgRvZQIg
+        SdhLD4GcZ/mm+cWigVIM9FjCFlsv75M1QPtn5jt6eRYwDQYJKoZIhvcNAQELBQAD
+        ggEBAC1NZQBjGJDrl2Y+By9ZzDHyksPhWYtD2JJvdbVPtk+5bG3A1Ax/mEfmJ1fL
+        FKSnjm1cLxCAJR24DhUWdwFG7JNGA8Q1uWHqXIwCFfrqdQkhof7NUbrECE9bqbzY
+        2bl4/nXCDdz+zpr7WY5xupf2I5llNDKDqJsNp3iwjWhoVyO9rYKPvJWtKhsvc9F3
+        XQ7H6Px/WPMjZn1/TAjHSu06oZxeXtZPwI0ZJydTBetHoqcDG3Fv0WJF8KAdZ6ZA
+        a2tlocYqbf1yzohGDz3bnCKeZPiT4o17d01esJ60GGCOrNKQw9ZdyyLOQJ/lHnlV
+        Gv0WUY8F5G7Y5B/NYV88fHWzNQ4=
+        -----END CERTIFICATE-----
+        subject=CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+
+        issuer=C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+
+        ---
+        No client certificate CA names sent
+        Peer signing digest: SHA512
+        Peer signature type: RSA
+        Server Temp Key: ECDH, P-256, 256 bits
+        ---
+        SSL handshake has read 5559 bytes and written 447 bytes
+        Verification error: self signed certificate in certificate chain
+        ---
+        New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+        Server public key is 2048 bit
+        Secure Renegotiation IS supported
+        Compression: NONE
+        Expansion: NONE
+        No ALPN negotiated
+        SSL-Session:
+            Protocol  : TLSv1.2
+            Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+            Session-ID:
+            Session-ID-ctx:
+            Master-Key: D8F165B816ECE81D0DAC81C687C123BA19696B8F68C4218D68EE85EB28FFE252A4343770FB0DBF89017E0EF0B1EBD3F0
+            PSK identity: None
+            PSK identity hint: None
+            SRP username: None
+            Start Time: 1669818210
+            Timeout   : 7200 (sec)
+            Verify return code: 19 (self signed certificate in certificate chain)
+            Extended master secret: no
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Let's see what is useful from this output.
+        First we can see that there is some verification error.
+        <pre>
+            <span style="color: red">
+        depth=2 C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+        verify error:num=19:self signed certificate in certificate chain
+            </span>
+        </pre>
+    </p>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Second thing to look at is certificate chain. First certificate is identity (website certificate),
+        second certificate is intermediate, and last certificate is Root certificate.
+    </p>
+        <pre>
+            <span style="color: red">
+        Certificate chain
+         0 s:CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+           i:C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+         1 s:C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+           i:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+         2 s:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+           i:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+            </span>
+        </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        There are many ways to check this, I will start with small checks and go deeper with openssl.
+        First we need to know how certificates work.<br>
+        As per <a href="https://www.rfc-editor.org/rfc/rfc5246#section-7.4.1.3">RFC</a>,
+    </p>
+        <pre>
+        certificate_list
+              This is a sequence (chain) of certificates.  The sender's
+              certificate MUST come first in the list.  Each following
+              certificate MUST directly certify the one preceding it.
+        </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        So server side has to send full certificate chain. CN or DN (subject name and alternative subject name) must match our URL.
+        Certificate chin is built using  'Subject Key ID' and 'Authority Key ID'.<br>
+        Authority Key ID from identity certificate (first one in the chain) must match Subject Key ID in intermediate certificate.<br>
+        Authority Key ID from intermediate certificate must match Subject Key ID in Root certificate.<br>
+        Root certificate will be self-signed.<br>
+        For end device to authenticate certificate it is enough that device has Root certificate.<br>
+        We use Mozilla's CA Certificate Program for managing certificate store.
+        More info on <a href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/troubleshooting/installing-ca-certificates-on-enterprise-agents#red-hat-enterprise-linux-centos-and-oracle-linux">Installing CA certificate.</a><br>
+        1. We store certificates in /usr/share/ca-certificates/mozilla.<br>
+        2. We need to add certificate to list of certificates /etc/ca-certificates.conf.<br>
+        Now that we know we need to have root certificate, let's check if certificate IdenTrust Commercial Root CA 1 is there.<br>
+        First we will confirm if certificate is stored in /usr/share/ca-certificates/mozilla
+    </p>
+        <pre>
+        $ ll /usr/share/ca-certificates/mozilla  | grep -i IdenTrust
+        -rw-r--r-- 1 root root  1931 Jun  2 14:19 IdenTrust_Public_Sector_Root_CA_1.crt
+        </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        We can see that there is one certificate available. By the name we can already confirm that this is
+        Public Sector and not Commercial Root but let's practice openssl and make sure.
+        First we will use openssl s_client connect to get all certificates filed that we can compare to the one we have in store.
+        Then we will parse IdenTrust_Public_Sector_Root_CA_1.crt and validate CN and serial.
+    </p>
+        <pre>
+            $ openssl s_client -connect registry.agt.thousandeyes.com:443 -showcerts
+            CONNECTED(00000003)
+            depth=2 C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+            verify error:num=19:self signed certificate in certificate chain
+            verify return:1
+            depth=2 C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+            verify return:1
+            depth=1 C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+            verify return:1
+            depth=0 CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+            verify return:1
+            ---
+            Certificate chain
+             0 s:CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+               i:C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+            -----BEGIN CERTIFICATE-----
+            MIIHkDCCBnigAwIBAgIQQAGA3qsx59pbrhEQn43fgjANBgkqhkiG9w0BAQsFADBy
+            MQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MS4wLAYDVQQLEyVIeWRy
+            YW50SUQgVHJ1c3RlZCBDZXJ0aWZpY2F0ZSBTZXJ2aWNlMR8wHQYDVQQDExZIeWRy
+            YW50SUQgU2VydmVyIENBIE8xMB4XDTIyMDUxOTIzMzMyM1oXDTIzMDUxOTIzMzMy
+            MlowejEmMCQGA1UEAxMdcmVnaXN0cnkuYWd0LnRob3VzYW5kZXllcy5jb20xGzAZ
+            BgNVBAoTEkNpc2NvIFN5c3RlbXMgSW5jLjERMA8GA1UEBxMIU2FuIEpvc2UxEzAR
+            BgNVBAgTCkNhbGlmb3JuaWExCzAJBgNVBAYTAlVTMIIBIjANBgkqhkiG9w0BAQEF
+            AAOCAQ8AMIIBCgKCAQEAz9Spurmweif4/fbqjsf0zzkkPpAj1mpHuOspXQ1kYyd/
+            wlbtqybX2WgrT2rXDDMmdh27MyM4W7PZz0AHEf8ly4Z9RURBVg8JqrqCbi10FxT4
+            2ZtDiX+jY2XXusDP1uRJdLosrn4NjC6DN0EpX8q10udbhZAvlyRH03I3V2Us3Jr1
+            0a+Xu2pvIZQpMTZF8YecZJJNQkhdGDdHkcIdFbay+1s6BnFOmY2H2RAsfXBAQK18
+            DcZkU3D83/nHKmEiND8HqJ3kIe4CEsO9Bmm9y2zLW/O0zqQPUvSjBrs3/j+F03oS
+            Rs9kBEgm4j+VrO6TFOCCxkvhyC8j2XRa/jk3iXh87QIDAQABo4IEGDCCBBQwDgYD
+            VR0PAQH/BAQDAgWgMIGFBggrBgEFBQcBAQR5MHcwMAYIKwYBBQUHMAGGJGh0dHA6
+            Ly9jb21tZXJjaWFsLm9jc3AuaWRlbnRydXN0LmNvbTBDBggrBgEFBQcwAoY3aHR0
+            cDovL3ZhbGlkYXRpb24uaWRlbnRydXN0LmNvbS9jZXJ0cy9oeWRyYW50aWRjYU8x
+            LnA3YzAfBgNVHSMEGDAWgBSJuJu2nu37sMa9DexnTjyjkp0t+TCCASYGA1UdIASC
+            AR0wggEZMAwGCmCGSAGG+S8ABgMwggEHBgZngQwBAgIwgfwwQAYIKwYBBQUHAgEW
+            NGh0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20vY2VydGlmaWNhdGVzL3BvbGlj
+            eS90cy8wgbcGCCsGAQUFBwICMIGqDIGnVGhpcyBUcnVzdElEIFNlcnZlciBDZXJ0
+            aWZpY2F0ZSBoYXMgYmVlbiBpc3N1ZWQgaW4gYWNjb3JkYW5jZSB3aXRoIElkZW5U
+            cnVzdCdzIFRydXN0SUQgQ2VydGlmaWNhdGUgUG9saWN5IGZvdW5kIGF0IGh0dHBz
+            Oi8vc2VjdXJlLmlkZW50cnVzdC5jb20vY2VydGlmaWNhdGVzL3BvbGljeS90cy8w
+            RgYDVR0fBD8wPTA7oDmgN4Y1aHR0cDovL3ZhbGlkYXRpb24uaWRlbnRydXN0LmNv
+            bS9jcmwvaHlkcmFudGlkY2FvMS5jcmwwKAYDVR0RBCEwH4IdcmVnaXN0cnkuYWd0
+            LnRob3VzYW5kZXllcy5jb20wHQYDVR0OBBYEFD5xmcXlizF/7x88J4eva860k4qp
+            MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjCCAX0GCisGAQQB1nkCBAIE
+            ggFtBIIBaQFnAHcArfe++nz/EMiLnT2cHj4YarRnKV3PsQwkyoWGNOvcgooAAAGA
+            3qs1agAABAMASDBGAiEA/8f9sKD0qmEGq6It8I/n2u6Vxm2fFStNtUluVthYQGEC
+            IQDZkQPcP3Gz2JMg/zOv49j2MS6q6H15oHl5r8PUSpa7DwB1AOg+0No+9QY1MudX
+            KLyJa8kD08vREWvs62nhd31tBr1uAAABgN6rMykAAAQDAEYwRAIgHfW/LY37Cc6E
+            m6K6lU/uQQI+wmZEPmtPXVliL07anksCICTUNUCrGRY3UQZNpbmFNUjysfvZJ83a
+            QeyJgLwiz+UfAHUAejKMVNi3LbYg6jjgUh7phBZwMhOFTTvSK8E6V6NS61IAAAGA
+            3qsydwAABAMARjBEAiAtM5BFsRHp+lh/eo71wasHZhzADSCfVrol0UINSgRvZQIg
+            SdhLD4GcZ/mm+cWigVIM9FjCFlsv75M1QPtn5jt6eRYwDQYJKoZIhvcNAQELBQAD
+            ggEBAC1NZQBjGJDrl2Y+By9ZzDHyksPhWYtD2JJvdbVPtk+5bG3A1Ax/mEfmJ1fL
+            FKSnjm1cLxCAJR24DhUWdwFG7JNGA8Q1uWHqXIwCFfrqdQkhof7NUbrECE9bqbzY
+            2bl4/nXCDdz+zpr7WY5xupf2I5llNDKDqJsNp3iwjWhoVyO9rYKPvJWtKhsvc9F3
+            XQ7H6Px/WPMjZn1/TAjHSu06oZxeXtZPwI0ZJydTBetHoqcDG3Fv0WJF8KAdZ6ZA
+            a2tlocYqbf1yzohGDz3bnCKeZPiT4o17d01esJ60GGCOrNKQw9ZdyyLOQJ/lHnlV
+            Gv0WUY8F5G7Y5B/NYV88fHWzNQ4=
+            -----END CERTIFICATE-----
+             1 s:C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+               i:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+            -----BEGIN CERTIFICATE-----
+            MIIG1jCCBL6gAwIBAgIQQAFu+wogXPrr4Y9x1zq7eDANBgkqhkiG9w0BAQsFADBK
+            MQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MScwJQYDVQQDEx5JZGVu
+            VHJ1c3QgQ29tbWVyY2lhbCBSb290IENBIDEwHhcNMTkxMjEyMTY1NjE1WhcNMjkx
+            MjEyMTY1NjE1WjByMQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MS4w
+            LAYDVQQLEyVIeWRyYW50SUQgVHJ1c3RlZCBDZXJ0aWZpY2F0ZSBTZXJ2aWNlMR8w
+            HQYDVQQDExZIeWRyYW50SUQgU2VydmVyIENBIE8xMIIBIjANBgkqhkiG9w0BAQEF
+            AAOCAQ8AMIIBCgKCAQEA6huZbDVWMGj7XbFZQWl+uhh0SIeWhO8rl79MV4+7ZSj2
+            Lxos5e8za0H1JVVzTNPaup2Go438C5zeaqaGtyUshV8D0xwUiWyamspTao7PjjuC
+            h81+tp9z76rp1irjNMh5o/zeJ0h3Kag5zQG9sfI7J7ihLnTFbArjNZIRaZnszOnu
+            Ga18jh/9epnGmEYL5BV119LNVo5luWshvG/kifk9mHjtkA8LzVdsOkvCrmHBpzpD
+            o4qyPk2lDypq04IU48JUqhFrG4kvlPz+VO7sse0uxYXj81FdNb2qoJnvAjqV+Zj4
+            Nii8PIcuNGqghDjzrs2PW/gEhkaWDikhhSY7DjOLiQIDAQABo4ICjjCCAoowEgYD
+            VR0TAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwgYkGCCsGAQUFBwEBBH0w
+            ezAwBggrBgEFBQcwAYYkaHR0cDovL2NvbW1lcmNpYWwub2NzcC5pZGVudHJ1c3Qu
+            Y29tMEcGCCsGAQUFBzAChjtodHRwOi8vdmFsaWRhdGlvbi5pZGVudHJ1c3QuY29t
+            L3Jvb3RzL2NvbW1lcmNpYWxyb290Y2ExLnA3YzAfBgNVHSMEGDAWgBTtRBnA0/AG
+            i+6ke75C5yZUyI42djCCASsGA1UdIASCASIwggEeMIIBGgYEVR0gADCCARAwSgYI
+            KwYBBQUHAgEWPmh0dHBzOi8vc2VjdXJlLmlkZW50cnVzdC5jb20vY2VydGlmaWNh
+            dGVzL3BvbGljeS90cy9pbmRleC5odG1sMIHBBggrBgEFBQcCAjCBtAyBsVRoaXMg
+            VHJ1c3RJRCBTZXJ2ZXIgQ2VydGlmaWNhdGUgaGFzIGJlZW4gaXNzdWVkIGluIGFj
+            Y29yZGFuY2Ugd2l0aCBJZGVuVHJ1c3QncyBUcnVzdElEIENlcnRpZmljYXRlIFBv
+            bGljeSBmb3VuZCBhdCBodHRwczovL3NlY3VyZS5pZGVudHJ1c3QuY29tL2NlcnRp
+            ZmljYXRlcy9wb2xpY3kvdHMvaW5kZXguaHRtbDBKBgNVHR8EQzBBMD+gPaA7hjlo
+            dHRwOi8vdmFsaWRhdGlvbi5pZGVudHJ1c3QuY29tL2NybC9jb21tZXJjaWFscm9v
+            dGNhMS5jcmwwHQYDVR0OBBYEFIm4m7ae7fuwxr0N7GdOPKOSnS35MB0GA1UdJQQW
+            MBQGCCsGAQUFBwMBBggrBgEFBQcDAjANBgkqhkiG9w0BAQsFAAOCAgEAdMrY9RYw
+            NyVgzeOqqcbdIxy5gHRQFbh3RTuIi0fsnbEh3v7BN+I3zmXJq71gyLOzG9wvqCul
+            XtLQNAZnrlSacXichYDV5zdcnbBrFH/CXt47oW4L+9yD5LPMKaSU5DP9DEu88ws+
+            QAjzL6/q+hP+CLQh0/vr62HoEGS1+NyLfnJIN0RVcVDxBAwVqNF8MU5An98ZmHj4
+            XaSPA6s2s+3794ULe6r2TzVXiLtun0JJ0kBZL3Mx0plhONvhq7jCsa6bYCF71DNs
+            7VhrNUh+BZNdQvLqAdfQJtFY5EiWpExhiPC/ZdtVYN5RfrOMCWgBbjnl5e2n5WYa
+            7LM4HR+z7U+6JCBqaRjlbaNNLed/qg+OMdpBJe16qJJT9E5Uzdc4PsUbL2a+9IUb
+            uxx8nmrbQswe8p4yvcy9RLje07a4Y09otZ/Aai3Gijup67jTCez1hd7VYIAuznqP
+            os6SLponh2vVcHu9vQoT18OCL9janJ2Ilh3lJHUxv1kHD9IxZNpn0j/QPzGFv2Ez
+            UXZVAECEQLS80qWh6zCXhXl6dVAeM84sSysIiY4Kv8oaXEF5Atyg0LcUuB6Iwgg3
+            K/QUY3QusnjrDcgGRyoWn0Zt53meMCi3C0hoQ+FrQ3zF4/7wtxKnGGBH5hKBU23M
+            2XrKEZL5RmGZidpWP6ZBbvEs2MqSD7zcFvY=
+            -----END CERTIFICATE-----
+             2 s:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+               i:C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+            <span style="color: green">-----BEGIN CERTIFICATE-----
+            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
+            -----END CERTIFICATE-----</span>
+            ---
+            Server certificate
+            subject=CN = registry.agt.thousandeyes.com, O = Cisco Systems Inc., L = San Jose, ST = California, C = US
+
+            issuer=C = US, O = IdenTrust, OU = HydrantID Trusted Certificate Service, CN = HydrantID Server CA O1
+
+            ---
+            No client certificate CA names sent
+            Peer signing digest: SHA512
+            Peer signature type: RSA
+            Server Temp Key: ECDH, P-256, 256 bits
+            ---
+            SSL handshake has read 5559 bytes and written 447 bytes
+            Verification error: self signed certificate in certificate chain
+            ---
+            New, TLSv1.2, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+            Server public key is 2048 bit
+            Secure Renegotiation IS supported
+            Compression: NONE
+            Expansion: NONE
+            No ALPN negotiated
+            SSL-Session:
+                Protocol  : TLSv1.2
+                Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+                Session-ID:
+                Session-ID-ctx:
+                Master-Key: 39202BDEBF134B8382D31B227E60F063EB367181CB575899E6D755B45D40467616AD673A2AE95504E7CBF349812EE03D
+                PSK identity: None
+                PSK identity hint: None
+                SRP username: None
+                Start Time: 1669824335
+                Timeout   : 7200 (sec)
+                Verify return code: 19 (self signed certificate in certificate chain)
+                Extended master secret: no
+            ---
+
+            $ openssl x509 -in /usr/share/ca-certificates/mozilla/IdenTrust_Public_Sector_Root_CA_1.crt -text
+            Certificate:
+                Data:
+                    Version: 3 (0x2)
+                    Serial Number:
+                        <span style="color: red">0a:01:42:80:00:00:01:45:23:cf:46:7c:00:00:00:02</span>
+                    Signature Algorithm: sha256WithRSAEncryption
+                    Issuer: C = US, O = IdenTrust, CN = IdenTrust Public Sector Root CA 1
+                    Validity
+                        Not Before: Jan 16 17:53:32 2014 GMT
+                        Not After : Jan 16 17:53:32 2034 GMT
+                    <span style="color: red">Subject: C = US, O = IdenTrust, CN = IdenTrust Public Sector Root CA 1</span>
+                    Subject Public Key Info:
+                        Public Key Algorithm: rsaEncryption
+                            RSA Public-Key: (4096 bit)
+                            Modulus:
+                                00:b6:22:94:fc:a4:48:af:e8:47:6b:0a:fb:27:76:
+                                e4:f2:3f:8a:3b:7a:4a:2c:31:2a:8c:8d:b0:a9:c3:
+                                ---omitted---
+                                6d:5f:f7:48:03:5b:fd:c5:2a:a0:f6:73:23:84:10:
+                                1b:01:e7
+                            Exponent: 65537 (0x10001)
+                    X509v3 extensions:
+                        X509v3 Key Usage: critical
+                            Certificate Sign, CRL Sign
+                        X509v3 Basic Constraints: critical
+                            CA:TRUE
+                        X509v3 Subject Key Identifier:
+                            E3:71:E0:9E:D8:A7:42:D9:DB:71:91:6B:94:93:EB:C3:A3:D1:14:A3
+                Signature Algorithm: sha256WithRSAEncryption
+                     47:fa:dd:0a:b0:11:91:38:ad:4d:5d:f7:e5:0e:97:54:19:82:
+                        ---Omitted---
+                     4b:1c:64:e7:fc:e6:6b:90:dd:69:7d:69:fd:00:56:a5:b7:ac:
+                     b6:ad:b7:ca:3e:01:ef:9c
+            -----BEGIN CERTIFICATE-----
+            MIIFZjCCA06gAwIBAgIQCgFCgAAAAUUjz0Z8AAAAAjANBgkqhkiG9w0BAQsFADBN
+            MQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MSowKAYDVQQDEyFJZGVu
+            ---omitted----
+            8Ue1fXwsBOxonbRJRBD0ckscZOf85muQ3Wl9af0AVqW3rLatt8o+Ae+c
+            -----END CERTIFICATE-----
+        </pre>
+        <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+            From above output we can see that CN is not matching! To continue investigation we will need to inspect  IdenTrust Commercial Root CA 1.<br>
+            To do this we will need first to copy pem format (green part from and including lines BEGIN CERTIFICATE and END CERTIFICATE) to file, save and parse with openssl.
+        </p>
+        <pre>
+            $ vi testIdent.crt
+            # Hit i to get in ---INSERT--- mode and past pem format of certificate to file
+
+            -----BEGIN CERTIFICATE-----
+            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
+            -----END CERTIFICATE-----
+            ~
+            ~
+            ~
+            ~
+            :wq
+
+            #Parsing certificate
+
+            $ openssl x509 -text -in testIdent.crt
+            Certificate:
+                Data:
+                    Version: 3 (0x2)
+                    Serial Number:
+                        <span style="color: green">0a:01:42:80:00:00:01:45:23:c8:44:b5:00:00:00:02</span>
+                    Signature Algorithm: sha256WithRSAEncryption
+                    Issuer: C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1
+                    Validity
+                        Not Before: Jan 16 18:12:23 2014 GMT
+                        Not After : Jan 16 18:12:23 2034 GMT
+            <span style="color: green">Subject: C = US, O = IdenTrust, CN = IdenTrust Commercial Root CA 1</span>
+                    Subject Public Key Info:
+                        Public Key Algorithm: rsaEncryption
+                            RSA Public-Key: (4096 bit)
+                            Modulus:
+                                00:a7:50:19:de:3f:99:3d:d4:33:46:f1:6f:51:61:
+
+                                ---omitted---
+
+                                3d:3d:94:2a:b1:0b:41:0e:a0:fe:4d:88:65:6b:79:
+                                33:b4:d7
+                            Exponent: 65537 (0x10001)
+                    X509v3 extensions:
+                        X509v3 Key Usage: critical
+                            Certificate Sign, CRL Sign
+                        X509v3 Basic Constraints: critical
+                            CA:TRUE
+                        X509v3 Subject Key Identifier:
+                            ED:44:19:C0:D3:F0:06:8B:EE:A4:7B:BE:42:E7:26:54:C8:8E:36:76
+                Signature Algorithm: sha256WithRSAEncryption
+                     0d:ae:90:32:f6:a6:4b:7c:44:76:19:61:1e:27:28:cd:5e:54:
+                     ef:25:bc:e3:08:90:f9:29:d7:ae:68:08:e1:94:00:58:ef:2e:
+                    ---omitted---
+                     ec:00:37:5d:09:e5:4e:80:ef:fa:b1:5c:38:06:a5:1b:4a:e1:
+                     dc:38:2d:3c:dc:ab:1f:90:1a:d5:4a:9c:ee:d1:70:6c:cc:ee:
+                     f4:57:f8:18:ba:84:6e:87
+            -----BEGIN CERTIFICATE-----
+            MIIFYDCCA0igAwIBAgIQCgFCgAAAAUUjyES1AAAAAjANBgkqhkiG9w0BAQsFADBK
+            MQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MScwJQYDVQQDEx5JZGVu
+            ---omitted---
+            4iZZRHUe2XWJUc0QhJ1hYMtd+ZciTY6Y5uN/9lu7rs3KSoFrXgvzUeF0K+l+J6fZ
+            mUlO+KWA2yUPHGNiiskzZ2s8EIPGrd6ozRaOjfAHN3Gf8qv8QfXBi+wAN10J5U6A
+            7/qxXDgGpRtK4dw4LTzcqx+QGtVKnO7RcGzM7vRX+Bi6hG6H
+            -----END CERTIFICATE-----
+        </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Good work! Both, serial and CN are different.
+        Now we know that certificate that we need is not the same as the one in certificate store.
+        Let's import our certificate and add it to a list!<br>
+        Let's move file and change name!
+    </p>
+    <pre>
+            $ sudo mv testIdent.crt /usr/share/ca-certificates/mozilla/IdenTrust_Commercial_Root_CA_1.crt
+            [sudo] password for tetraining:
+            $ ll /usr/share/ca-certificates/mozilla/ | grep -i iden
+            -rw-rw-r-- 1 tetraining tetraining  1923 Nov 30 16:14 IdenTrust_Commercial_Root_CA_1.crt
+            -rw-r--r-- 1 root       root        1931 Jun  2 14:19 IdenTrust_Public_Sector_Root_CA_1.crt
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Great! Let's add certificate to the list.
+        Working folder for certificates is '/usr/share/ca-certificates/'. To add certificate that is in /usr/share/ca-certificates/mozilla/ we need to append
+        /mozilla/Certificatename.crt to the end of the list.
+        You can do it in multiple ways (up to you!):<br>
+        1. echo '/mozilla/IdenTrust_Commercial_Root_CA_1.crt' >> /etc/ca-certificates.conf<br>
+        2. You can edit file /usr/share/ca-certificates/ and add last line<br>
+        3. For lab purpose this certificate is uncommented (#), you can remove # (I used this method) <br>
+        Once we add certificate file and location to the list we need to run sudo update-ca-certificates to apply changes.
+    </p>
+    <pre>
+            $ grep -i iden /etc/ca-certificates.conf
+            #mozilla/IdenTrust_Commercial_Root_CA_1.crt
+            mozilla/IdenTrust_Public_Sector_Root_CA_1.crt
+
+            $ sudo vi /etc/ca-certificates.conf
+
+            $ grep -i iden /etc/ca-certificates.conf
+            mozilla/IdenTrust_Commercial_Root_CA_1.crt
+            mozilla/IdenTrust_Public_Sector_Root_CA_1.crt
+
+            # Apply changes
+            sudo update-ca-certificates
+            Updating certificates in /etc/ssl/certs...
+            W: /usr/share/ca-certificates/mozilla/GlobalSign_Root_CA.crt not found, but listed in /etc/ca-certificates.conf.
+            0 added, 0 removed; done.
+            Running hooks in /etc/ca-certificates/update.d...
+            done.
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Now lets check logs and make sure we can see agent in the cloud!
+        From logs perspective:<br>
+        - There is no more SSL error<br>
+        - we check DB for Agent Id<br>
+        - if ID is not found we reach out to registry.agt.thousandeyes.com, register, and store one to DB<br>
+    </p>
+       <pre>
+        2022-11-30 16:52:39.173 INFO  [b936bf00] [te.agent.ClusterMasterAdapter] {} Set clustermaster URL to https://registry.agt.thousandeyes.com
+        2022-11-30 16:53:46.163 INFO  [a4927f00] [te.agent.main] {} No agent id found, attempting to obtain one
+        2022-11-30 16:53:46.163 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} Attempting to get agent id from https://registry.agt.thousandeyes.com
+        2022-11-30 16:53:47.255 INFO  [a4927f00] [te.agent.status] {} ThousandEyes Agent registered with id 808326
+        2022-11-30 16:53:47.259 INFO  [a4927f00] [te.agent.main] {} Found id 808326
+       </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        Congrats! You have an agent in the portal! :) Ready to go down the rabbit whole? Click on next task!
+    </p>
+    <div class="row base-margin-top base-margin-bottom">
+        <div class="col-md-12 flex flex-right">
+            <div class="btn-group">
+                <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task5/">Previous Task</button>
+                <button class="btn btn--ghost" style="background-color:#495057;" onclick="window.location.href =/task6/">View Question</button>
+                <button class="btn btn--ghost" style="background-color:#00bceb; color:black;" onclick="window.location.href =/task7/">Next Task</button>
+            </div>
+        </div>
+    </div>
+<br>
 </body>
-</html>
+{% endblock %}
