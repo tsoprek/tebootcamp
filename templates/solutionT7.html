@@ -131,18 +131,75 @@
 <body class="cui" data-theme="dark">
 <h4 class="text-size-28 text-weight-300 panel panel--dark">Agent Status in UI</h4>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-        Schedule an HTTP Server test. Destination for test is https://google.com.
-        You can leave all other parameters on default. Observe test result and troubleshoot the issue.
-    </p>
-    <img src="/static/google_test.png" alt="Schedule a test" class="base-margin-center">
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-        As you can observe after a long time test has completed with no data.<br><br>
-     <img src="/static/NoData.png" alt="The test result" class="base-margin-center">
-    </p>
 
+        <br>We use:<br>
+        1. registry.agt.thousandeyes.com to obtain ID and register (only first time when ID is not available)<br>
+        2. sc1.agt.thousandeyes.com and c1.agt.thousandeyes.com for check-in, communication channel<br>
+        3. data1.agt.thousandeyes.com to submit test results<br>
+        Now that we know what we are looking for, lets check logs.
+    </p>
+    <pre>
+        2022-12-01 10:27:54.235 DEBUG [d8ff9700] [te.agent.DataSubmitter] {} Trying to get results for https://data1.agt.thousandeyes.com/mixed
+        2022-12-01 10:27:54.235 DEBUG [d8ff9700] [te.agent.DataSubmitter] {} Trying to get results for https://data1.agt.thousandeyes.com/screenshots
+        2022-12-01 10:27:54.236 DEBUG [d8ff9700] [te.agent.DataSubmitter] {} Trying to get results for https://data1.agt.thousandeyes.com/load
+        2022-12-01 10:27:54.236 DEBUG [d8ff9700] [te.agent.DataSubmitter] {} Committing 1 data points to https://data1.agt.thousandeyes.com/load
+        2022-12-01 10:27:54.236 DEBUG [d8ff9700] [te.agent.EndpointClient] {} Posting result to streaming endpoint https://data1.agt.thousandeyes.com
+    <span style="color: red">    2022-12-01 10:29:24.301 ERROR [d8ff9700] [te.agent.EndpointClient] {} Error posting results to https://data1.agt.thousandeyes.com: Couldn't connect to server</span>
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+        So there is an error related to data1 connection. Let's check if this is true and pinpoint the issue!
+    </p>
+    <pre>
+        $ nslookup data1.agt.thousandeyes.com
+        Server:		127.0.0.53
+        Address:	127.0.0.53#53
+
+        Non-authoritative answer:
+        data1.agt.thousandeyes.com	canonical name = a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com.
+        Name:	a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com
+        Address: 13.248.204.16
+        Name:	a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com
+        Address: 76.223.76.176
+        Name:	a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com
+        Address: 2600:9000:a71c:9fff:9fd2:e70e:cae7:1ab7
+        Name:	a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com
+        Address: 2600:9000:a402:3156:1a3c:ceb1:d30c:dabe
+
+
+        $ ping data1.agt.thousandeyes.com
+        PING a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com (76.223.76.176) 56(84) bytes of data.
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=1 ttl=114 time=8.66 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=2 ttl=114 time=9.10 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=3 ttl=114 time=10.1 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=4 ttl=114 time=9.13 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=5 ttl=114 time=9.67 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=6 ttl=114 time=9.70 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=7 ttl=114 time=13.7 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=8 ttl=114 time=9.36 ms
+        64 bytes from a0d9392c0c2df89c7.awsglobalaccelerator.com (76.223.76.176): icmp_seq=9 ttl=114 time=9.13 ms
+        ^C
+        --- a0d9392c0c2df89c7.dualstack.awsglobalaccelerator.com ping statistics ---
+        9 packets transmitted, 9 received, 0% packet loss, time 8014ms
+        rtt min/avg/max/mdev = 8.664/9.838/13.674/1.413 ms
+
+        $ sudo te-pathtrace -M tcp -p 443 data1.agt.thousandeyes.com
+        Trace from 192.168.2.20 to 13.248.204.16:443
+        1 *
+        2 *
+        3 *
+        4 *
+        5 *
+        6 *
+        7 *
+        8 * (latency=-1)
+    </pre>
+     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+     Same as in task 4 and task 6 we have and issue with communication over TCP port 443.
+     Hit FIX task to resolve the issue with firewall.
+     </p>
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT7">SOLUTION</a></button>
+            <button class="btn btn--danger--right" ><a style="color: black" href="/task8">TASK 8</a></button>
         </div>
     </div>
 </body>

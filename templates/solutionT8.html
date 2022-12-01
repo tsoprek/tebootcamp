@@ -129,16 +129,78 @@
 </div>
 <body class="cui" data-theme="dark">
 <h4 class="text-size-28 text-weight-300 panel panel--dark">Agent UI Issues</h4>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-        After resolving the issue with data1.agt.thousandeyes.com we can finally see some results!
-        Let's check which new issues we have!<br>
-        First think to notice is an SSL error. Hit details, troubleshoot and resolve the issue.
+    <p class="text-size-18 text-weight-400 base-margin-top text-justify">
+        Clicking on details, give us more information about what is wrong with SSL certificate.
+        It is pointing to missing Root certificate.<br>
     </p>
-    <img src="/static/SSL_error.png" alt="SSL Error">
+    <img src="/static/SSL_cert_error.png" alt="SSL Certificate Error">
+    <p class="text-size-18 text-weight-400 base-margin-top text-justify">
+        We can get certificate in many ways; from browser, from certificate authority page, openssl command, etc.
+        It is up to you how you want to download certificate. Let's first confirm that our certificate is not in the store.
+        I used openssl s_client command to get all certificates and did a grep for CN filed.
+        This is the name that we expect in our certificate store.<br>
+
+        As per below output we have 7 certificates that are for GlobaSign, so let's help our self with a script to pars
+        trough them and get CN filed for each of these.
+    </p>
+    <pre>
+
+        $ openssl s_client -connect google.com:443 | grep "CN = "
+        depth=2 C = US, O = Google Trust Services LLC, CN = GTS Root R1
+        verify error:num=20:unable to get local issuer certificate
+        verify return:1
+        depth=1 C = US, O = Google Trust Services LLC, CN = GTS CA 1C3
+        verify return:1
+        depth=0 CN = *.google.com
+        verify return:1
+         0 s:CN = *.google.com
+           i:C = US, O = Google Trust Services LLC, CN = GTS CA 1C3
+         1 s:C = US, O = Google Trust Services LLC, CN = GTS CA 1C3
+           i:C = US, O = Google Trust Services LLC, CN = GTS Root R1
+         2 s:C = US, O = Google Trust Services LLC, CN = GTS Root R1
+        <span style="color: green">i:C = BE, O = GlobalSign nv-sa, OU = Root CA, CN = GlobalSign Root CA</span>
+        subject=CN = *.google.com
+        issuer=C = US, O = Google Trust Services LLC, CN = GTS CA 1C3
+
+        $ cd /usr/share/ca-certificates/mozilla
+        $ ls | grep -i globalsign | wc -l
+        7
+        $ ls | grep -i globalsign
+        GlobalSign_ECC_Root_CA_-_R4.crt
+        GlobalSign_ECC_Root_CA_-_R5.crt
+        GlobalSign_Root_CA_-_R2.crt
+        GlobalSign_Root_CA_-_R3.crt
+        GlobalSign_Root_CA_-_R6.crt
+        GlobalSign_Root_E46.crt
+        GlobalSign_Root_R46.crt
+
+        $ ls | grep -i globalsign | while read  certificate; do openssl x509 -text -in $certificate; done | grep "CN = "
+        Issuer: OU = GlobalSign ECC Root CA - R4, O = GlobalSign, CN = GlobalSign
+        Subject: OU = GlobalSign ECC Root CA - R4, O = GlobalSign, CN = GlobalSign
+        Issuer: OU = GlobalSign ECC Root CA - R5, O = GlobalSign, CN = GlobalSign
+        Subject: OU = GlobalSign ECC Root CA - R5, O = GlobalSign, CN = GlobalSign
+        Issuer: OU = GlobalSign Root CA - R2, O = GlobalSign, CN = GlobalSign
+        Subject: OU = GlobalSign Root CA - R2, O = GlobalSign, CN = GlobalSign
+        Issuer: OU = GlobalSign Root CA - R3, O = GlobalSign, CN = GlobalSign
+        Subject: OU = GlobalSign Root CA - R3, O = GlobalSign, CN = GlobalSign
+        Issuer: OU = GlobalSign Root CA - R6, O = GlobalSign, CN = GlobalSign
+        Subject: OU = GlobalSign Root CA - R6, O = GlobalSign, CN = GlobalSign
+        Issuer: C = BE, O = GlobalSign nv-sa, CN = GlobalSign Root E46
+        Subject: C = BE, O = GlobalSign nv-sa, CN = GlobalSign Root E46
+        Issuer: C = BE, O = GlobalSign nv-sa, CN = GlobalSign Root R46
+        Subject: C = BE, O = GlobalSign nv-sa, CN = GlobalSign Root R46
+
+        # Let's filter this output to GTS Root R1 as we expect subject to GTS Root R1
+        $ ls | grep -i globalsign | while read  certificate; do openssl x509 -text -in $certificate; done | grep 'GTS Root R1'
+        $ ls | grep -i globalsign | while read  certificate; do openssl x509 -text -in $certificate; done | grep 'GTS Root R1' | wc -l
+        0
+    </pre>
+
+
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn--danger--right" ><a style="color: black" href="/solutionsT8">SOLUTION</a></button>
+            <button class="btn btn--danger--right" ><a style="color: black" href="/task9">TASK 9</a></button>
         </div>
-    </div>
+    </div><br>
 </body>
 {% endblock %}

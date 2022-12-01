@@ -129,8 +129,12 @@
         2022-11-30 12:33:18.107 INFO  [d7314f00] [te.agent.main] {} Sleeping for 30 seconds
     </pre>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-        From above logs we can see that there is an issue with CA certificate. This is at the same time next phase of forming a connection, SSL handshake.
-        Client Hello, Server Hello, Certificate exchange
+        From above logs we can see that there is an issue with CA certificate.
+        This is at the same time next phase, forming an SSL connection.<br>
+        Client Hello, Server Hello, Certificate exchange, Server hello done, Chippers Exchange...<br>
+        <span style="color: green">This is error which you would see
+        when there is a proxy and certificate that is not imported to enterprise agent.</span><br>
+
         As at this point we don't know which certificate is used we need to check this.
         We will use <span style="color: green">openssl s_client -connect</span>. In addition to this you can use an option -showcerts to view all certificates.
     </p>
@@ -269,14 +273,14 @@
               certificate MUST directly certify the one preceding it.
         </pre>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-        So server side has to send full certificate chain. CN or DN (subject name and alternative subject name) must match our URL.
+        So server side must send full certificate chain. CN or DN (subject name and alternative subject name) must match our URL.<br>
         Certificate chin is built using  'Subject Key ID' and 'Authority Key ID'.<br>
         Authority Key ID from identity certificate (first one in the chain) must match Subject Key ID in intermediate certificate.<br>
         Authority Key ID from intermediate certificate must match Subject Key ID in Root certificate.<br>
         Root certificate will be self-signed.<br>
         For end device to authenticate certificate it is enough that device has Root certificate.<br>
         We use Mozilla's CA Certificate Program for managing certificate store.
-        More info on <a href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/troubleshooting/installing-ca-certificates-on-enterprise-agents#red-hat-enterprise-linux-centos-and-oracle-linux">Installing CA certificate.</a><br>
+        More info on <a target="_blank" href="https://docs.thousandeyes.com/product-documentation/global-vantage-points/enterprise-agents/troubleshooting/installing-ca-certificates-on-enterprise-agents#red-hat-enterprise-linux-centos-and-oracle-linux">Installing CA certificate.</a><br>
         1. We store certificates in /usr/share/ca-certificates/mozilla.<br>
         2. We need to add certificate to list of certificates /etc/ca-certificates.conf.<br>
         Now that we know we need to have root certificate, let's check if certificate IdenTrust Commercial Root CA 1 is there.<br>
