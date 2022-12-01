@@ -66,7 +66,7 @@ for row in first_run:
             conn.commit()
             for tasks_id in range (11):
                 tasks_id=str(tasks_id)
-                add_new_task(tasks_id,)
+                add_new_task(tasks_id,'1')
         else:
             # print('You have been here before.')
             continue
