@@ -141,16 +141,16 @@ def home():
             sshconn='href=ssh://127.0.0.1'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp1':
-            sshconn = 'href=ssh://10.48.26.76:2317'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2317'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp2':
-            sshconn = 'href=ssh://10.48.26.76:2318'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2318'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp3':
-            sshconn = 'href=ssh://10.48.26.76:2319'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2319'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp4':
-            sshconn = 'href=ssh://10.48.26.76:2320'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2320'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         return render_template('home.html', task_status=task_status, sshconn=sshconn)
 
