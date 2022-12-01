@@ -1,10 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block head %}
+<div class="panel panel--dark">
+    <h1 class="display-3 flex flex-center" style="margin-top: 75px;"></h1>
+</div>
+<div class="row base-margin-top flex flex-center">
+    <div class="col-md-6">
+        <div class="steps">
+            <div class="step visited">
+                <div class="step__icon">
+                    <span class="icon-check"></span>
+                </div>
+                <div class="step__label">Instructions</div>
+            </div>
+            <div class="step visited">
+                <span class="step__icon">1</span>
+                <div class="step__label">TASK 1</div>
+            </div>
+            <div class="step visited">
+                <div class="step__icon">2</div>
+                <div class="step__label">TASK 2</div>
+            </div>
+            <div class="step visited">
+                <div class="step__icon">3</div>
+                <div class="step__label">TASK 3</div>
+            </div>
+            <div class="step visited">
+                <div class="step__icon">4</div>
+                <div class="step__label">TASK 4</div>
+            </div>
+            <div class="step active">
+                <div class="step__icon">5</div>
+                <div class="step__label">TASK 5</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">6</div>
+                <div class="step__label">TASK 6</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">7</div>
+                <div class="step__label">TASK 7</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">8</div>
+                <div class="step__label">TASK 8</div>
+            </div>
+            <div class="step">
+                <div class="step__icon">9</div>
+                <div class="step__label">TASK 9</div>
+            </div>
+
+            <div class="step">
+                <div class="step__icon">END</div>
+                <div class="step__label">TASK 10</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body%}
+    <div class="row">
+    <div class="col-md-2">
+        <ul id="vleft" class="tabs tabs--vertical">
+            <li id="vleft-1" class="tab">
+                <a tabindex="0" href="/">INSTRUCTIONS</a>
+            </li>
+            <li id="vleft-2" class="tab">
+                <a tabindex="0" href="/task1">TASK 1</a>
+            </li>
+            <li id="vleft-3" class="tab">
+                <a tabindex="0" href="/task2">TASK 2</a>
+            </li>
+            <li id="vleft-4" class="tab">
+                <a tabindex="0" href="/task3">TASK 3</a>
+            </li>
+            <li id="vleft-5" class="tab">
+                <a tabindex="0" href="/task4">TASK 4</a>
+            </li>
+            <li id="vleft-6" class="tab">
+                <a tabindex="0" href="/task5">TASK 5</a>
+            </li>
+            <li id="vleft-7" class="tab">
+                <a tabindex="0" href="/task6">TASK 6</a>
+            </li>
+            <li id="vleft-8" class="tab">
+                <a tabindex="0" href="/task7">TASK 7</a>
+            </li>
+            <li id="vleft-9" class="tab active">
+                <a tabindex="0" href="/task8">TASK 8</a>
+            </li>
+            <li id="vleft-10" class="tab">
+                <a tabindex="0" href="/task9">TASK 9</a>
+            </li>
+            <li id="vleft-11" class="tab">
+                <a tabindex="0" href="/task10">TASK 10</a>
+            </li>
+            <li id="vleft-12" class="tab">
+                <a tabindex="0">SOLUTIONS</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div id="vleft-content" class="tab-content">
+            <div id="vleft-1-content" class="tab-pane">
+                <p>INSTRUCTIONS</p>
+            </div>
+            <div id="vleft-2-content" class="tab-pane">
+                <p>TASK 1</p>
+            </div>
+            <div id="vleft-3-content" class="tab-pane">
+                <p>TASK 2</p>
+            </div>
+            <div id="vleft-4-content" class="tab-pane">
+                <p>TASK 3</p>
+            <div id="vleft-5-content" class="tab-pane">
+                <p>TASK 4</p>
+            <div id="vleft-6-content" class="tab-pane">
+                <p>TASK 5</p>
+            </div>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 6</p>
+            </div>
+            <div id="vleft-8-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-9-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 8</p>
+            </div>
+            <div id="vleft-10-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-11-content" class="tab-pane">
+                <p>TASK 10</p>
+            </div>
+            <div id="vleft-12-content" class="tab-pane">
+                <p>SOLUTIONS</p>
+            </div>
+        </div>
+    </div>
+</div>
+<body class="cui" data-theme="dark">
+<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent UI Issues</h4>
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">
+Diagnose any issues reported in TE UI for the agent Task 9
+</p>
 </body>
-</html>
+{% endblock %}
