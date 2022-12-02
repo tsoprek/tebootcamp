@@ -59,7 +59,7 @@
 {% endblock %}
 
 {% block body%}
-<div class="row">
+    <div class="row">
     <div class="col-md-2">
         <ul id="vleft" class="tabs tabs--vertical">
             <li id="vleft-1" class="tab">
@@ -121,19 +121,19 @@
             <div id="vleft-7-content" class="tab-pane">
                 <p>TASK 6</p>
             </div>
-            <div id="vleft-7-content" class="tab-pane">
+            <div id="vleft-8-content" class="tab-pane">
                 <p>TASK 7</p>
             </div>
-            <div id="vleft-7-content" class="tab-pane">
+            <div id="vleft-9-content" class="tab-pane">
                 <p>TASK 8</p>
             </div>
-            <div id="vleft-7-content" class="tab-pane active">
+            <div id="vleft-10-content" class="tab-pane active">
                 <p class="text-size-28 text-weight-300">TASK 9</p>
             </div>
-            <div id="vleft-7-content" class="tab-pane">
+            <div id="vleft-11-content" class="tab-pane">
                 <p>TASK 10</p>
             </div>
-            <div id="vleft-8-content" class="tab-pane">
+            <div id="vleft-12-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
         </div>
@@ -142,15 +142,316 @@
 <body class="cui" data-theme="dark">
 <h4 class="text-size-28 text-weight-300 panel panel--dark">Welcome to ThousandEyes TS Lab</h4>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-        After registration is completed we report to super controller which provides controller 1 url. We do regular check-in to controller 1.
-        Online status is based on regular check-in. If agent is offline the first thing to check is sc1.thousandeyes.com and c1.thousandeyes.com connectivity.
-        Same as with registry we use TCP port 443.
+    First let's validate that what we can see in portal is correct and that there is an NTP issue.
+    At the time of creating this, it is 12.05pm, Dec 02 2022. As we can see per below output we are two days behind.
+        This will be more difference at the time you run the lab.
     </p>
     <pre>
-        2022-11-30 16:53:47.260 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} Set clustermaster URL to https://sc1.thousandeyes.com
-        2022-11-30 16:53:47.260 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} Attempting to get controller assignment from https://sc1.thousandeyes.com
-        2022-11-30 16:53:48.178 INFO  [a4927f00] [te.agent.ClusterMasterAdapter] {} https://sc1.thousandeyes.com told us we should talk to controller c1.thousandeyes.com
+        $ date
+        Wed Nov 30 10:50:03 UTC 2022
     </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    NTP configuration is stored in /etc/ntp.conf.<br>
+    We also have some additional commands that can help us to troubleshoot, like ntpq and ntpd.
+    We can get list of configured NTP servers by inspecting ntpq output or configuration file.
+    In this example I use grep for pool as pre command output.<br>
+    Note that delay, jitter and offset are 0.000. Servers that have stratum 16 are invalid (st column).
+    Output of ntpq -c associations also states that these are rejected.
+    </p>
+    <pre>
+        $ ntpq -pn
+             remote           refid      st t when poll reach   delay   offset  jitter
+        ==============================================================================
+         0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         2.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         3.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000    0.000   0.000
+
+        $ grep pool /etc/ntp.conf
+        # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
+        pool 0.ubuntu.pool.ntp.org iburst
+        pool 1.ubuntu.pool.ntp.org iburst
+        pool 2.ubuntu.pool.ntp.org iburst
+        pool 3.ubuntu.pool.ntp.org iburst
+        pool ntp.ubuntu.com
+
+        # Bonus details :) You can get mrv (assid) from below command and inspect specific pool in details.
+        # This is very useful whe troubleshooting issue with windows NTP and dispersion.
+
+        $ ntpq -c association
+        ind assid status  conf reach auth condition  last_event cnt
+        ===========================================================
+          1 10586  8811   yes  none  none    reject    mobilize  1
+          2 10587  8811   yes  none  none    reject    mobilize  1
+          3 10588  8811   yes  none  none    reject    mobilize  1
+          4 10589  8811   yes  none  none    reject    mobilize  1
+          5 10590  8811   yes  none  none    reject    mobilize  1
+
+        $ ntpq -c 'mrv 10586 10586'
+        associd=10586 status=8811 conf, bcast, sel_reject, 1 event, mobilize,
+        srcadr=0.0.0.0, srcport=0, srchost="0.ubuntu.pool.ntp.org",
+        dstadr=0.0.0.0, dstport=0, leap=11, stratum=16, precision=-24,
+        rootdelay=0.000, rootdisp=0.000, refid=POOL, reftime=(no time),
+        rec=(no time), reach=000, unreach=0, hmode=3, pmode=0, hpoll=6, ppoll=10,
+        headway=41, flash=1400 peer_dist, peer_unreach, keyid=0, offset=0.000,
+        delay=0.000, dispersion=16000.000, jitter=0.000,
+        filtdelay=     0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00,
+        filtoffset=    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00,
+        filtdisp=   16000.0 16000.0 16000.0 16000.0 16000.0 16000.0 16000.0 16000.0
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Not that we have list of servers, let's test if we can update using any of these.
+    We will use ntpd command with option -d for debug.
+    </p>
+    <pre>
+        $ ntpd -d 0.ubuntu.pool.ntp.org
+        30 Nov 11:09:36 ntpd[1440129]: ntpd 4.2.8p12@1.3728-o (1): Starting
+        30 Nov 11:09:36 ntpd[1440129]: Command line: ntpd -d 0.ubuntu.pool.ntp.org
+        30 Nov 11:09:36 ntpd[1440129]: proto: precision = 0.085 usec (-23)
+       --- omitted output---
+        30 Nov 11:09:36 ntpd[1440129]: kernel reports TIME_ERROR: 0x6041: Clock Unsynchronized
+        event at 0 0.0.0.0 c012 02 freq_set kernel 25.473 PPM
+        event at 0 0.0.0.0 c016 06 restart
+        peer_name_resolved(0.ubuntu.pool.ntp.org) rescode 0
+        newpeer(84.245.9.254) found no existing and 0 other associations
+        newpeer(84.245.9.254) - ippeerlimit -1 ignored
+        key_expire: at 0 associd 37697
+        peer_clear: at 0 next 4 associd 37697 refid INIT
+        hack_restrict: op RESTRICT_FLAGS addr 84.245.9.254 mask 255.255.255.255 ippeerlimit -1 mflags 00004000 rflags 00000380
+        restrict_source: 84.245.9.254 host restriction added
+        event at 0 84.245.9.254 8011 81 mobilize assoc 37697
+        newpeer: 192.168.2.20->84.245.9.254 mode 3 vers 4 poll 6 10 flags 0x101 0x1 ttl 0 key 00000000
+        pool DNS lookup 0.ubuntu.pool.ntp.org started
+        auth_agekeys: at 1 keys 0 expired 0
+        pool DNS 0.ubuntu.pool.ntp.org completed
+        restrictions: looking up 154.51.12.220
+        hack_restrict: op RESTRICT_FLAGS addr 154.51.12.220 mask 255.255.255.255 ippeerlimit -1 mflags 00004000 rflags 00000380
+        restrict_source: 154.51.12.220 host restriction added
+        pool_xmit: at 1 192.168.2.20->154.51.12.220 pool
+        --- omitted output---
+        30 Nov 11:09:41 ntpd[1440129]: Soliciting pool server 45.137.101.154
+        pool DNS lookup ntp.ubuntu.com started
+        pool DNS ntp.ubuntu.com completed
+        restrictions: looking up 91.189.94.4
+        hack_restrict: op RESTRICT_FLAGS addr 91.189.94.4 mask 255.255.255.255 ippeerlimit -1 mflags 00004000 rflags 00000380
+        restrict_source: 91.189.94.4 host restriction added
+        pool_xmit: at 5 192.168.2.20->91.189.94.4 pool
+        30 Nov 11:09:42 ntpd[1440129]: Soliciting pool server 91.189.94.4
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    As per above output we can see outputs similar to 192.168.2.20->91.189.94.4 pool.
+    This tells us that we send packet to 91.189.94.4 pool, but we never see one coming back that should look like 192.168.2.20<-91.189.94.4 pool.
+    Seems like something is blocking NTP. We can validate that with traceroute (te-pathtrace doesn't support UDP).
+    </p>
+
+    <pre>
+        traceroute -U -p 123 0.ubuntu.pool.ntp.org
+        traceroute to 0.ubuntu.pool.ntp.org (162.159.200.1), 30 hops max, 60 byte packets
+         1  _gateway (192.168.2.99)  0.641 ms * *
+         2  lab-servers-gw1.cisco.com (10.48.90.65)  1.445 ms  1.418 ms  1.389 ms
+         3  dgm3-lab-gw1-po99.cisco.com (10.48.82.17)  1.235 ms  1.331 ms  3.772 ms
+         4  * * *
+         5  * * *
+        --- omitted output---
+        29  * * *
+        30  * * *
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Well done, now we know that NTP is blocked on 10.48.82.17 or device after it.
+    After reporting back to a customer that issue is probably with firewall alike device that is dropping UDP port 123,
+    the customer replied that these are not servers to be used. As per out topology, we should use 10.48.26.66 or 10.48.26.73!<br>
+    Let's check it that would work!
+    </p>
+
+        <pre>
+        $ ntpd -d 10.48.26.73
+        30 Nov 11:12:25 ntpd[1440199]: ntpd 4.2.8p12@1.3728-o (1): Starting
+        30 Nov 11:12:25 ntpd[1440199]: Command line: ntpd -d 10.48.26.73
+        30 Nov 11:12:25 ntpd[1440199]: proto: precision = 0.079 usec (-24)
+        Finished Parsing!!
+        ---omitted output---
+        restrict_source: 212.73.86.164 host restriction added
+        pool_xmit: at 4 192.168.2.20->212.73.86.164 pool
+        30 Nov 11:12:29 ntpd[1440199]: Soliciting pool server 212.73.86.164
+        pool DNS lookup 3.ubuntu.pool.ntp.org started
+        peer_xmit: at 5 192.168.2.20->10.48.26.73 mode 3 len 48 xmt 0xe731b91e.57f7d3f1
+        restrictions: looking up 10.48.26.73
+        receive: at 5 192.168.2.20<-10.48.26.73 ippeerlimit -1 mode 4 iflags up,broadcast,multicast restrict nomodify,noquery,notrap org 0xe731b91e.57f7d3f1 xmt 0xe7345fa5.dd2e6c24
+        receive: at 5 192.168.2.20<-10.48.26.73 mode 4/server:AM_PROCPKT len 48 org 0xe731b91e.57f7d3f1 xmt 0xe7345fa5.dd2e6c24 NOMAC
+        receive: MATCH_ASSOC dispatch: mode 4/server:AM_PROCPKT
+        filegen  2 3878795550
+        clock_filter: n 3 off 173703.519904 del 0.000920 dsp 1.951187 jit 0.006062
+        pool DNS 3.ubuntu.pool.ntp.org completed
+        restrictions: looking up 185.216.161.42
+        hack_restrict: op RESTRICT_FLAGS addr 185.216.161.42 mask 255.255.255.255 ippeerlimit -1 mflags 00004000 rflags 00000380
+        restrict_source: 185.216.161.42 host restriction added
+        pool_xmit: at 5 192.168.2.20->185.216.161.42 pool
+        30 Nov 11:12:30 ntpd[1440199]: Soliciting pool server 185.216.161.42
+        pool DNS lookup ntp.ubuntu.com started
+        pool DNS ntp.ubuntu.com completed
+        restrictions: looking up 91.189.94.4
+        hack_restrict: op RESTRICT_FLAGS addr 91.189.94.4 mask 255.255.255.255 ippeerlimit -1 mflags 00004000 rflags 00000380
+        restrict_source: 91.189.94.4 host restriction added
+        pool_xmit: at 6 192.168.2.20->91.189.94.4 pool
+        30 Nov 11:12:31 ntpd[1440199]: Soliciting pool server 91.189.94.4
+        peer_xmit: at 7 192.168.2.20->10.48.26.73 mode 3 len 48 xmt 0xe731b920.57f24f45
+        restrictions: looking up 10.48.26.73
+        <span style="color: green">receive: at 7 192.168.2.20<-10.48.26.73 ippeerlimit -1 mode 4 iflags up,broadcast,multicast restrict nomodify,noquery,notrap org 0xe731b920.57f24f45 xmt 0xe7345fa7.de3141c1
+        receive: at 7 192.168.2.20<-10.48.26.73 mode 4/server:AM_PROCPKT len 48 org 0xe731b920.57f24f45 xmt 0xe7345fa7.de3141c1 NOMAC</span>
+        receive: MATCH_ASSOC dispatch: mode 4/server:AM_PROCPKT
+        filegen  2 3878795552
+        clock_filter: n 4 off 173703.523791 del 0.001215 dsp 0.952169 jit 0.008095
+        select: combine offset 173703.523790689 jitter 0.000000000
+        event at 7 10.48.26.73 901a 8a sys_peer
+        clock_update: at 7 sample 7 associd 50201
+        event at 7 0.0.0.0 c617 07 panic_stop +173704 s; set clock manually within 1000 s.
+        event at 7 0.0.0.0 c61d 0d kern kernel time sync disabled
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Now we know that we get packets back from 10.48.26.73 let's change it in our configuration or hit disable task!<br>
+    If you cat /etc/ntp.conf you will notice that servers are already there, and it is only required to uncomment them!<br>
+    After making change to configuration file we also need to restart NTP service for the change to take effect.
+    </p>
+    <pre>
+        $ cat /etc/ntp.conf
+        # /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help
+
+        driftfile /var/lib/ntp/ntp.drift
+
+        # Leap seconds definition provided by tzdata
+        leapfile /usr/share/zoneinfo/leap-seconds.list
+
+        # Enable this if you want statistics to be logged.
+        #statsdir /var/log/ntpstats/
+
+        statistics loopstats peerstats clockstats
+        filegen loopstats file loopstats type day enable
+        filegen peerstats file peerstats type day enable
+        filegen clockstats file clockstats type day enable
+
+        # Specify one or more NTP servers.
+        <span style="color: red">#server 10.48.26.66
+        #server 10.48.26.73</span>
+
+        # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
+        # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
+        # more information.
+        pool 0.ubuntu.pool.ntp.org iburst
+        pool 1.ubuntu.pool.ntp.org iburst
+        pool 2.ubuntu.pool.ntp.org iburst
+        pool 3.ubuntu.pool.ntp.org iburst
+
+        ---omitted output---
+
+        # If you want to listen to time broadcasts on your local subnet, de-comment the
+        # next lines.  Please do this only if you trust everybody on the network!
+        #disable auth
+        #broadcastclient
+
+        # AFTER CHANGE:
+
+        $  grep server /etc/ntp.conf
+        # Specify one or more NTP servers.
+        <span style="color: green">server 10.48.26.66
+        server 10.48.26.73</span>
+
+        $ systemctl restart ntp
+
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    We need to validate our NTP sync! Keep in mind that NTP take some time to synchronize.
+    The larger difference in configured time, more time it will take to sync. You will notice that in first outputs
+    I still have reject on local servers, but few minutes later they are in sync and accepted. It is indicated with * for active and + for usable.
+    </p>
+    <pre>
+        $ ntpq -pn
+             remote           refid      st t when poll reach   delay   offset  jitter
+        ==============================================================================
+         10.48.26.66     10.62.145.72     3 u    6   64    7    0.881   -0.324   0.189
+         10.48.26.73     10.62.145.72     3 u   10   64    7    1.860  -12.319  11.080
+         0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         2.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         3.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000    0.000   0.000
+        root@bootcamp4:~/.bootcampLab# ntpq -c association
+        ind assid status  conf reach auth condition  last_event cnt
+        ===========================================================
+          1  8425  9014   yes   yes  none    reject   reachable  1
+          2  8426  9024   yes   yes  none    reject   reachable  2
+          3  8427  8811   yes  none  none    reject    mobilize  1
+          4  8428  8811   yes  none  none    reject    mobilize  1
+          5  8429  8811   yes  none  none    reject    mobilize  1
+          6  8430  8811   yes  none  none    reject    mobilize  1
+          7  8431  8811   yes  none  none    reject    mobilize  1
+
+        $ ntpq -c 'mrv 8425 8426'
+        associd=8425 status=9014 conf, reach, sel_reject, 1 event, reachable,
+        srcadr=10.48.26.66, srcport=123, dstadr=192.168.2.20, dstport=123,
+        leap=00, stratum=3, precision=-25, rootdelay=68.085, rootdisp=64.682,
+        refid=10.62.145.72,
+        reftime=e7346ca7.f59979b4  Fri, Dec  2 2022 12:23:03.959,
+        rec=e7346df3.3b87194b  Fri, Dec  2 2022 12:28:35.232, reach=007,
+        unreach=0, hmode=3, pmode=4, hpoll=6, ppoll=6, headway=57,
+        flash=400 peer_dist, keyid=0, offset=-0.324, delay=0.881,
+        dispersion=1938.006, jitter=0.189, xleave=0.055,
+        filtdelay=     0.88    0.92    1.10    0.00    0.00    0.00    0.00    0.00,
+        filtoffset=   -0.32   -0.12   -0.15    0.00    0.00    0.00    0.00    0.00,
+        filtdisp=      0.00    1.02    2.01 16000.0 16000.0 16000.0 16000.0 16000.0
+        associd=8426 status=9024 conf, reach, sel_reject, 2 events, reachable,
+        srcadr=10.48.26.73, srcport=123, dstadr=192.168.2.20, dstport=123,
+        leap=00, stratum=3, precision=-6, rootdelay=62.515, rootdisp=110.062,
+        refid=10.62.145.72,
+        reftime=e7346b5d.2c132d03  Fri, Dec  2 2022 12:17:33.172,
+        rec=e7346def.3b7fa82b  Fri, Dec  2 2022 12:28:31.232, reach=007,
+        unreach=0, hmode=3, pmode=4, hpoll=6, ppoll=6, headway=4,
+        flash=400 peer_dist, keyid=0, offset=-12.319, delay=1.860,
+        dispersion=1951.663, jitter=11.080, xleave=0.022,
+        filtdelay=     1.86    1.23    1.45    0.00    0.00    0.00    0.00    0.00,
+        filtoffset=  -12.32   -1.06   -1.43    0.00    0.00    0.00    0.00    0.00,
+        filtdisp=     15.63   16.62   17.58 16000.0 16000.0 16000.0 16000.0 16000.0
+        root@bootcamp4:~/.bootcampLab# ntpq -c 'mrv 8425 8425'
+        associd=8425 status=961a conf, reach, sel_sys.peer, 1 event, sys_peer,
+        srcadr=10.48.26.66, srcport=123, dstadr=192.168.2.20, dstport=123,
+        leap=00, stratum=3, precision=-25, rootdelay=68.085, rootdisp=64.758,
+        refid=10.62.145.72,
+        reftime=e7346ca7.f59979b4  Fri, Dec  2 2022 12:23:03.959,
+        rec=e7346e37.3b5ba6c9  Fri, Dec  2 2022 12:29:43.231, reach=017,
+        unreach=0, hmode=3, pmode=4, hpoll=6, ppoll=6, headway=87, flash=00 ok,
+        keyid=0, offset=-0.366, delay=1.063, dispersion=938.200, jitter=0.190,
+        xleave=0.102,
+        filtdelay=     1.06    0.88    0.92    1.10    0.00    0.00    0.00    0.00,
+        filtoffset=   -0.37   -0.32   -0.12   -0.15    0.00    0.00    0.00    0.00,
+        filtdisp=      0.00    1.02    2.04    3.03 16000.0 16000.0 16000.0 16000.0
+
+        $ ntpq -pn
+             remote           refid      st t when poll reach   delay   offset  jitter
+        ==============================================================================
+        *10.48.26.66     10.62.145.72     3 u   51   64   17    1.063   -0.366   0.190
+        +10.48.26.73     10.62.145.72     3 u   56   64   17    1.167   -1.702   6.143
+         0.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         1.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         2.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         3.ubuntu.pool.n .POOL.          16 p    -   64    0    0.000    0.000   0.000
+         ntp.ubuntu.com  .POOL.          16 p    -   64    0    0.000    0.000   0.000
+        root@bootcamp4:~/.bootcampLab# ntpq -c association
+        ind assid status  conf reach auth condition  last_event cnt
+        ===========================================================
+          1  8425  962a   yes   yes  none  sys.peer    sys_peer  2
+          2  8426  942a   yes   yes  none candidate    sys_peer  2
+          3  8427  8811   yes  none  none    reject    mobilize  1
+          4  8428  8811   yes  none  none    reject    mobilize  1
+          5  8429  8811   yes  none  none    reject    mobilize  1
+          6  8430  8811   yes  none  none    reject    mobilize  1
+          7  8431  8811   yes  none  none    reject    mobilize  1
+
+        $ date
+        Fri Dec  2 12:30:25 UTC 2022
+    </pre>
+    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    Well done! Let's move on the next one.
+    </p>
     <div class="row base-margin-top base-margin-bottom">
         <div class="col-md-12 flex flex-right">
             <div class="btn-group">
