@@ -176,29 +176,29 @@
     1. Check if DNS is working using command nslookup or dig.
     </p>
     <pre>
-    $ nslookup cisco.com
-    Server:		127.0.0.53
-    Address:	127.0.0.53#53
+        $ nslookup cisco.com
+        Server:		127.0.0.53
+        Address:	127.0.0.53#53
 
-    ** server can't find cisco.com: SERVFAIL
+        ** server can't find cisco.com: SERVFAIL
 
-    $ dig cisco.com
+        $ dig cisco.com
 
-    ; <<>> DiG 9.16.1-Ubuntu <<>> cisco.com
-    ;; global options: +cmd
-    ;; Got answer:
-    ;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 64721
-    ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+        ; <<>> DiG 9.16.1-Ubuntu <<>> cisco.com
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 64721
+        ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
 
-    ;; OPT PSEUDOSECTION:
-    ; EDNS: version: 0, flags:; udp: 65494
-    ;; QUESTION SECTION:
-    ;cisco.com.			IN	A
+        ;; OPT PSEUDOSECTION:
+        ; EDNS: version: 0, flags:; udp: 65494
+        ;; QUESTION SECTION:
+        ;cisco.com.			IN	A
 
-    ;; Query time: 1908 msec
-    ;; SERVER: 127.0.0.53#53(127.0.0.53)
-    ;; WHEN: Mon Nov 28 10:18:57 UTC 2022
-    ;; MSG SIZE  rcvd: 38
+        ;; Query time: 1908 msec
+        ;; SERVER: 127.0.0.53#53(127.0.0.53)
+        ;; WHEN: Mon Nov 28 10:18:57 UTC 2022
+        ;; MSG SIZE  rcvd: 38
 
     </pre>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
