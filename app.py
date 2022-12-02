@@ -108,7 +108,6 @@ def home():
         # Class way: Alternative method is to assign Tasks class to variable and use db.session to commit.
         # Example inline:
         #task_id=request.form['id'] #this part os same for class and def ## Removing as decision is to HC code per page
-        #task status was replaced with offbtn and on btn
         task_status=(request.form.get("task_status"))
         if task_status == '1':
             current_status='0'
