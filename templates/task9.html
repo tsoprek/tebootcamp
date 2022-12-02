@@ -145,6 +145,14 @@
 <p class="text-size-18 text-weight-300 base-margin-top text-justify">
 Diagnose any issues reported in TE UI for the agent Task 9
 </p>
+    <form method="POST" action="/task9">
+    <div class="flex flex-left" style="margin-top: 40px">
+        <div class="btn-group">
+            <button class="btn" id="on-btn" name="on-btn" value="0" onclick="taskson(1)">Enable task</button>
+            <button class="btn btn--secondary" id="off-btn" name="off-btn" value="1" onclick="tasksoff(0)">Disable task</button>
+        </div>
+    </div>
+    </form>
     <div class="flex flex-right">
         <button class="btn btn--secondary--right text-size-18">
             <a style="color: black" href="/solutionsT9" class="qtr-margin-top">SOLUTION</a>
