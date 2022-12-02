@@ -151,7 +151,14 @@
         As you can observe after a long time test has completed with no data.<br><br>
      <img src="/static/NoData.png" alt="The test result" class="base-margin-center">
     </p>
-
+    <form method="POST" action="/task7">
+    <div class="flex flex-left" style="margin-top: 40px">
+        <div class="btn-group">
+            <button class="btn" id="on-btn" name="on-btn" value="0" onclick="taskson(1)">Enable task</button>
+            <button class="btn btn--secondary" id="off-btn" name="off-btn" value="1" onclick="tasksoff(0)">Disable task</button>
+        </div>
+    </div>
+    </form>
     <div class="flex flex-right">
         <button class="btn btn--secondary--right text-size-18">
             <a style="color: black" href="/solutionsT7" class="qtr-margin-top">SOLUTION</a>
