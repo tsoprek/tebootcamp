@@ -6,5 +6,5 @@
 
 sort -u known_c1_ip | while read address;
 do
-iptables -D OUTPUT -d $addresses -p tcp --dport 443 -j DROP
+iptables -D OUTPUT -d $address -p tcp --dport 443 -j DROP
 done
