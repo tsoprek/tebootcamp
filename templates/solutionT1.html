@@ -162,9 +162,9 @@
         # systemctl status te-agent
          te-agent.service - ThousandEyes Agent
             Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
-            Active: activating (auto-restart) (Result: exit-code) since Fri 2022-11-25 15:03:26 UTC; 2s ago
+            <span style="color: red">Active: activating (auto-restart) (Result: exit-code) since Fri 2022-11-25 15:03:26 UTC; 2s ago
             Process: 1153267 ExecStart=/usr/local/bin/te-agent -C /etc/te-agent.cfg (code=exited, status=64)
-            Main PID: 1153267 (code=exited, status=64)
+                Main PID: 1153267 (code=exited, status=64)</span>
         </pre>
     </p>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">Second step restarting agent service. It will not help, but it is important to know how to restart service</p>
@@ -202,7 +202,7 @@
         # cat /etc/te-agent.cfg
         log-path=/var/log
         log-file-size=10
-        log-level=debug
+        <span style="color: red">log-level=debug</span>
         num-log-files=13
         account-token=k4qcugs8yvi8bmhulm9fflz4al0kt237
         proxy-type=DIRECT
@@ -266,6 +266,27 @@
         ~
         ~
         :wq!
+
+        $ cat /etc/te-agent.cfg
+        log-path=/var/log
+        log-file-size=10
+        <span style="color: green">log-level=DEBUG</span>
+        num-log-files=13
+        account-token=k4qcugs8yvi8bmhulm9fflz4al0kt237
+        proxy-type=DIRECT
+        proxy-location=
+        proxy-user=
+        proxy-pass=
+        proxy-auth-type=
+        proxy-bypass-list=
+        kdc-user=
+        kdc-pass=
+        kdc-realm=
+        kdc-host=
+        kdc-port=88
+        kerberos-whitelist=
+        kerberos-rdns=1
+        crash-reports=1
         </pre>
     </p>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
@@ -275,7 +296,7 @@
         # systemctl status te-agent
         ● te-agent.service - ThousandEyes Agent
              Loaded: loaded (/lib/systemd/system/te-agent.service; enabled; vendor preset: enabled)
-             Active: active (running) since Fri 2022-11-25 16:48:53 UTC; 6s ago
+        <span style="color: green">Active: active (running) since Fri 2022-11-25 16:48:53 UTC; 6s ago</span>
            Main PID: 1156088 (te-agent)
               Tasks: 10 (limit: 9406)
              Memory: 4.6M
