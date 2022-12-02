@@ -141,9 +141,25 @@
     </div>
 </div>
 <body class="cui" data-theme="dark">
-<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent UI Issues</h4>
+<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent NTP Issue</h4>
 <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-Diagnose any issues reported in TE UI for the agent Task 9
+    When viewing your Enterprise Agent's status on the page, you see a time synchronization warning, such as: Agent System Time: HH:MM UTC (XX minutes behind)
+    or Unable to determine agent system clock offset.
+    In order for ThousandEyes Agents to report data to the ThousandEyes data collector, the data must have correct timestamps.
+    If data timestamps are significantly out of sync with the ThousandEyes collector, the data will not be uploaded to the collector and the above error results.<br>
+    We can see this information in Agent's list, by hovering over status icon:
+</p>
+    <img src="/static/NTP_ag_list.png">
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    We can see it from agent details:
+</p>
+<img src="/static/NTP_ag_details.png">
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    We can see it from notifications:
+</p>
+<img src="/static/NTP_notifications.png">
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">
+    We need to fix this for data consistency. Diagnose and provide prove in terms of logs and commands what is the issue with the NTP.
 </p>
     <form method="POST" action="/task9">
     <div class="flex flex-left" style="margin-top: 40px">
@@ -158,6 +174,6 @@ Diagnose any issues reported in TE UI for the agent Task 9
             <a style="color: black" href="/solutionsT9" class="qtr-margin-top">SOLUTION</a>
             <span class="icon-arrow-right-tail text-size-18 text-weight-300 base-margin-center text-justify qtr-margin-bottom"/>
         </button>
-    <div>
+    <div><br>
 </body>
 {% endblock %}
