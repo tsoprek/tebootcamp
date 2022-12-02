@@ -5,3 +5,6 @@
 ./fixID.sh
 ./fixTestSSL.sh
 ./fixCAcert.sh
+./registryAccept.sh
+./c1Accept.sh
+./dataAccept.sh
