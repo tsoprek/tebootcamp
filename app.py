@@ -5,14 +5,14 @@ import sqlite3
 import os
 import socket
 
-# Definition for GET request to get status of task
-def get_task_status(taskID):
-    conn = sqlite3.connect('tasks.db')
-    cursor = conn.cursor()
-    task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
-    cursor.close()
-    conn.close()
-    return task_status
+# Definition for GET request to get status of task >>> TO BE DELETED
+# def get_task_status(taskID):
+#     conn = sqlite3.connect('tasks.db')
+#     cursor = conn.cursor()
+#     task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
+#     cursor.close()
+#     conn.close()
+#     return task_status
 
 # Definition for POST request to update status of task
 def update_task_status(taskID, status):
@@ -27,15 +27,23 @@ def update_task_status(taskID, status):
 def add_new_task(taskID, status):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO tasks VALUES (?, ?)', (taskID, status,))
+    cursor.execute('INSERT OR IGNORE INTO tasks VALUES (?, ?)', (taskID, status,))
     conn.commit()
     cursor.close()
     conn.close()
 
-def update_all_tasks_status(new_status, current_status):
+def enable_all_tasks():
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('UPDATE tasks SET status = ?  WHERE status = ?', (new_status, current_status))
+    cursor.execute('UPDATE tasks SET status = 1  WHERE status = 0')
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def disable_all_tasks():
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    cursor.execute('UPDATE tasks SET status = 0  WHERE status = 1')
     conn.commit()
     cursor.close()
     conn.close()
@@ -44,34 +52,23 @@ def update_all_tasks_status(new_status, current_status):
 app = Flask(__name__)
 tasks_db=('tasks.db') #Flask DB config
 
-# SQLite check if this is first run. If first run create table with tasks.
-
+# Create tasks table if not exist
 conn=sqlite3.connect('tasks.db')
-first_run=conn.execute("SELECT status FROM first_run WHERE ID=1").fetchall()
-for row in first_run:
-    for i in row:
-        first_run=i
-        # print(first_run)
-        # First run is expected to have ID 1 and status 0
-        if first_run == 0:
-            print('This is first run')
-            conn.execute("""
+conn.execute("""
             CREATE TABLE IF NOT EXISTS tasks ( 
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             status INTEGER)
             """)
-            cursor=conn.cursor()
-            cursor.execute('UPDATE first_run SET status=1 WHERE id=1;')
-            cursor.close()
-            conn.commit()
-            for tasks_id in range (11):
-                tasks_id=str(tasks_id)
-                add_new_task(tasks_id,'1')
-            os.system('./breakLab.sh')
-        else:
-            # print('You have been here before.')
-            continue
-conn.close()
+cursor=conn.cursor()
+cursor.execute('UPDATE first_run SET status=1 WHERE id=1;')
+cursor.close()
+conn.commit()
+
+for tasks_id in range (11):
+    tasks_id = str(tasks_id)
+    add_new_task(tasks_id,'1')
+    enable_all_tasks()
+os.system('./breakLab.sh')
 
 # SQLite flask configuration
 # This is redundant as above definitions exist
@@ -79,23 +76,6 @@ conn.close()
 
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///tasks.db'
 db = SQLAlchemy(app)
-
-# class FirstRun(db.Model):
-#     status= db.Column(db.Integer, primary_key=True, default=0)
-#
-#     def __init__(self,status):
-#         self.status = status
-#
-# class Tasks(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     status= db.Column(db.Integer, default=0)
-#
-#     def __init__(self,id,status):
-#         self.id = id
-#         self.status = status
-#
-#     def __repr__(self):
-#         return '<status %r>' % self.status
 
 
 # Flask routes
@@ -110,13 +90,11 @@ def home():
         # Example inline:
         task_status=(request.form.get("task_status"))
         if task_status == '1':
-            current_status='0'
-            update_all_tasks_status(task_status, current_status)
+            enable_all_tasks()
             os.system('./breakLab.sh')
             print('Breaking LAB')
         elif task_status == '0':
-            current_status = '1'
-            update_all_tasks_status(task_status, current_status)
+            disable_all_tasks()
             os.system('./fixLab.sh')
             print('Fixing LAB')
         return redirect('/')
