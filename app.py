@@ -67,6 +67,7 @@ for row in first_run:
             for tasks_id in range (11):
                 tasks_id=str(tasks_id)
                 add_new_task(tasks_id,'1')
+            os.system('./breakLab.sh')
         else:
             # print('You have been here before.')
             continue
@@ -107,17 +108,16 @@ def home():
 
         # Class way: Alternative method is to assign Tasks class to variable and use db.session to commit.
         # Example inline:
-        #task_id=request.form['id'] #this part os same for class and def ## Removing as decision is to HC code per page
         task_status=(request.form.get("task_status"))
         if task_status == '1':
             current_status='0'
             update_all_tasks_status(task_status, current_status)
-            # os.system('./breakLab.sh')
+            os.system('./breakLab.sh')
             print('Breaking LAB')
         elif task_status == '0':
             current_status = '1'
             update_all_tasks_status(task_status, current_status)
-            # os.system('./fixLab.sh')
+            os.system('./fixLab.sh')
             print('Fixing LAB')
         return redirect('/')
     elif request.method == 'GET':
@@ -165,7 +165,7 @@ def task2():
         if task_status == '0':
             os.system('./fixID.sh')
         elif task_status == '1':
-            os.system('./fixID.sh')
+            os.system('./breakID.sh')
         return redirect('/task2/')
     elif request.method == 'GET':
         return render_template('task2.html')
@@ -238,9 +238,9 @@ def task7():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('./c1Accept.sh')
+            os.system('./dataAccept.sh')
         elif task_status == '1':
-            os.system('./c1Drop.sh')
+            os.system('./dataDrop.sh')
         return redirect('/task7/')
     elif request.method == 'GET':
         return render_template('task7.html')
@@ -253,9 +253,9 @@ def task8():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('./c1Accept.sh')
+            os.system('./fixTestSSL.sh')
         elif task_status == '1':
-            os.system('./c1Drop.sh')
+            os.system('./breakTestSSL.sh')
         return redirect('/task8/')
     elif request.method == 'GET':
         return render_template('task8.html')
@@ -268,9 +268,9 @@ def task9():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('./c1Accept.sh')
+            os.system('./fixNTP.sh')
         elif task_status == '1':
-            os.system('./c1Drop.sh')
+            os.system('./breakNTP.sh')
         return redirect('/task9/')
     elif request.method == 'GET':
         return render_template('task9.html')
@@ -283,9 +283,11 @@ def task10():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('./c1Accept.sh')
+            # os.system('./c1Accept.sh')
+            print('Work in progress!')
         elif task_status == '1':
-            os.system('./c1Drop.sh')
+            # os.system('./c1Drop.sh')
+            print('Work in progress!')
         return redirect('/task10/')
     elif request.method == 'GET':
         return render_template('task10.html')
