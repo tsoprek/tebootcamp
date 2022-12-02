@@ -66,7 +66,7 @@ for row in first_run:
             conn.commit()
             for tasks_id in range (11):
                 tasks_id=str(tasks_id)
-                add_new_task(tasks_id,)
+                add_new_task(tasks_id,'1')
         else:
             # print('You have been here before.')
             continue
@@ -112,18 +112,18 @@ def home():
         task_status=(request.form.get("task_status"))
         # Instead below update_task method we can do:
         #  task_status = Task(status=task_status)
-
+        print(task_status,type(task_status))
         # def way: We update db with status and run .sh script
         if task_status == '1':
-            new_status='1'
             current_status='0'
-            update_all_tasks_status(new_status, current_status)
+            update=update_all_tasks_status(task_status, current_status)
             # os.system('./breakLab.sh')
+            print(update)
             print('Breaking LAB')
         elif task_status == '0':
-            new_status = '0'
             current_status = '1'
-            update_all_tasks_status(new_status, current_status)
+            update_all_tasks_status(task_status, current_status)
+            print(update)
             # os.system('./fixLab.sh')
             print('Fixing LAB')
         # Class way of passing and committing data to db:
@@ -134,23 +134,21 @@ def home():
     elif request.method == 'GET':
         task_status = get_task_status('0')
         host=socket.gethostname()
-        print(host, 'Type : ', type(host))
-        host=str(host)
         sshconn='10.48.26.76:2317'
         if host in 'TSOPREK-M-C25E':
             sshconn='href=ssh://127.0.0.1'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp1':
-            sshconn = 'href=ssh://10.48.26.76:2317'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2317'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp2':
-            sshconn = 'href=ssh://10.48.26.76:2318'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2318'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp3':
-            sshconn = 'href=ssh://10.48.26.76:2319'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2319'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         elif host == 'bootcamp4':
-            sshconn = 'href=ssh://10.48.26.76:2320'
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2320'
             return render_template('home.html', task_status=task_status, sshconn=sshconn)
         return render_template('home.html', task_status=task_status, sshconn=sshconn)
 
