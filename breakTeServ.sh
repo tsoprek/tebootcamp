@@ -15,6 +15,7 @@ if grep DEBUG /etc/te-agent.cfg;
   sed -i 's/DEBUG/debug/g' /etc/te-agent.cfg
   echo 'Starting service'
   systemctl start te-agent
+  sleep 2
 elif grep debug /etc/te-agent.cfg;
   then
   echo 'Log level is debug, restarting service.'
