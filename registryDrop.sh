@@ -1,6 +1,6 @@
 #!/bin/bash
-if dig +short registry.agt.thousandeyes.com |grep -v thousandeyes.com;
-  then dig +short registry.agt.thousandeyes.com | grep -v '.com' |  while read address;
+if dig +short registry.agt.thousandeyes.com | grep -v '.com';
+  then dig +short registry.agt.thousandeyes.com | grep -Ev '.com|timed' |  while read address;
   do
         if ! grep $address known_registry_ip;
         then
@@ -10,7 +10,7 @@ if dig +short registry.agt.thousandeyes.com |grep -v thousandeyes.com;
           echo 'Address already in known_registry_ip'
         fi
 
-	if ! iptables -S | grep $address;
+	      if ! iptables -S | grep $address;
         then
           iptables -A OUTPUT -d $address -p tcp --dport 443 -j DROP
           echo 'Address added to iptables'
