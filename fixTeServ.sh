@@ -1,11 +1,11 @@
 #!/bin/bash
 if grep debug /etc/te-agent.cfg;
   then
-
   if systemctl status te-agent;
     then systemctl stop te-agent
     echo 'Service is running.'
     echo 'Stopping service'
+    sleep 2
   fi
   echo 'Fixing config file'
   sed -i 's/debug/DEBUG/g' /etc/te-agent.cfg
