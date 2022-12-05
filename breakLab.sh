@@ -2,7 +2,7 @@
 ./c1Drop.sh
 ./dataDrop.sh
 ./breakID.sh
-sllep 1
+sleep 2
 ./breakTeServ.sh
 ./breakCAcert.sh
 ./breakTestSSL.sh

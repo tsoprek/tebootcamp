@@ -1,5 +1,5 @@
 #!/bin/bash
-if dig +short registry.agt.thousandeyes.com | grep -v '.com';
+if dig +short registry.agt.thousandeyes.com | grep -Ev '.com|timed';
   then dig +short registry.agt.thousandeyes.com | grep -Ev '.com|timed' |  while read address;
   do
         if ! grep $address known_registry_ip;
