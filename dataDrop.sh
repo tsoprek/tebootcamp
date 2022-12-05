@@ -1,6 +1,6 @@
 #!/bin/bash
 if dig +short data1.agt.thousandeyes.com |grep -v thousandeyes.com;
-  then dig +short data1.agt.thousandeyes.com |grep -v thousandeyes.com |  while read address;
+  then dig +short data1.agt.thousandeyes.com |grep -v .com |  while read address;
   do
         if ! grep $address known_data_ip;
         then
