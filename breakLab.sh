@@ -6,7 +6,7 @@
 ./registryDrop.sh
 ./c1Drop.sh
 ./dataDrop.sh
-sleep 5
+sleep 10
 ./breakDNS.sh
 > /var/log/te-agent.log
 
