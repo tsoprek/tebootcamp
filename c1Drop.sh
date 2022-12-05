@@ -1,6 +1,6 @@
 #!/bin/bash
-if dig +short c1.thousandeyes.com |grep -v thousandeyes.com;
-  then dig +short registry.agt.thousandeyes.com |grep -v thousandeyes.com |  while read address;
+if dig +short c1.thousandeyes.com |grep thousandeyes-v .com;
+  then dig +short registry.agt.thousandeyes.com |grep -v .com |  while read address;
   do
         if ! grep $address known_c1_ip;
         then
