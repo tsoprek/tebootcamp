@@ -6,13 +6,13 @@ import os
 import socket
 
 # Definition for GET request to get status of task >>> TO BE DELETED
-# def get_task_status(taskID):
-#     conn = sqlite3.connect('tasks.db')
-#     cursor = conn.cursor()
-#     task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
-#     cursor.close()
-#     conn.close()
-#     return task_status
+def get_task_status(taskID):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
+    cursor.close()
+    conn.close()
+    return (str(task_status[0][0]))
 
 # Definition for POST request to update status of task
 def update_task_status(taskID, status):
@@ -54,21 +54,28 @@ tasks_db=('tasks.db') #Flask DB config
 
 # Create tasks table if not exist
 conn=sqlite3.connect('tasks.db')
+cursor=conn.cursor()
 conn.execute("""
             CREATE TABLE IF NOT EXISTS tasks ( 
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             status INTEGER)
             """)
-cursor=conn.cursor()
-cursor.execute('UPDATE first_run SET status=1 WHERE id=1;')
+# cursor.execute('UPDATE first_run SET status=1 WHERE id=1;')
+# first_run=
 cursor.close()
 conn.commit()
 
-for tasks_id in range (11):
-    tasks_id = str(tasks_id)
-    add_new_task(tasks_id,'1')
-    enable_all_tasks()
-os.system('./breakLab.sh')
+total_tasks = 11
+master_task=get_task_status('0')
+if master_task == '1' :
+    for tasks_id in range (total_tasks):
+        tasks_id = str(tasks_id)
+        add_new_task(tasks_id,'1')
+        enable_all_tasks()
+    dns_task=get_task_status('3')
+    if dns_task == '1':
+        os.system('./FixDNS.sh')
+        os.system('./breakLab.sh')
 
 # SQLite flask configuration
 # This is redundant as above definitions exist
@@ -127,11 +134,20 @@ def task1():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixTeServ.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./breakTeServ.sh')
         return redirect('/task1/')
     elif request.method == 'GET':
-        return render_template('task1.html')
+        task_status=get_task_status(task_id)
+        if task_status == '1':
+            status='ENABLED'
+            return render_template('task1.html', status=status)
+        elif task_status == '0':
+            status='DISABLED'
+            return render_template('task1.html', status=status)
 
 @app.route('/task2/', methods=['POST','GET'])
 def task2():
@@ -142,6 +158,9 @@ def task2():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixID.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./breakID.sh')
         return redirect('/task2/')
@@ -157,6 +176,9 @@ def task3():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixDNS.sh')
+            master_task = get_task_status('0')
+            if master_task == '1':
+                update_task_status('0', '0')
         elif task_status == '1':
             os.system('./breakDNS.sh')
         return redirect('/task3/')
@@ -172,6 +194,9 @@ def task4():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./registryAccept.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./registryDrop.sh')
         return redirect('/task4/')
@@ -187,6 +212,9 @@ def task5():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixCAcert.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./breakCAcert.sh')
         return redirect('/task5/')
@@ -202,6 +230,9 @@ def task6():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./c1Accept.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./c1Drop.sh')
         return redirect('/task6/')
@@ -217,6 +248,9 @@ def task7():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./dataAccept.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./dataDrop.sh')
         return redirect('/task7/')
@@ -232,6 +266,9 @@ def task8():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixTestSSL.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./breakTestSSL.sh')
         return redirect('/task8/')
@@ -247,6 +284,9 @@ def task9():
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixNTP.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             os.system('./breakNTP.sh')
         return redirect('/task9/')
@@ -263,6 +303,9 @@ def task10():
         if task_status == '0':
             # os.system('./c1Accept.sh')
             print('Work in progress!')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
         elif task_status == '1':
             # os.system('./c1Drop.sh')
             print('Work in progress!')
