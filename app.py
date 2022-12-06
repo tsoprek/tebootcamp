@@ -48,6 +48,17 @@ def disable_all_tasks():
     cursor.close()
     conn.close()
 
+def return_status(task_id):
+    task_status=get_task_status(task_id)
+    if task_status == '0':
+        status='DISABLED'
+        return status
+    elif task_status == '1':
+        status='ENABLED'
+        return status
+    else:
+        print('Failed to get task status!')
+
 # Flask init
 app = Flask(__name__)
 tasks_db=('tasks.db') #Flask DB config
@@ -65,15 +76,16 @@ conn.commit()
 
 total_tasks = 11
 master_task=get_task_status('0')
-if master_task == '1' :
+if master_task == '1':
     for tasks_id in range (total_tasks):
         tasks_id = str(tasks_id)
         add_new_task(tasks_id,'1')
-        enable_all_tasks()
     dns_task=get_task_status('3')
     if dns_task == '1':
+        enable_all_tasks()
         os.system('./fixDNS.sh')
         os.system('./breakLab.sh')
+
 
 # SQLite flask configuration
 # This is redundant as above definitions exist
@@ -86,6 +98,7 @@ db = SQLAlchemy(app)
 # Flask routes
 @app.route('/', methods=['POST','GET'])
 def home():
+    task_id='0'
     if request.method == 'POST':
         # We run scrip to clear all tasks as HOME page should have button to clear or enable all tasks.
         # POST should send id and status. Task ID on home page must be 0 and it should be used
@@ -96,6 +109,7 @@ def home():
         task_status=(request.form.get("task_status"))
         if task_status == '1':
             enable_all_tasks()
+            os.system('./fixDNS.sh')
             os.system('./breakLab.sh')
             print('Breaking LAB')
         elif task_status == '0':
@@ -105,30 +119,23 @@ def home():
         return redirect('/')
     elif request.method == 'GET':
         host=socket.gethostname()
-        sshconn='10.48.26.76:2317'
-        if host in 'TSOPREK-M-C25E':
-            sshconn='href=ssh://127.0.0.1'
-            return render_template('home.html', sshconn=sshconn)
-        elif host == 'bootcamp1':
+        sshconn='127.0.0.1'
+        status = return_status(task_id)
+        if host == 'bootcamp1':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2317'
-            return render_template('home.html', sshconn=sshconn)
         elif host == 'bootcamp2':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2318'
-            return render_template('home.html', sshconn=sshconn)
         elif host == 'bootcamp3':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2319'
-            return render_template('home.html', sshconn=sshconn)
         elif host == 'bootcamp4':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2320'
-            return render_template('home.html', sshconn=sshconn)
-        return render_template('home.html', sshconn=sshconn)
+        return render_template('home.html', sshconn=sshconn, status=status)
 
 @app.route('/task1/', methods=['POST','GET'])
 def task1():
     task_id = '1'
     if request.method == 'POST':
         task_status = request.form.get('task_status')
-        print (task_status, type(task_status))
         update_task_status(task_id, task_status)
         if task_status == '0':
             os.system('./fixTeServ.sh')
@@ -139,13 +146,8 @@ def task1():
             os.system('./breakTeServ.sh')
         return redirect('/task1/')
     elif request.method == 'GET':
-        task_status=get_task_status(task_id)
-        if task_status == '1':
-            status='ENABLED'
-            return render_template('task1.html', status=status)
-        elif task_status == '0':
-            status='DISABLED'
-            return render_template('task1.html', status=status)
+        status = return_status(task_id)
+        return render_template('task1.html', status=status)
 
 @app.route('/task2/', methods=['POST','GET'])
 def task2():
@@ -163,7 +165,8 @@ def task2():
             os.system('./breakID.sh')
         return redirect('/task2/')
     elif request.method == 'GET':
-        return render_template('task2.html')
+        status = return_status(task_id)
+        return render_template('task2.html', status=status)
 
 @app.route('/task3/', methods=['POST','GET'])
 def task3():
@@ -181,7 +184,8 @@ def task3():
             os.system('./breakDNS.sh')
         return redirect('/task3/')
     elif request.method == 'GET':
-        return render_template('task3.html', )
+        status = return_status(task_id)
+        return render_template('task3.html', status=status)
 
 @app.route('/task4/', methods=['POST','GET'])
 def task4():
@@ -199,7 +203,8 @@ def task4():
             os.system('./registryDrop.sh')
         return redirect('/task4/')
     elif request.method == 'GET':
-        return render_template('task4.html')
+        status = return_status(task_id)
+        return render_template('task4.html', status=status)
 
 @app.route('/task5/', methods=['POST','GET'])
 def task5():
@@ -217,7 +222,8 @@ def task5():
             os.system('./breakCAcert.sh')
         return redirect('/task5/')
     elif request.method == 'GET':
-        return render_template('task5.html')
+        status = return_status(task_id)
+        return render_template('task5.html', status=status)
 
 @app.route('/task6/', methods=['POST','GET'])
 def task6():
@@ -235,7 +241,8 @@ def task6():
             os.system('./c1Drop.sh')
         return redirect('/task6/')
     elif request.method == 'GET':
-        return render_template('task6.html')
+        status = return_status(task_id)
+        return render_template('task6.html', status=status)
 
 @app.route('/task7/', methods=['POST','GET'])
 def task7():
@@ -253,7 +260,8 @@ def task7():
             os.system('./dataDrop.sh')
         return redirect('/task7/')
     elif request.method == 'GET':
-        return render_template('task7.html')
+        status = return_status(task_id)
+        return render_template('task7.html', status=status)
 
 @app.route('/task8/', methods=['POST','GET'])
 def task8():
@@ -271,7 +279,8 @@ def task8():
             os.system('./breakTestSSL.sh')
         return redirect('/task8/')
     elif request.method == 'GET':
-        return render_template('task8.html')
+        status = return_status(task_id)
+        return render_template('task8.html', status=status)
 
 @app.route('/task9/', methods=['POST','GET'])
 def task9():
@@ -289,7 +298,8 @@ def task9():
             os.system('./breakNTP.sh')
         return redirect('/task9/')
     elif request.method == 'GET':
-        return render_template('task9.html')
+        status = return_status(task_id)
+        return render_template('task9.html', status=status)
 
 @app.route('/task10/', methods=['POST','GET'])
 def task10():
@@ -309,7 +319,8 @@ def task10():
             print('Work in progress!')
         return redirect('/task10/')
     elif request.method == 'GET':
-        return render_template('task10.html')
+        status = return_status(task_id)
+        return render_template('task10.html', status=status)
 
 @app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
