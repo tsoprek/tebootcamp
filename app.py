@@ -60,8 +60,6 @@ conn.execute("""
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             status INTEGER)
             """)
-# cursor.execute('UPDATE first_run SET status=1 WHERE id=1;')
-# first_run=
 cursor.close()
 conn.commit()
 
@@ -74,7 +72,7 @@ if master_task == '1' :
         enable_all_tasks()
     dns_task=get_task_status('3')
     if dns_task == '1':
-        os.system('./FixDNS.sh')
+        os.system('./fixDNS.sh')
         os.system('./breakLab.sh')
 
 # SQLite flask configuration
