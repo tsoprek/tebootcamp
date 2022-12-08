@@ -22,7 +22,7 @@
     {% endblock head %}
 </head>
 
-<body>
+<body class="cui" data-theme="dark">
     <header class="header qtr-padding-top">
         <div class="container">
             <div class="header-panels">
@@ -50,6 +50,7 @@
         </div>
     </header>
 {% block body %}
+
 {% endblock body %}
 
 <!--<footer class="footer" style = "position:fixed; bottom: 0; float: left;width: 100%;">-->
@@ -66,4 +67,12 @@
 <!--        </ul>-->
 <!--    </div>-->
 <!--</footer>-->
+    <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-3 base-margin-bottom --cui-panel-border-radius-25" style="border-radius: 25px;">
+        <div class="panel panel--info text-center" style="border-radius: 25px; width: 230px;">
+            <span class="text-size-16 text-weight-300 base-margin-top text-center">Task status:</span>
+            <span class="text-size-16 text-weight-300 base-margin-top text-center"> {{ status }}</span>
+        </div>
+    </div>
+    </div>
 </body>
