@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! grep 'auto-updates' /etc/te-agent.cfg;
-        then echo 'auto-updates=0' > /etc/te-agent.cfg
+        then echo 'auto-updates=0' >> /etc/te-agent.cfg
         echo 'No auto updates in cfg, adding auto-updates=0'
 elif grep 'auto-updates=0' /etc/te-agent.cfg;
 	then
