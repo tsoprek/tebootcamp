@@ -8,3 +8,4 @@
 ./registryAccept.sh
 ./c1Accept.sh
 ./dataAccept.sh
+./fixRepo.sh
