@@ -59,6 +59,19 @@ def return_status(task_id):
     else:
         print('Failed to get task status!')
 
+def task_validation_status(return_status):
+    if return_status == 0:
+        status='RESOLVED'
+        return status
+    elif return_status == 1:
+        status='UNRESOLVED'
+        return status
+    elif return_status == 2:
+        status = "PARTIALLY"
+        return status
+    else:
+        print('Failed to get task status!')
+
 # Flask init
 app = Flask(__name__)
 tasks_db=('tasks.db') #Flask DB config
@@ -309,14 +322,12 @@ def task10():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            # os.system('./c1Accept.sh')
-            print('Work in progress!')
+            os.system('./fixRepo.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            # os.system('./c1Drop.sh')
-            print('Work in progress!')
+            os.system('./breakRepo.sh')
         return redirect('/task10/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -324,7 +335,10 @@ def task10():
 
 @app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
-    return render_template('solutionT1.html')
+    return_status=os.system('task1Validation.sh')
+    print(return_status)
+    status = task_validation_status(return_status)
+    return render_template('solutionT1.html', status=status)
 
 @app.route('/solutionsT2', methods=['POST','GET'])
 def solutionT2():
