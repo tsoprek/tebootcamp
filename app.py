@@ -377,4 +377,4 @@ def solutionT10():
     return render_template('solutionT10.html')
 
 if __name__ == "__main__":
-    app.run(debug=True, ssl_context='adhoc')
+    app.run(debug=True)

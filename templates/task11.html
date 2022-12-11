@@ -17,7 +17,6 @@
                 <span class="step__icon">1</span>
                 <div class="step__label">TASK 1</div>
             </div>
-
             <div class="step visited">
                 <div class="step__icon">2</div>
                 <div class="step__label">TASK 2</div>
@@ -26,35 +25,36 @@
                 <div class="step__icon">3</div>
                 <div class="step__label">TASK 3</div>
             </div>
-            <div class="step active">
+            <div class="step visited">
                 <div class="step__icon">4</div>
                 <div class="step__label">TASK 4</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">5</div>
                 <div class="step__label">TASK 5</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">6</div>
                 <div class="step__label">TASK 6</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">8</div>
                 <div class="step__label">TASK 8</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">9</div>
                 <div class="step__label">TASK 9</div>
             </div>
-            <div class="step">
+
+            <div class="step visited">
                 <div class="step__icon">10</div>
                 <div class="step__label">TASK 10</div>
             </div>
-            <div class="step">
+            <div class="step active">
                 <div class="step__icon">END</div>
                 <div class="step__label">TASK 11</div>
             </div>
@@ -65,7 +65,7 @@
 {% endblock %}
 
 {% block body%}
-<div class="row">
+    <div class="row">
     <div class="col-md-2">
         <ul id="vleft" class="tabs tabs--vertical">
             <li id="vleft-1" class="tab">
@@ -80,7 +80,7 @@
             <li id="vleft-4" class="tab">
                 <a tabindex="0" href="/task3">TASK 3</a>
             </li>
-            <li id="vleft-5" class="tab active">
+            <li id="vleft-5" class="tab">
                 <a tabindex="0" href="/task4">TASK 4</a>
             </li>
             <li id="vleft-6" class="tab">
@@ -122,8 +122,8 @@
             </div>
             <div id="vleft-4-content" class="tab-pane">
                 <p>TASK 3</p>
-            <div id="vleft-5-content" class="tab-pane active">
-                <p class="text-size-28 text-weight-300">TASK 4</p>
+            <div id="vleft-5-content" class="tab-pane">
+                <p>TASK 4</p>
             <div id="vleft-6-content" class="tab-pane">
                 <p>TASK 5</p>
             </div>
@@ -131,21 +131,34 @@
                 <p>TASK 6</p>
             </div>
             <div id="vleft-8-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-9-content" class="tab-pane">
+                <p>TASK 8</p>
+            </div>
+            <div id="vleft-10-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-11-content" class="tab-pane">
+                <p >TASK 10</p>
+            </div>
+            <div id="vleft-12-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 11</p>
+            </div>
+            
+            <div id="vleft-13-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
         </div>
     </div>
 </div>
-<body class="cui" data-theme="dark">
-    <h4 class="text-size-28 text-weight-300 panel panel--dark">Issues with Registration to ThousandEyes Portal Part 2</h4>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Diagnose and provide proof what is the second issues with registration: logs and use any tool that can be proof of the issue.<br><br>
-        Hint:
-            There are multiple issues with registering the agent to the portal. It is important to understand the flow of connection and diagnostic second issue with registration.
-    </p>
+<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent Update Issue</h4>
+<p class="text-size-18 text-weight-300 base-margin-top text-justify">
+Our agent is not on latest version! This is not recommended, we need to fix that.
+</p>
     <div class="row base-margin-top base-margin-bottom">
         <div class="col-md-12">
-            <form method="POST" action="/task4">
+            <form method="POST" action="/task10">
                 <div class="flex flex-left" style="margin-top: 40px">
                     <div class="btn-group">
                         <button class="btn " id="on-btn" name="task_status" value="1" onclick="taskson(1)">Enable task</button>
@@ -155,7 +168,7 @@
             </form>
             <div class="flex flex-right">
                 <button class="btn btn--secondary--right">
-                    <a style="color: black" href="/solutionsT4" class="qtr-margin-top text-size-16">SOLUTION</a>
+                    <a style="color: black" href="/solutionsT10" class="qtr-margin-top text-size-16">SOLUTION</a>
                     <span class="icon-arrow-right-tail text-size-18 text-weight-300 base-margin-center text-justify qtr-margin-bottom"></span>
                 </button>
             <div>
