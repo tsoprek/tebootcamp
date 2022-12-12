@@ -239,6 +239,7 @@ First thing to check when dealing with agent upgrade issue is to check in HERO a
     </pre>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
     Let's add 'deb https://apt.thousandeyes.com focal main' to /etc/apt/sources.list.d/thousandeyes.list, check connectivity, and if we can get the list of agents.
+        In case you have issues with permissions while doing echo, please use nano or vi to add the line.
     </p>
     <pre>
         $ echo 'deb https://apt.thousandeyes.com focal main' >  /etc/apt/sources.list.d/thousandeyes.list && ls -la /etc/apt/sources.list.d/thousandeyes.list && cat /etc/apt/sources.list.d/thousandeyes.list
