@@ -61,13 +61,13 @@ def return_status(task_id):
         print('Failed to get task status!')
 
 def task_validation_status(return_status):
-    if return_status == 0:
+    if return_status == '0':
         status='RESOLVED'
         return status
-    elif return_status == 1:
+    elif return_status == '1':
         status='UNRESOLVED'
         return status
-    elif return_status == 2:
+    elif return_status == '2':
         status = "PARTIALLY"
         return status
     else:
