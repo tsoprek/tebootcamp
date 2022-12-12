@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 import os
 import socket
+import subprocess
 
 # Definition for GET request to get status of task >>> TO BE DELETED
 def get_task_status(taskID):
@@ -87,7 +88,7 @@ conn.execute("""
 cursor.close()
 conn.commit()
 
-total_tasks = 11
+total_tasks = 12
 master_task=get_task_status('0')
 if master_task == '1':
     for tasks_id in range (total_tasks):
@@ -355,9 +356,10 @@ def task11():
 
 @app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
-    return_status=os.system('task1Validation.sh')
-    print(return_status)
-    status = task_validation_status(return_status)
+    solution_status=subprocess.check_output('./task1Validation.sh')
+    solution_status= solution_status.decode('utf-8').strip()
+    print (solution_status)
+    status = task_validation_status(solution_status)
     return render_template('solutionT1.html', status=status)
 
 @app.route('/solutionsT2', methods=['POST','GET'])
