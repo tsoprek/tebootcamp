@@ -333,6 +333,26 @@ def task10():
         status = return_status(task_id)
         return render_template('task10.html', status=status)
 
+@app.route('/task11/', methods=['POST','GET'])
+def task11():
+    task_id = '11'
+    if request.method == 'POST':
+        task_status = request.form.get('task_status')
+        task_status = str(task_status)
+        update_task_status(task_id, task_status)
+        if task_status == '0':
+            os.system('./fixRepo.sh')
+            master_task=get_task_status('0')
+            if master_task == '1':
+                update_task_status('0','0')
+        elif task_status == '1':
+            os.system('./breakRepo.sh')
+        return redirect('/task11/')
+    elif request.method == 'GET':
+        status = return_status(task_id)
+        return render_template('task11.html', status=status)
+
+
 @app.route('/solutionsT1/', methods=['POST','GET'])
 def solutionT1():
     return_status=os.system('task1Validation.sh')
@@ -376,5 +396,10 @@ def solutionT9():
 def solutionT10():
     return render_template('solutionT10.html')
 
+@app.route('/solutionsT11', methods=['POST','GET'])
+def solutionT11():
+    return render_template('solutionT11.html')
+
+
 if __name__ == "__main__":
-    app.run(debug=True, ssl_context='adhoc')
+    app.run(debug=True)

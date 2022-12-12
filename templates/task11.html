@@ -49,14 +49,16 @@
                 <div class="step__icon">9</div>
                 <div class="step__label">TASK 9</div>
             </div>
-            <div class="step">
+
+            <div class="step visited">
                 <div class="step__icon">10</div>
                 <div class="step__label">TASK 10</div>
             </div>
-            <div class="step">
+            <div class="step active">
                 <div class="step__icon">END</div>
                 <div class="step__label">TASK 11</div>
             </div>
+
         </div>
     </div>
 </div>
@@ -96,10 +98,10 @@
             <li id="vleft-10" class="tab">
                 <a tabindex="0" href="/task9">TASK 9</a>
             </li>
-            <li id="vleft-11" class="tab active">
+            <li id="vleft-11" class="tab">
                 <a tabindex="0" href="/task10">TASK 10</a>
             </li>
-            <li id="vleft-12" class="tab">
+            <li id="vleft-12" class="tab active">
                 <a tabindex="0" href="/task11">TASK 11</a>
             </li>
             <li id="vleft-13" class="tab">
@@ -137,10 +139,14 @@
             <div id="vleft-10-content" class="tab-pane">
                 <p>TASK 9</p>
             </div>
-            <div id="vleft-11-content" class="tab-pane active">
-                <p class="text-size-28 text-weight-300">TASK 10</p>
+            <div id="vleft-11-content" class="tab-pane">
+                <p >TASK 10</p>
             </div>
-            <div id="vleft-12-content" class="tab-pane">
+            <div id="vleft-12-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 11</p>
+            </div>
+            
+            <div id="vleft-13-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
         </div>
@@ -152,7 +158,7 @@ Our agent is not on latest version! This is not recommended, we need to fix that
 </p>
     <div class="row base-margin-top base-margin-bottom">
         <div class="col-md-12">
-            <form method="POST" action="/task10">
+            <form method="POST" action="/task11">
                 <div class="flex flex-left" style="margin-top: 40px">
                     <div class="btn-group">
                         <button class="btn " id="on-btn" name="task_status" value="1" onclick="taskson(1)">Enable task</button>
@@ -162,7 +168,7 @@ Our agent is not on latest version! This is not recommended, we need to fix that
             </form>
             <div class="flex flex-right">
                 <button class="btn btn--secondary--right">
-                    <a style="color: black" href="/solutionsT10" class="qtr-margin-top text-size-16">SOLUTION</a>
+                    <a style="color: black" href="/solutionsT11" class="qtr-margin-top text-size-16">SOLUTION</a>
                     <span class="icon-arrow-right-tail text-size-18 text-weight-300 base-margin-center text-justify qtr-margin-bottom"></span>
                 </button>
             <div>
