@@ -125,11 +125,9 @@ def home():
             enable_all_tasks()
             os.system('./fixDNS.sh')
             os.system('./breakLab.sh')
-            print('Breaking LAB')
         elif task_status == '0':
             disable_all_tasks()
             os.system('./fixLab.sh')
-            print('Fixing LAB')
         return redirect('/')
     elif request.method == 'GET':
         host=socket.gethostname()
@@ -388,7 +386,11 @@ def solutionT4():
 
 @app.route('/solutionsT5', methods=['POST','GET'])
 def solutionT5():
-    return render_template('solutionT5.html')
+    solution_status=subprocess.check_output('./task5Validation.sh')
+    solution_status= solution_status.decode('utf-8').strip()
+    print (solution_status)
+    status = task_validation_status(solution_status)
+    return render_template('solutionT5.html', status=status)
 
 @app.route('/solutionsT6', methods=['POST','GET'])
 def solutionT6():
