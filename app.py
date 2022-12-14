@@ -380,7 +380,11 @@ def solutionT3():
 
 @app.route('/solutionsT4', methods=['POST','GET'])
 def solutionT4():
-    return render_template('solutionT4.html')
+    solution_status=subprocess.check_output('./task4Validation.sh')
+    solution_status= solution_status.decode('utf-8').strip()
+    print (solution_status)
+    status = task_validation_status(solution_status)
+    return render_template('solutionT4.html', status=status)
 
 @app.route('/solutionsT5', methods=['POST','GET'])
 def solutionT5():
