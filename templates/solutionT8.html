@@ -409,7 +409,7 @@
     </p>
     <pre>
         $ cd /usr/share/ca-certificates/mozilla/
-        $ vi IdenTrust_Commercial_Root_CA_1.crt
+        $ vi GlobalSign_Root_CA.crt
         -----BEGIN CERTIFICATE-----
         MIIFYDCCA0igAwIBAgIQCgFCgAAAAUUjyES1AAAAAjANBgkqhkiG9w0BAQsFADBK
         MQswCQYDVQQGEwJVUzESMBAGA1UEChMJSWRlblRydXN0MScwJQYDVQQDEx5JZGVu
@@ -447,9 +447,9 @@
         ~
         :wq
 
-        $ echo 'mozilla/IdenTrust_Commercial_Root_CA_1.crt' >> /etc/ca-certificates.conf
-        $ cat /etc/ca-certificates.conf | grep IdenTrust_Commercial_Root_CA_1.crt
-        mozilla/IdenTrust_Commercial_Root_CA_1.crt
+        $ echo 'mozilla/GlobalSign_Root_CA.crt' >> /etc/ca-certificates.conf
+        $ cat /etc/ca-certificates.conf | grep GlobalSign_Root_CA.crt
+        mozilla/GlobalSign_Root_CA.crt
         $ update-ca-certificates
         $ systemctl restart te-agent
     </pre>
