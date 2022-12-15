@@ -416,6 +416,7 @@ def solutionT8():
     status = task_validation_status(solution_status)
     return render_template('solutionT8.html', status=status)
 
+
 @app.route('/solutionsT9', methods=['POST','GET'])
 def solutionT9():
     return render_template('solutionT9.html')

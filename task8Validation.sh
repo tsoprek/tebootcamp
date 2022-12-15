@@ -1,5 +1,4 @@
 #!/bin/bash
-
 function eval() {
 ls /usr/share/ca-certificates/mozilla | grep -i globalsign | while read  certificate;
 do
