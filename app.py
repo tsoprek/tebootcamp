@@ -419,11 +419,19 @@ def solutionT8():
 
 @app.route('/solutionsT9', methods=['POST','GET'])
 def solutionT9():
-    return render_template('solutionT9.html')
+    solution_status=subprocess.check_output('./task9Validation.sh')
+    solution_status= solution_status.decode('utf-8').strip()
+    print (solution_status)
+    status = task_validation_status(solution_status)
+    return render_template('solutionT9.html', status=status)
 
 @app.route('/solutionsT10', methods=['POST','GET'])
 def solutionT10():
-    return render_template('solutionT10.html')
+    solution_status=subprocess.check_output('./task10Validation.sh')
+    solution_status= solution_status.decode('utf-8').strip()
+    print (solution_status)
+    status = task_validation_status(solution_status)
+    return render_template('solutionT10.html', status=status)
 
 @app.route('/solutionsT11', methods=['POST','GET'])
 def solutionT11():
