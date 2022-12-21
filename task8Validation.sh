@@ -1,6 +1,6 @@
 #!/bin/bash
 function eval() {
-ls /usr/share/ca-certificates/mozilla | grep -i globalsign | while read  certificate;
+ls /usr/share/ca-certificates/mozilla | grep -i gts | while read  certificate;
 do
   openssl x509 -text -in /usr/share/ca-certificates/mozilla/$certificate;
   done | grep 'GTS Root R1' | wc -l
