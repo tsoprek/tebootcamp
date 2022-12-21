@@ -97,7 +97,7 @@ if master_task == '1':
     dns_task=get_task_status('3')
     if dns_task == '1':
         enable_all_tasks()
-        os.system('fixTask3.sh')
+        os.system('./fixTask3.sh')
         os.system('./breakLab.sh')
 
 
@@ -123,7 +123,7 @@ def home():
         task_status=(request.form.get("task_status"))
         if task_status == '1':
             enable_all_tasks()
-            os.system('fixTask3.sh')
+            os.system('./fixTask3.sh')
             os.system('./breakLab.sh')
         elif task_status == '0':
             disable_all_tasks()
@@ -150,12 +150,12 @@ def task1():
         task_status = request.form.get('task_status')
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask1.sh')
+            os.system('./fixTask1.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask1.sh')
+            os.system('./breakTask1.sh')
         return redirect('/task1/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -169,12 +169,12 @@ def task2():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask2.sh')
+            os.system('./fixTask2.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask2.sh')
+            os.system('./breakTask2.sh')
         return redirect('/task2/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -188,12 +188,12 @@ def task3():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask3.sh')
+            os.system('./fixTask3.sh')
             master_task = get_task_status('0')
             if master_task == '1':
                 update_task_status('0', '0')
         elif task_status == '1':
-            os.system('breakTask3.sh')
+            os.system('./breakTask3.sh')
         return redirect('/task3/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -207,12 +207,12 @@ def task4():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask4.sh')
+            os.system('./fixTask4.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask4.sh')
+            os.system('./breakTask4.sh')
         return redirect('/task4/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -226,12 +226,12 @@ def task5():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask5.sh')
+            os.system('./fixTask5.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask5.sh')
+            os.system('./breakTask5.sh')
         return redirect('/task5/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -245,12 +245,12 @@ def task6():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask6.sh')
+            os.system('./fixTask6.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask6.sh')
+            os.system('./breakTask6.sh')
         return redirect('/task6/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -264,12 +264,12 @@ def task7():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask7.sh')
+            os.system('./fixTask7.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask7.sh')
+            os.system('./breakTask7.sh')
         return redirect('/task7/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -283,12 +283,12 @@ def task8():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask8.sh')
+            os.system('./fixTask8.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask8.sh')
+            os.system('./breakTask8.sh')
         return redirect('/task8/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -302,12 +302,12 @@ def task9():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask9.sh')
+            os.system('./fixTask9.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask9.sh')
+            os.system('./breakTask9.sh')
         return redirect('/task9/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -321,12 +321,12 @@ def task10():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask10.sh')
+            os.system('./fixTask10.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask10.sh')
+            os.system('./breakTask10.sh')
         return redirect('/task10/')
     elif request.method == 'GET':
         status = return_status(task_id)
@@ -340,12 +340,12 @@ def task11():
         task_status = str(task_status)
         update_task_status(task_id, task_status)
         if task_status == '0':
-            os.system('fixTask10.sh')
+            os.system('./fixTask11.sh')
             master_task=get_task_status('0')
             if master_task == '1':
                 update_task_status('0','0')
         elif task_status == '1':
-            os.system('breakTask10.sh')
+            os.system('./breakTask11.sh')
         return redirect('/task11/')
     elif request.method == 'GET':
         status = return_status(task_id)
