@@ -3,7 +3,7 @@
 if ! te-agent -v | grep '1.147.0';
 then
   apt remove te-agent -y
-  apt install te-agent=1.147.0* -y
+  apt install /root/.bootcampLab/te-agent_1.147.0-1~focal_amd64.deb
 fi
 if ! grep 'auto-updates' /etc/te-agent.cfg;
         then echo 'auto-updates=0' >> /etc/te-agent.cfg
