@@ -88,6 +88,17 @@ conn.execute("""
 cursor.close()
 conn.commit()
 
+# Create tasks table if not exist
+conn=sqlite3.connect('tasks.db')
+cursor=conn.cursor()
+conn.execute("""
+            CREATE TABLE IF NOT EXISTS quiz ( 
+            qid INTEGER PRIMARY KEY AUTOINCREMENT,
+            qstatus INTEGER)
+            """)
+cursor.close()
+conn.commit()
+
 total_tasks = 12
 master_task=get_task_status('0')
 if master_task == '1':
@@ -100,6 +111,11 @@ if master_task == '1':
         os.system('./fixTask3.sh')
         os.system('./breakLab.sh')
 
+quiz_master_task=get_task_status('0')
+if quiz_master_task == '1':
+    for tasks_id in range (total_tasks):
+        tasks_id = str(tasks_id)
+        add_new_task(tasks_id,'1')
 
 # SQLite flask configuration
 # This is redundant as above definitions exist
@@ -121,9 +137,9 @@ def home():
         # Class way: Alternative method is to assign Tasks class to variable and use db.session to commit.
         # Example inline:
         task_status=(request.form.get("task_status"))
+        update_task_status(task_id, task_status)
         if task_status == '1':
             enable_all_tasks()
-            os.system('./fixTask3.sh')
             os.system('./breakLab.sh')
         elif task_status == '0':
             disable_all_tasks()
