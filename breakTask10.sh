@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! te-agent -v | grep '1.147.0';
+then
+  apt remove te-agent -y
+  apt install te-agent=1.147.0* -y
+
 if ! grep 'auto-updates' /etc/te-agent.cfg;
         then echo 'auto-updates=0' >> /etc/te-agent.cfg
         echo 'No auto updates in cfg, adding auto-updates=0'
