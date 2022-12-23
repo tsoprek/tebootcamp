@@ -112,7 +112,7 @@ db = SQLAlchemy(app)
 # Flask routes
 @app.route('/', methods=['POST','GET'])
 def home():
-    task_id='0'
+    task_id = '0'
     if request.method == 'POST':
         # We run scrip to clear all tasks as HOME page should have button to clear or enable all tasks.
         # POST should send id and status. Task ID on home page must be 0 and it should be used
@@ -131,7 +131,7 @@ def home():
         return redirect('/')
     elif request.method == 'GET':
         host=socket.gethostname()
-        sshconn='127.0.0.1'
+        sshconn = '127.0.0.1'
         status = return_status(task_id)
         if host == 'bootcamp1':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2317'

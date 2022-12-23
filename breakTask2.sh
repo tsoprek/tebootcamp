@@ -6,10 +6,10 @@
 
 if grep k4qcugs8yvi8bmhulm9fflz4al0kt237 /etc/te-agent.cfg;
   then
-  echo 'Acccout token already set to invalid group.'
+  echo 'Account token already set to invalid group.'
 else
   if systemctl status te-agent;
-    then systemctl stop te-agent
+    then systemctl stop te-agent 1>/dev/null
     echo 'Service is running.'
     echo 'Stopping service'
   fi
@@ -17,5 +17,5 @@ else
   sed -i 's/account-token=.*/account-token=k4qcugs8yvi8bmhulm9fflz4al0kt237/g' /etc/te-agent.cfg
   echo 'Starting service'
   sleep1
-  systemctl start te-agent
+  systemctl start te-agent 1>/dev/null
 fi

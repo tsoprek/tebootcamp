@@ -7,14 +7,14 @@ if grep DEBUG /etc/te-agent.cfg;
   then
 
   if systemctl status te-agent;
-    then systemctl stop te-agent
+    then systemctl stop te-agent 1>/dev/null
     echo 'Service is running.'
     echo 'Stopping service'
   fi
   echo 'Breaking config file'
   sed -i 's/DEBUG/debug/g' /etc/te-agent.cfg
   echo 'Starting service'
-  systemctl start te-agent
+  systemctl start te-agent 1>/dev/null
   sleep 2
 elif grep debug /etc/te-agent.cfg;
   then

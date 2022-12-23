@@ -11,7 +11,7 @@ fi
 
 echo > /etc/apt/sources.list.d/thousandeyes.list
 echo 'TE repo list empty'
-if ls /etc/apt/sources.list.d/thousandeyes.list~;
+if ls /etc/apt/sources.list.d/thousandeyes.list~ 1>&2 /dev/null ;
 	then
 	mv /etc/apt/sources.list.d/thousandeyes.list~ /etc/apt/sources.list.d/thousandeyes.list
 fi
