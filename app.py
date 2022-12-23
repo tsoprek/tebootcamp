@@ -33,6 +33,15 @@ def add_new_task(taskID, status):
     cursor.close()
     conn.close()
 
+# Definition for creating quiz
+def add_new_quiz(qqid, answer):
+    conn = sqlite3.connect('tasks.db')
+    cursor = conn.cursor()
+    cursor.execute('INSERT OR IGNORE INTO quiz VALUES (?, ?)', (qqid, answer,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 def enable_all_tasks():
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
@@ -113,9 +122,9 @@ if master_task == '1':
 
 quiz_master_task=get_task_status('0')
 if quiz_master_task == '1':
-    for tasks_id in range (total_tasks):
-        tasks_id = str(tasks_id)
-        add_new_task(tasks_id,'1')
+    for quiz_question in range (total_tasks):
+        quiz_question = str(quiz_question)
+        add_new_quiz(quiz_question,'1')
 
 # SQLite flask configuration
 # This is redundant as above definitions exist
