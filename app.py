@@ -7,28 +7,28 @@ import socket
 import subprocess
 
 # Definition for GET request to get status of task >>> TO BE DELETED
-def get_task_status(taskID):
+def get_task_status(table, taskID):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    task_status=cursor.execute("SELECT status FROM tasks WHERE id = ?", (taskID,)).fetchall()
+    task_status=cursor.execute("SELECT status FROM ? WHERE id = ?", (table, taskID,)).fetchall()
     cursor.close()
     conn.close()
     return (str(task_status[0][0]))
 
 # Definition for POST request to update status of task
-def update_task_status(taskID, status):
+def update_task_status(table, taskID, status):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('UPDATE tasks SET status = ?  WHERE id = ?', (status, taskID,))
+    cursor.execute('UPDATE ? SET status = ?  WHERE id = ?', (table, status, taskID,))
     conn.commit()
     cursor.close()
     conn.close()
 
 # Definition for creating tasks
-def add_new_task(taskID, status):
+def add_new_task(table, taskID, status):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('INSERT OR IGNORE INTO tasks VALUES (?, ?)', (taskID, status,))
+    cursor.execute('INSERT OR IGNORE INTO ? VALUES (?, ?)', (table, taskID, status,))
     conn.commit()
     cursor.close()
     conn.close()
@@ -42,18 +42,18 @@ def add_new_quiz(qqid, answer):
     cursor.close()
     conn.close()
 
-def enable_all_tasks():
+def enable_all_tasks(table):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('UPDATE tasks SET status = 1  WHERE status = 0')
+    cursor.execute('UPDATE ? SET status = 1  WHERE status = 0', (table))
     conn.commit()
     cursor.close()
     conn.close()
 
-def disable_all_tasks():
+def disable_all_tasks(table):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
-    cursor.execute('UPDATE tasks SET status = 0  WHERE status = 1')
+    cursor.execute('UPDATE ? SET status = 0  WHERE status = 1', (table,))
     conn.commit()
     cursor.close()
     conn.close()
@@ -109,14 +109,14 @@ cursor.close()
 conn.commit()
 
 total_tasks = 12
-master_task=get_task_status('0')
+master_task=get_task_status('tasks', '0')
 if master_task == '1':
     for tasks_id in range (total_tasks):
         tasks_id = str(tasks_id)
-        add_new_task(tasks_id,'1')
+        add_new_task('tasks', tasks_id,'1')
     dns_task=get_task_status('3')
     if dns_task == '1':
-        enable_all_tasks()
+        enable_all_tasks('tasks')
         os.system('./fixTask3.sh')
         os.system('./breakLab.sh')
 
@@ -133,7 +133,8 @@ if quiz_master_task == '1':
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///tasks.db'
 db = SQLAlchemy(app)
 
-
+tasks_tbl='tasks'
+quiz_tbl='quiz'
 # Flask routes
 @app.route('/', methods=['POST','GET'])
 def home():
@@ -146,7 +147,7 @@ def home():
         # Class way: Alternative method is to assign Tasks class to variable and use db.session to commit.
         # Example inline:
         task_status=(request.form.get("task_status"))
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '1':
             enable_all_tasks()
             os.system('./breakLab.sh')
@@ -173,12 +174,12 @@ def task1():
     task_id = '1'
     if request.method == 'POST':
         task_status = request.form.get('task_status')
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask1.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask1.sh')
         return redirect('/task1/')
@@ -192,12 +193,12 @@ def task2():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask2.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask2.sh')
         return redirect('/task2/')
@@ -211,12 +212,12 @@ def task3():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask3.sh')
-            master_task = get_task_status('0')
+            master_task = get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0', '0')
+                update_task_status(tasks_tbl, '0', '0')
         elif task_status == '1':
             os.system('./breakTask3.sh')
         return redirect('/task3/')
@@ -230,12 +231,12 @@ def task4():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask4.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask4.sh')
         return redirect('/task4/')
@@ -249,12 +250,12 @@ def task5():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask5.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask5.sh')
         return redirect('/task5/')
@@ -268,12 +269,12 @@ def task6():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask6.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask6.sh')
         return redirect('/task6/')
@@ -287,12 +288,12 @@ def task7():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask7.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask7.sh')
         return redirect('/task7/')
@@ -306,12 +307,12 @@ def task8():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask8.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask8.sh')
         return redirect('/task8/')
@@ -325,12 +326,12 @@ def task9():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask9.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0','0')
         elif task_status == '1':
             os.system('./breakTask9.sh')
         return redirect('/task9/')
@@ -344,12 +345,12 @@ def task10():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask10.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0', '0')
         elif task_status == '1':
             os.system('./breakTask10.sh')
         return redirect('/task10/')
@@ -363,12 +364,12 @@ def task11():
     if request.method == 'POST':
         task_status = request.form.get('task_status')
         task_status = str(task_status)
-        update_task_status(task_id, task_status)
+        update_task_status(tasks_tbl, task_id, task_status)
         if task_status == '0':
             os.system('./fixTask11.sh')
-            master_task=get_task_status('0')
+            master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status('0','0')
+                update_task_status(tasks_tbl, '0', '0')
         elif task_status == '1':
             os.system('./breakTask11.sh')
         return redirect('/task11/')
@@ -377,7 +378,7 @@ def task11():
         return render_template('task11.html', status=status)
 
 
-@app.route('/solutionsT1/', methods=['POST','GET'])
+@app.route('/solutionsT1/', methods=['POST', 'GET'])
 def solutionT1():
     solution_status=subprocess.check_output('./task1Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
@@ -397,64 +398,64 @@ def solutionT2():
 def solutionT3():
     solution_status=subprocess.check_output('./task3Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT3.html', status=status)
 
 @app.route('/solutionsT4', methods=['POST','GET'])
 def solutionT4():
-    solution_status=subprocess.check_output('./task4Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task4Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT4.html', status=status)
 
 @app.route('/solutionsT5', methods=['POST','GET'])
 def solutionT5():
-    solution_status=subprocess.check_output('./task5Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task5Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT5.html', status=status)
 
 @app.route('/solutionsT6', methods=['POST','GET'])
 def solutionT6():
-    solution_status=subprocess.check_output('./task6Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task6Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT6.html', status=status)
 
 @app.route('/solutionsT7', methods=['POST','GET'])
 def solutionT7():
-    solution_status=subprocess.check_output('./task7Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task7Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT7.html', status=status)
 
 @app.route('/solutionsT8', methods=['POST','GET'])
 def solutionT8():
-    solution_status=subprocess.check_output('./task8Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task8Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT8.html', status=status)
 
 
 @app.route('/solutionsT9', methods=['POST','GET'])
 def solutionT9():
-    solution_status=subprocess.check_output('./task9Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task9Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT9.html', status=status)
 
 @app.route('/solutionsT10', methods=['POST','GET'])
 def solutionT10():
-    solution_status=subprocess.check_output('./task10Validation.sh')
-    solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    solution_status = subprocess.check_output('./task10Validation.sh')
+    solution_status = solution_status.decode('utf-8').strip()
+    print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT10.html', status=status)
 
