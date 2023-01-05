@@ -6,6 +6,7 @@ import os
 import socket
 import subprocess
 
+
 # Definition for GET request to get status of task >>> TO BE DELETED
 def get_task_status(table, taskID):
     conn = sqlite3.connect('tasks.db')
@@ -14,6 +15,7 @@ def get_task_status(table, taskID):
     cursor.close()
     conn.close()
     return (str(task_status[0][0]))
+
 
 # Definition for POST request to update status of task
 def update_task_status(table, taskID, status):
@@ -24,6 +26,7 @@ def update_task_status(table, taskID, status):
     cursor.close()
     conn.close()
 
+
 # Definition for creating tasks
 def add_new_task(table, taskID, status):
     conn = sqlite3.connect('tasks.db')
@@ -32,6 +35,7 @@ def add_new_task(table, taskID, status):
     conn.commit()
     cursor.close()
     conn.close()
+
 
 # Definition for creating quiz
 def add_new_quiz(qqid, answer):
@@ -42,6 +46,7 @@ def add_new_quiz(qqid, answer):
     cursor.close()
     conn.close()
 
+
 def enable_all_tasks(table):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
@@ -50,6 +55,7 @@ def enable_all_tasks(table):
     cursor.close()
     conn.close()
 
+
 def disable_all_tasks(table):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
@@ -57,6 +63,7 @@ def disable_all_tasks(table):
     conn.commit()
     cursor.close()
     conn.close()
+
 
 def return_status(table, task_id):
     task_status = get_task_status(table, task_id)
@@ -68,6 +75,7 @@ def return_status(table, task_id):
         return status
     else:
         print('Failed to get task status!')
+
 
 def task_validation_status(return_status):
     if return_status == '0':
@@ -81,6 +89,7 @@ def task_validation_status(return_status):
         return status
     else:
         print('Failed to get task status!')
+
 
 # Flask init
 app = Flask(__name__)
@@ -109,10 +118,10 @@ cursor.close()
 conn.commit()
 
 total_tasks = 12
-tasks_tbl='tasks'
-quiz_tbl='quiz'
+tasks_tbl = 'tasks'
+quiz_tbl = 'quiz'
 
-master_task=get_task_status(tasks_tbl, '0')
+master_task = get_task_status(tasks_tbl, '0')
 if master_task == '1':
     for tasks_id in range(total_tasks):
         tasks_id = str(tasks_id)
