@@ -151,145 +151,30 @@
 </div>
 <body class="cui" data-theme="dark">
 <h4 class="text-size-28 text-weight-300 panel panel--dark">Welcome to ThousandEyes TS Lab</h4>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-First thing to check when dealing with agent upgrade issue is to check in HERO and make sure that 'Eyebrow rollout track'
-        is set to 'Main'. Early will include beta, non will disable auto updates and late 14/30 days will delay updates for
-        14/30 days.
+    <p class="text-size-18 text-weight-300 base-margin-top">
+    First start by downloading the ThousandEyes Recorder IDE if not already installed.</br>
     </p>
-<img src="/static/autoupdate_hero.png" style="margin: center" class="flex-center">
-     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Second think to check is auto updates in te-agent.cfg. This option is not there by default, but customer of support can add it to disable auto-updates.
-    Auto-updates set to 0 will disable updates, 1 will enable auto updates.
+    <img src="/static/recorder_download.png" style="margin: center" class="flex-center">
+    <p class="text-size-18 text-weight-300 base-margin-top">
+    Once the IDE is installed click on the recorder button and follow the steps given in the question
     </p>
-    <pre>
-        $ sudo cat /etc/te-agent.cfg
-        log-path=/var/log
-        log-file-size=10
-        log-level=debug
-        num-log-files=13
-        account-token=k4qcugs8yvi8bmhulm9fflz4al0kt237
-        proxy-type=DIRECT
-        proxy-location=
-        proxy-user=
-        proxy-pass=
-        proxy-auth-type=
-        proxy-bypass-list=
-        kdc-user=
-        kdc-pass=
-        kdc-realm=
-        kdc-host=
-        kdc-port=88
-        kerberos-whitelist=
-        kerberos-rdns=1
-        crash-reports=1
-       <span style="color: red"> auto-updates=0</span>
-    </pre>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    As we can see our auto-updates are set to 0 which disable auto-update. Let's change it to 1 or remove this line.
-        For changes to take effect you will need to restart te-agent and see if auto update will work after that.
+    <img src="/static/start_recorder.png" style="margin: center" class="flex-center">
+    <p class="text-size-18 text-weight-300 base-margin-top">
+    After finishing the tasks steps mentioned, click on the stop recording button in the IDE and play out the generated script.
     </p>
-    <pre>
-        $ sudo vi /etc/te-agent.cfg
-        <span style="color: green">auto-updates=1</span>
-        $ sudo systemctl restart te-agent
-    </pre>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    We can list all available versions with apt list -a. We expect multiple versions available in output.
+    <img src="/static/stop_play.png" style="margin: center" class="flex-center">
+    <p class="text-size-18 text-weight-300 base-margin-top">
+    The script is likely to fail as the recorder IDE generated script is not optimized. It also doesn't handle try-catch exceptions or iframe switching. 
     </p>
-    <pre>
-        $ sudo apt list te-agent -a
-        Listing... Done
-        te-agent/now 1.149.0-1~focal amd64 [installed,local]
-    </pre>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Well that didn't go as planed, lets see how apt works and what else we can check. During installation, we add repository to list of repositories, and we add apt key.<br>
-        1. Repository is added to /etc/apt/sources.list.d/thousandeyes.list<br>
-        2. GPG key for repository is added to file /etc/apt/trusted.gpg.d/thousandeyes-apt-key.pub.gpg<br>
-        3. Gpg key is stored to file but it is also added to /etc/apt/trusted.gpg store<br>
-        Let's see how we can inspect these files. First we will start by checking repository:<br>
-            1. Does file exist<br>
-            2. Does file have correct permissions<br>
-            3. Is owner of the files correct<br>
-            4. And finally, does file contain required information<br>
-        Best way to do this is to compare it to one of your lab devices and compare permissions, owner and file content.
+    <img src="/static/error1.png" style="margin: center" class="flex-center">
+    <p class="text-size-18 text-weight-300 base-margin-top">
+    In order to resolve the issue, when the selenium script lands on the page where there appears to be an error, add a sleep timer, switch back to the Recorder IDE and hit the pause button. Doing this would allow you to inspect the chromium webkit instance page to see the different attributes of the element having an issue.
     </p>
-    <pre>
-        $ sudo ls -la /etc/apt/sources.list.d/thousandeyes.list
-        -rw-r--r-- 1 root root 1 Dec  8 09:25 /etc/apt/sources.list.d/thousandeyes.list
 
-        $ sudo cat /etc/apt/sources.list.d/thousandeyes.list
-        $ sudo cat /etc/apt/sources.list.d/thousandeyes.list | wc -l
-        1
-    </pre>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    From above output we can see that:<br>
-        1. We should have enough permissions to read from file. <span style="color: green">-rw-r--r--</span><br>
-        2. We can see that owner and group is root, which is desired<br>
-        3. And file is empty, has only one blank line. This is a good place to start.<br>
-        Let's compare it to another agent.
+    <p class="text-size-18 text-weight-300 base-margin-top">
+    Also add sleep timers appropriately or better use the <a href="https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/lib/until.html">'until'</a> utility to wait for elements to load properly before being clicked on to resolve most "Unable to locate element" issues
     </p>
-    <pre>
-    # Working agent output:
-        $ sudo ls -la /etc/apt/sources.list.d/thousandeyes.list
-        [sudo] password for tetraining:
-        -rw-r--r-- 1 root root 44 Oct 27 12:04 /etc/apt/sources.list.d/thousandeyes.list
 
-        $ sudo cat /etc/apt/sources.list.d/thousandeyes.list
-        deb https://apt.thousandeyes.com focal main
-    </pre>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Let's add 'deb https://apt.thousandeyes.com focal main' to /etc/apt/sources.list.d/thousandeyes.list, check connectivity, and if we can get the list of agents.
-    </p>
-    <pre>
-        $ echo 'deb https://apt.thousandeyes.com focal main' >  /etc/apt/sources.list.d/thousandeyes.list && ls -la /etc/apt/sources.list.d/thousandeyes.list && cat /etc/apt/sources.list.d/thousandeyes.list
-        -rw-r--r-- 1 root root 44 Dec  8 11:38 /etc/apt/sources.list.d/thousandeyes.list
-        deb https://apt.thousandeyes.com focal main
-
-        curl https://apt.thousandeyes.com
-        html
-        Index of /
-        bgcolor="white">
-        Index of /
-        href="dists/">dists/                                             30-Sep-2021 20:10                   -
-        href="pool/">pool/                                              04-Apr-2019 23:37                   -
-        href="thousandeyes-apt-key.pub">thousandeyes-apt-key.pub                           10-Apr-2019 22:24                 967
-        /html
-
-        $ apt list te-agent -a | wc -l
-        WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-        32
-    </pre>
-    <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Seems like that resolved it and we got 32 agent versions in response. Let's check if our key is in apt.
-        We do this with command 'apt-key list'. In case you ever need to add key, you can run command 'apt-key add /path/to/file'.
-    </p>
-    <pre>
-        apt-key list
-        /etc/apt/trusted.gpg.d/thousandeyes-apt-key.pub.gpg
-        ---------------------------------------------------
-        pub   rsa2048 2012-08-13 [SC]
-              AA5F BA03 CE4E F309 B7E3  D4E1 C99A 15F5 BE71 8900
-        uid           [ unknown] ThousandEyes <builduser@thousandeyes.com>
-
-        /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-archive.gpg
-        ------------------------------------------------------
-        pub   rsa4096 2012-05-11 [SC]
-              790B C727 7767 219C 42C8  6F93 3B4F E6AC C0B2 1F32
-        uid           [ unknown] Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>
-
-        /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg
-        ------------------------------------------------------
-        pub   rsa4096 2012-05-11 [SC]
-              8439 38DF 228D 22F7 B374  2BC0 D94A A3F0 EFE2 1092
-        uid           [ unknown] Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>
-
-        /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg
-        ------------------------------------------------------
-        pub   rsa4096 2018-09-17 [SC]
-              F6EC B376 2474 EDA9 D21B  7022 8719 20D1 991B C93C
-        uid           [ unknown] Ubuntu Archive Automatic Signing Key (2018) <ftpmaster@ubuntu.com>
-
-    </pre>
     <div class="row base-margin-top base-margin-bottom">
         <div class="col-md-12 flex flex-right">
             <div class="btn-group">
