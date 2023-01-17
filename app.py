@@ -400,7 +400,7 @@ def task11():
         return render_template('task11.html', status=status)
 
 
-@app.route('/solutionsT1/', methods=['POST', 'GET'])
+# @app.route('/solutionsT1/', methods=['POST', 'GET'])
 def solutionT1():
     solution_status=subprocess.check_output('./task1Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
@@ -409,7 +409,7 @@ def solutionT1():
     return render_template('solutionT1.html', status=status)
 
 
-@app.route('/solutionsT2', methods=['POST', 'GET'])
+# @app.route('/solutionsT2', methods=['POST', 'GET'])
 def solutionT2():
     solution_status=subprocess.check_output('./task2Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
@@ -418,7 +418,7 @@ def solutionT2():
     return render_template('solutionT2.html', status=status)
 
 
-@app.route('/solutionsT3', methods=['POST', 'GET'])
+# @app.route('/solutionsT3', methods=['POST', 'GET'])
 def solutionT3():
     solution_status=subprocess.check_output('./task3Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
@@ -427,7 +427,7 @@ def solutionT3():
     return render_template('solutionT3.html', status=status)
 
 
-@app.route('/solutionsT4', methods=['POST', 'GET'])
+# @app.route('/solutionsT4', methods=['POST', 'GET'])
 def solutionT4():
     solution_status = subprocess.check_output('./task4Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -436,7 +436,7 @@ def solutionT4():
     return render_template('solutionT4.html', status=status)
 
 
-@app.route('/solutionsT5', methods=['POST', 'GET'])
+# @app.route('/solutionsT5', methods=['POST', 'GET'])
 def solutionT5():
     solution_status = subprocess.check_output('./task5Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -445,7 +445,7 @@ def solutionT5():
     return render_template('solutionT5.html', status=status)
 
 
-@app.route('/solutionsT6', methods=['POST', 'GET'])
+# @app.route('/solutionsT6', methods=['POST', 'GET'])
 def solutionT6():
     solution_status = subprocess.check_output('./task6Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -454,7 +454,7 @@ def solutionT6():
     return render_template('solutionT6.html', status=status)
 
 
-@app.route('/solutionsT7', methods=['POST','GET'])
+# @app.route('/solutionsT7', methods=['POST','GET'])
 def solutionT7():
     solution_status = subprocess.check_output('./task7Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -463,7 +463,7 @@ def solutionT7():
     return render_template('solutionT7.html', status=status)
 
 
-@app.route('/solutionsT8', methods=['POST','GET'])
+# @app.route('/solutionsT8', methods=['POST','GET'])
 def solutionT8():
     solution_status = subprocess.check_output('./task8Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -472,7 +472,7 @@ def solutionT8():
     return render_template('solutionT8.html', status=status)
 
 
-@app.route('/solutionsT9', methods=['POST','GET'])
+# @app.route('/solutionsT9', methods=['POST','GET'])
 def solutionT9():
     solution_status = subprocess.check_output('./task9Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -481,7 +481,7 @@ def solutionT9():
     return render_template('solutionT9.html', status=status)
 
 
-@app.route('/solutionsT10', methods=['POST','GET'])
+# @app.route('/solutionsT10', methods=['POST','GET'])
 def solutionT10():
     solution_status = subprocess.check_output('./task10Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -490,7 +490,7 @@ def solutionT10():
     return render_template('solutionT10.html', status=status)
 
 
-@app.route('/solutionsT11', methods=['POST','GET'])
+# @app.route('/solutionsT11', methods=['POST','GET'])
 def solutionT11():
     return render_template('solutionT11.html')
 
