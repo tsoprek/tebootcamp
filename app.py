@@ -178,6 +178,20 @@ def home():
             sshconn = 'href=ssh://tetraining@10.48.26.76:2319'
         elif host == 'bootcamp4':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2320'
+        elif host == 'bootcamp5':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2321'
+        elif host == 'bootcamp6':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2322'
+        elif host == 'bootcamp7':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2323'
+        elif host == 'bootcamp8':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2324'
+        elif host == 'bootcamp9':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2325'
+        elif host == 'bootcamp10':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2326'
+        elif host == 'bootcamp11':
+            sshconn = 'href=ssh://tetraining@10.48.26.76:2327'
         return render_template('home.html', sshconn=sshconn, status=status)
 
 
