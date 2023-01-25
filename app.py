@@ -486,7 +486,7 @@ def solutionT8():
     return render_template('solutionT8.html', status=status)
 
 
-# @app.route('/solutionsT9', methods=['POST','GET'])
+@app.route('/solutionsT9', methods=['POST','GET'])
 def solutionT9():
     solution_status = subprocess.check_output('./task9Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -495,7 +495,7 @@ def solutionT9():
     return render_template('solutionT9.html', status=status)
 
 
-# @app.route('/solutionsT10', methods=['POST','GET'])
+@app.route('/solutionsT10', methods=['POST','GET'])
 def solutionT10():
     solution_status = subprocess.check_output('./task10Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -504,7 +504,7 @@ def solutionT10():
     return render_template('solutionT10.html', status=status)
 
 
-# @app.route('/solutionsT11', methods=['POST','GET'])
+@app.route('/solutionsT11', methods=['POST','GET'])
 def solutionT11():
     return render_template('solutionT11.html')
 
