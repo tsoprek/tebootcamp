@@ -225,7 +225,7 @@ def task2():
             os.system('./fixTask2.sh')
             master_task=get_task_status(tasks_tbl, '0')
             if master_task == '1':
-                update_task_status(tasks_tbl, '0','0')
+                update_task_status(tasks_tbl, '0', '0')
         elif task_status == '1':
             os.system('./breakTask2.sh')
         return redirect('/task2/')
@@ -459,7 +459,7 @@ def solutionT5():
     return render_template('solutionT5.html', status=status)
 
 
-# @app.route('/solutionsT6', methods=['POST', 'GET'])
+@app.route('/solutionsT6', methods=['POST', 'GET'])
 def solutionT6():
     solution_status = subprocess.check_output('./task6Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -468,7 +468,7 @@ def solutionT6():
     return render_template('solutionT6.html', status=status)
 
 
-# @app.route('/solutionsT7', methods=['POST','GET'])
+@app.route('/solutionsT7', methods=['POST','GET'])
 def solutionT7():
     solution_status = subprocess.check_output('./task7Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
@@ -477,7 +477,7 @@ def solutionT7():
     return render_template('solutionT7.html', status=status)
 
 
-# @app.route('/solutionsT8', methods=['POST','GET'])
+@app.route('/solutionsT8', methods=['POST','GET'])
 def solutionT8():
     solution_status = subprocess.check_output('./task8Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
