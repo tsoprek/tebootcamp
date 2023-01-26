@@ -215,6 +215,8 @@ def task1():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task1.html', status=status)
 
 
@@ -238,6 +240,8 @@ def task2():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task2.html', status=status)
 
 
@@ -261,6 +265,8 @@ def task3():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task3.html', status=status)
 
 
@@ -284,6 +290,8 @@ def task4():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task4.html', status=status)
 
 
@@ -307,6 +315,8 @@ def task5():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task5.html', status=status)
 
 
@@ -330,6 +340,8 @@ def task6():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task6.html', status=status)
 
 
@@ -353,6 +365,8 @@ def task7():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task7.html', status=status)
 
 
@@ -376,6 +390,8 @@ def task8():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task8.html', status=status)
 
 
@@ -399,6 +415,8 @@ def task9():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task9.html', status=status)
 
 
@@ -422,6 +440,8 @@ def task10():
         solution_status = solution_status.decode('utf-8').strip()
         print(solution_status)
         status = task_validation_status(solution_status)
+        if status == '0':
+            update_task_status(tasks_tbl, '0', '0')
         return render_template('task10.html', status=status)
 
 
