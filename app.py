@@ -211,7 +211,10 @@ def task1():
             os.system('./breakTask1.sh')
         return redirect('/task1/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task1Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task1.html', status=status)
 
 
@@ -231,7 +234,10 @@ def task2():
             os.system('./breakTask2.sh')
         return redirect('/task2/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task2Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task2.html', status=status)
 
 
@@ -251,7 +257,10 @@ def task3():
             os.system('./breakTask3.sh')
         return redirect('/task3/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task3Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task3.html', status=status)
 
 
@@ -271,7 +280,10 @@ def task4():
             os.system('./breakTask4.sh')
         return redirect('/task4/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task4Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task4.html', status=status)
 
 
@@ -291,7 +303,10 @@ def task5():
             os.system('./breakTask5.sh')
         return redirect('/task5/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task5Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task5.html', status=status)
 
 
@@ -311,7 +326,10 @@ def task6():
             os.system('./breakTask6.sh')
         return redirect('/task6/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task6Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task6.html', status=status)
 
 
@@ -331,7 +349,10 @@ def task7():
             os.system('./breakTask7.sh')
         return redirect('/task7/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task7Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task7.html', status=status)
 
 
@@ -351,7 +372,10 @@ def task8():
             os.system('./breakTask8.sh')
         return redirect('/task8/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task8Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task8.html', status=status)
 
 
@@ -371,7 +395,10 @@ def task9():
             os.system('./breakTask9.sh')
         return redirect('/task9/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task9Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task9.html', status=status)
 
 
@@ -391,7 +418,10 @@ def task10():
             os.system('./breakTask10.sh')
         return redirect('/task10/')
     elif request.method == 'GET':
-        status = return_status(tasks_tbl, task_id)
+        solution_status = subprocess.check_output('./task10Validation.sh')
+        solution_status = solution_status.decode('utf-8').strip()
+        print(solution_status)
+        status = task_validation_status(solution_status)
         return render_template('task10.html', status=status)
 
 
