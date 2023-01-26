@@ -123,6 +123,7 @@ quiz_tbl = 'quiz'
 
 master_task = get_task_status(tasks_tbl, '0')
 if master_task == '1':
+    update_task_status(tasks_tbl, '0', '0')
     for tasks_id in range(total_tasks):
         tasks_id = str(tasks_id)
         add_new_task( tasks_tbl, tasks_id, '1')

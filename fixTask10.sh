@@ -19,6 +19,12 @@ fi
 echo 'deb https://apt.thousandeyes.com focal main' > /etc/apt/sources.list.d/thousandeyes.list
 echo 'TE repo list added'
 
+if ! apt-key list | grep 8900;
+then
+  sudo wget -q https://apt.thousandeyes.com/thousandeyes-apt-key.pub -O- | sudo apt-key add -
+  echo 'TE repo key added.'
+fi
+
 if ls /etc/apt/sources.list.d/thousandeyes.list~;
         then
         mv /etc/apt/sources.list.d/thousandeyes.list~ /etc/apt/sources.list.d/thousandeyes.list

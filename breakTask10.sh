@@ -5,6 +5,7 @@ then
   apt remove te-agent -y
   apt install /root/.bootcampLab/te-agent_1.147.0-1~focal_amd64.deb
 fi
+
 if ! grep 'auto-updates' /etc/te-agent.cfg;
         then echo 'auto-updates=0' >> /etc/te-agent.cfg
         echo 'No auto updates in cfg, adding auto-updates=0'
@@ -15,7 +16,14 @@ then
 fi
 
 echo > /etc/apt/sources.list.d/thousandeyes.list
-echo 'TE repo list empty'
+echo 'TE repo list empty.'
+
+if apt-key list | grep 8900;
+then
+  apt-key del 8900
+  echo 'TE repo key removed.'
+fi
+
 apt update
 if ls /etc/apt/sources.list.d/thousandeyes.list~ 1>&2 /dev/null ;
 	then
