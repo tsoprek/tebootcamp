@@ -12,3 +12,11 @@ if grep '10.48.26.74' /etc/netplan/00-installer-config.yaml 1>/dev/null ;
 else
   echo 'DNS Break FAILED!'
 fi
+
+if ls /etc/resolv.conf ;
+  then
+    rm -rf /etc/resolv.conf
+    if ls /etc/resolv.conf ;
+    echo 'resolv.conf remove FAILED'
+    fi
+fi
