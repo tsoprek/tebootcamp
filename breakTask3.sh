@@ -15,8 +15,6 @@ fi
 
 if ls /etc/resolv.conf ;
   then
+    sudo chattr -a -i /etc/resolv.conf
     rm -rf /etc/resolv.conf
-    if ls /etc/resolv.conf ;
-    echo 'resolv.conf remove FAILED'
-    fi
 fi
