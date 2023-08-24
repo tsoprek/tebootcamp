@@ -5,6 +5,8 @@ import sqlite3
 import os
 import socket
 import subprocess
+from lab_config import *
+
 
 
 # Definition for GET request to get status of task >>> TO BE DELETED
@@ -193,6 +195,9 @@ def home():
             sshconn = 'href=ssh://tetraining@10.48.26.76:2326'
         elif host == 'bootcamp11':
             sshconn = 'href=ssh://tetraining@10.48.26.76:2327'
+        else:
+            IPAddr = socket.gethostbyname(host)
+            sshconn = 'href=ssh://tetraining@'+IPAddr
         return render_template('home.html', sshconn=sshconn, status=status)
 
 
@@ -213,7 +218,7 @@ def task1():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task1Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -238,7 +243,7 @@ def task2():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task2Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -263,7 +268,7 @@ def task3():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task3Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -288,7 +293,7 @@ def task4():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task4Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -313,7 +318,7 @@ def task5():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task5Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -338,7 +343,7 @@ def task6():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task6Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -363,7 +368,7 @@ def task7():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task7Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -388,7 +393,7 @@ def task8():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task8Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -413,7 +418,7 @@ def task9():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task9Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -438,7 +443,7 @@ def task10():
     elif request.method == 'GET':
         solution_status = subprocess.check_output('./task10Validation.sh')
         solution_status = solution_status.decode('utf-8').strip()
-        print(solution_status)
+        # print(solution_status)
         status = task_validation_status(solution_status)
         if status == '0':
             update_task_status(tasks_tbl, '0', '0')
@@ -469,7 +474,7 @@ def task11():
 def solutionT1():
     solution_status=subprocess.check_output('./task1Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    # print (solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT1.html', status=status)
 
@@ -478,7 +483,7 @@ def solutionT1():
 def solutionT2():
     solution_status=subprocess.check_output('./task2Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
-    print (solution_status)
+    # print (solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT2.html', status=status)
 
@@ -487,7 +492,7 @@ def solutionT2():
 def solutionT3():
     solution_status=subprocess.check_output('./task3Validation.sh')
     solution_status= solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT3.html', status=status)
 
@@ -496,7 +501,7 @@ def solutionT3():
 def solutionT4():
     solution_status = subprocess.check_output('./task4Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT4.html', status=status)
 
@@ -505,7 +510,7 @@ def solutionT4():
 def solutionT5():
     solution_status = subprocess.check_output('./task5Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT5.html', status=status)
 
@@ -514,7 +519,7 @@ def solutionT5():
 def solutionT6():
     solution_status = subprocess.check_output('./task6Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT6.html', status=status)
 
@@ -523,7 +528,7 @@ def solutionT6():
 def solutionT7():
     solution_status = subprocess.check_output('./task7Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT7.html', status=status)
 
@@ -532,7 +537,7 @@ def solutionT7():
 def solutionT8():
     solution_status = subprocess.check_output('./task8Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT8.html', status=status)
 
@@ -541,7 +546,7 @@ def solutionT8():
 def solutionT9():
     solution_status = subprocess.check_output('./task9Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT9.html', status=status)
 
@@ -550,7 +555,7 @@ def solutionT9():
 def solutionT10():
     solution_status = subprocess.check_output('./task10Validation.sh')
     solution_status = solution_status.decode('utf-8').strip()
-    print(solution_status)
+    # print(solution_status)
     status = task_validation_status(solution_status)
     return render_template('solutionT10.html', status=status)
 
