@@ -5,8 +5,6 @@ import sqlite3
 import os
 import socket
 import subprocess
-from lab_config import *
-
 
 
 # Definition for GET request to get status of task >>> TO BE DELETED
