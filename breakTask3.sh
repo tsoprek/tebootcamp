@@ -5,9 +5,10 @@
 #Inspecting or adding the server to resolve.conf is incorrect as ubuntu uses netplan and this is not persistent.
 source lab_config
 
-sed -i "s/$dns_server/10.48.26.74/g" /etc/netplan/50-cloud-init.yaml
+sed -i "s/$dns_server/$wrong_dns_server/g" /etc/netplan/50-cloud-init.yaml
 netplan apply
-if grep '10.48.26.74' /etc/netplan/50-cloud-init.yaml 1>/dev/null ;
+dhclient
+if grep "$wrong_dns_server" /etc/netplan/50-cloud-init.yaml 1>/dev/null ;
   then
   echo 'DNS Broken'
 else

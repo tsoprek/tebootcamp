@@ -1,8 +1,9 @@
 #!/bin/bash
 source lab_config
-sed -i "s/10.48.26.74/$dns_server/g" /etc/netplan/50-cloud-init.yaml
+sed -i "s/$wrong_dns_server/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 netplan apply
-if grep '10.48.26.73' /etc/netplan/50-cloud-init.yaml > /dev/null ;
+dhclient
+if grep "$dns_server" /etc/netplan/50-cloud-init.yaml > /dev/null ;
   then
   echo 'DNS Fixed'
 else
