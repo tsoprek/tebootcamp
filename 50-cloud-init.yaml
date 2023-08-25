@@ -7,7 +7,7 @@ network:
     ethernets:
         ens2:
             dhcp4: true
-            dhcpp4-overrides:
+            dhcp4-overrides:
                 use-dns: false
             nameservers:
                 addresses: [8.8.4.4]
