@@ -1,2 +1,4 @@
-dns_server=10.48.26.73
-ntp_server=10.48.26.66
+dns_server=8.8.4.4
+ntp_server=ntp.ubuntu.com
+wrong_dns_server=8.8.4.3
+wrong_ntp_server=no.ntp.ubuntu.com
