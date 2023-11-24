@@ -22,5 +22,9 @@ sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
 sudo iptables -A OUTPUT -d 8.8.8.8 -p udp --dport 53 -j DROP
 #Generate certificate that is required for flask
 openssl req -x509 -sha256 -days 1825 -newkey rsa:2048 -keyout te-bootcamp-key.pem -out te-bootcamp.pem
-
-
+if ! grep install_dir lab_config;
+  then
+    echo 'install_dir='`pwd` >>lab_config
+  else
+    echo '***install_dir already set to $install_dir'
+fi
