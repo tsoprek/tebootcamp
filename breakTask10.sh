@@ -3,7 +3,7 @@ source lab_config
 if ! te-agent -v | grep '1.147.0';
 then
   apt remove te-agent -y
-  apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb
+  apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
 fi
 
 if ! grep 'auto-updates' /etc/te-agent.cfg;
