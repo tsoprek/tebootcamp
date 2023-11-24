@@ -14,6 +14,7 @@ sudo ./install_thousandeyes.sh -b -l /var/log k4qcugs8yvi8bmhulm9fflz4al0kt138
 sudo cp 50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml
 macaddr=`ip a show dev ens2 scope link | grep link`
 sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.yaml
+sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 sudo netplan apply
 sudo dhclient
 #Allow tcp port 5000 in for flask and block 8.8.8.8 pushed from dhcp. We use DHCP from lab_config file

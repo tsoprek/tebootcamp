@@ -10,7 +10,7 @@ network:
             dhcp4-overrides:
                 use-dns: false
             nameservers:
-                addresses: [8.8.4.4]
+                addresses: [8.8.8.8]
             match:
                 macaddress: 52:54:00:13:85:fd
             set-name: ens2
