@@ -12,6 +12,8 @@ sudo chmod +x install_thousandeyes.sh
 sudo ./install_thousandeyes.sh -b -l /var/log k4qcugs8yvi8bmhulm9fflz4al0kt138
 #Replace network config file, apply config file and refresh DHCP
 sudo cp 50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml
+macaddr=`ip a show dev ens2 scope link | grep link`
+sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.yaml
 sudo netplan apply
 sudo dhclient
 #Allow tcp port 5000 in for flask and block 8.8.8.8 pushed from dhcp. We use DHCP from lab_config file
@@ -23,5 +25,5 @@ if ! grep install_dir lab_config;
   then
     echo 'install_dir='`pwd` >>lab_config
   else
-    echo '***install_dir already set to $install_dir'
+    echo '*** install_dir already set to $install_dir VALIDATE MANUAL ***'
 fi
