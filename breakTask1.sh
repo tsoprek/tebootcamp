@@ -6,7 +6,7 @@
 if grep DEBUG /etc/te-agent.cfg;
   then
 
-  if systemctl status te-agent;
+  if systemctl status te-agent > /dev/null;
     then systemctl stop te-agent 1>/dev/null
     echo 'Service is running.'
     echo 'Stopping service'
@@ -19,7 +19,7 @@ if grep DEBUG /etc/te-agent.cfg;
 elif grep debug /etc/te-agent.cfg;
   then
   echo 'Log level is debug, restarting service.'
-  systemctl restart te-agent
+  systemctl restart te-agent > /dev/null
 else
   echo 'Log level is not DEBUG!!! Manual chek.'
 fi

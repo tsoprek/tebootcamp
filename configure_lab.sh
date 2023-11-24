@@ -7,6 +7,7 @@ sudo apt update
 sudo apt install -y python3-pip
 sudo pip install flask_sqlalchemy
 sudo apt install -y ntp
+sudo apt install sqlite3
 #Install TE agent
 curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh
 sudo chmod +x install_thousandeyes.sh

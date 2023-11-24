@@ -5,6 +5,6 @@
   cp /root/.bootcampLab/GlobalSign_Root_CA.crt /usr/share/ca-certificates/mozilla/
   cp /root/.bootcampLab/GTS_Root_R1.crt /usr/share/ca-certificates/mozilla/
   update-ca-certificates
-  systemctl restart te-agent
+  systemctl restart te-agent > /dev/null
 
 
