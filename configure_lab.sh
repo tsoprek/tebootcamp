@@ -23,10 +23,9 @@ sudo dhclient
 #add tetraining user, set password, and add to wheel
 sudo useradd tetraining
 echo -e 'Krakow123\nKrakow123\n' | sudo passwd tetraining
-sudo usermod –aG wheel tetraining
-#Allow tcp port 5000 in for flask and block 8.8.8.8 pushed from dhcp. We use DHCP from lab_config file
+sudo usermod -aG sudo tetraining
+#Allow tcp port 5000 in for flask
 sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
-sudo iptables -A OUTPUT -d 8.8.8.8 -p udp --dport 53 -j DROP
 #Generate certificate that is required for flask
 openssl req -x509 -nodes -sha256 -days 1825 -newkey rsa:2048 -keyout te-bootcamp-key.pem -out te-bootcamp.pem
 if ! grep install_dir lab_config;
