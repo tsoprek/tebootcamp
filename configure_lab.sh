@@ -1,15 +1,15 @@
 #!/bin/bash
 #call lab_config source to import variables
 source lab_config
-#Run apt update for the first time to create metadata
-sudo apt update
-#Install Python-pip, Flask, NTP
-sudo apt install -y python3-pip ntp sqlite3
-sudo pip install flask_sqlalchemy
 #Install TE agent
 curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh
 sudo chmod +x install_thousandeyes.sh
 sudo ./install_thousandeyes.sh -b -l /var/log k4qcugs8yvi8bmhulm9fflz4al0kt138
+#Run apt update for the first time to create metadata
+sudo apt update
+#Install Python-pip, Flask, NTP
+sudo apt install -y python3-pip ntp sqlite3 traceroute te-agent-utils
+sudo pip install flask_sqlalchemy
 #Replace network config file, apply config file and refresh DHCP
 sudo cp 50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml
 #Change of MAC address to in yaml file for match mac address
@@ -20,8 +20,10 @@ sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 #Apply config and refresh
 sudo netplan apply
 sudo dhclient
-#add tetraining user, set password, and add to wheel
-sudo useradd tetraining
+#add tetraining user/home/bash, set password, and add to wheel
+sudo useradd -m -s /bin/bash tetraining
+sudo chown -R tetraining:tetraining /home/tetraining
+sudo chmod 700 /home/tetraining
 echo -e 'Krakow123\nKrakow123\n' | sudo passwd tetraining
 sudo usermod -aG sudo tetraining
 #Allow tcp port 5000 in for flask
