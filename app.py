@@ -91,6 +91,20 @@ def task_validation_status(return_status):
         print('Failed to get task status!')
 
 
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.settimeout(0)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('10.254.254.254', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+print(get_ip())
+
 # Flask init
 app = Flask(__name__)
 tasks_db=('tasks.db') #Flask DB config
@@ -169,33 +183,8 @@ def home():
         return redirect('/')
     elif request.method == 'GET':
         host=socket.gethostname()
-        sshconn = '127.0.0.1'
+        sshconn = get_ip()
         status = return_status(tasks_tbl, task_id)
-        if host == 'bootcamp1':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2317'
-        elif host == 'bootcamp2':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2318'
-        elif host == 'bootcamp3':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2319'
-        elif host == 'bootcamp4':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2320'
-        elif host == 'bootcamp5':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2321'
-        elif host == 'bootcamp6':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2322'
-        elif host == 'bootcamp7':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2323'
-        elif host == 'bootcamp8':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2324'
-        elif host == 'bootcamp9':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2325'
-        elif host == 'bootcamp10':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2326'
-        elif host == 'bootcamp11':
-            sshconn = 'href=ssh://tetraining@10.48.26.76:2327'
-        else:
-            IPAddr = socket.gethostbyname(host)
-            sshconn = 'href=ssh://tetraining@'+IPAddr
         return render_template('home.html', sshconn=sshconn, status=status)
 
 
