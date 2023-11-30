@@ -183,7 +183,8 @@ def home():
         return redirect('/')
     elif request.method == 'GET':
         host=socket.gethostname()
-        sshconn = get_ip()
+        IPAddr = get_ip()
+        sshconn = 'href=ssh://tetraining@' + IPAddr
         status = return_status(tasks_tbl, task_id)
         return render_template('home.html', sshconn=sshconn, status=status)
 
