@@ -17,6 +17,9 @@ macaddr=`ip a show dev ens2 scope link | grep link`
 sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.yaml
 #Change of default DNS server to configured DNS server
 sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
+#Due to CML resolving requests adding specific server permitted, all other blocked
+iptables -A INPUT -p udp --sport 53 -s $dns_server -j ACCEPT
+iptables -A INPUT -p udp --sport 53 -j DROP
 #Apply config and refresh
 sudo netplan apply
 sudo dhclient
