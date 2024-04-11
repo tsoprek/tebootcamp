@@ -17,6 +17,8 @@ macaddr=`ip a show dev ens2 scope link | grep link`
 sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.yaml
 #Change of default DNS server to configured DNS server
 sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
+#Addin block for UDP port 53 default gateway as CML is resolving DNS requests
+sudo iptables -A INPUT -s 192.168.255.1 -p udp --sport 53 -j DROP
 #Apply config and refresh
 sudo netplan apply
 sudo dhclient
@@ -29,7 +31,7 @@ sudo usermod -aG sudo tetraining
 #Allow tcp port 5000 in for flask
 sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
 #Generate certificate that is required for flask
-openssl req -x509 -nodes -sha256 -days 1825 -newkey rsa:2048 -keyout te-bootcamp-key.pem -out te-bootcamp.pem
+openssl req -x509 -nodes -sha256 -days 1825 -newkey rsa:2048 -keyout te-bootcamp-key.pem -out te-bootcamp.pem <
 if ! grep install_dir lab_config;
   then
     echo 'install_dir='`pwd` >>lab_config
