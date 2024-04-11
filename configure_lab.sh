@@ -21,6 +21,7 @@ sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 if ! iptables -S | grep 192.168.255.1;
   then
   sudo iptables -A INPUT -s 192.168.255.1 -p udp --sport 53 -j DROP
+  sudo iptables -A INPUT -s 192.168.255.1 -p tcp --sport 53 -j DROP
 fi
 #Apply config and refresh
 sudo netplan apply
@@ -37,7 +38,7 @@ if ! iptables -S | grep 5000;
   sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
 fi
 #Generate certificate that is required for flask
-openssl req -x509 -nodes -sha256 -days 1825 -newkey rsa:2048 -keyout te-bootcamp-key.pem -out te-bootcamp.pem
+openssl req -x509 -nodes -sha256 -days 1825 -newkey rsa:2048 -keyout te-bootcamp-key.pem -out te-bootcamp.pem -subj "/CN=te-bootcamp.com"
 if ! grep install_dir lab_config;
   then
     echo 'install_dir='`pwd` >>lab_config
