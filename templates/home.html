@@ -151,12 +151,16 @@
     They would also like to schedule tests and get data and need help with that.<br>
     </p>
     <form method="POST" action="/">
-    <div class="flex flex-left">
-        <div class="btn-group">
-            <button class="btn btn--primary" id="on-btn" name="task_status" value="1" onclick="taskson(1)">Enable ALL tasks</button>
-            <button class="btn btn--secondary" id="off-btn" name="task_status" value="0" onclick="tasksoff(0)">Disable ALL tasks</button>
-        </div>
-    </div>
+
+    <div class="row base-margin-top base-margin-bottom">
+        <div class="col-md-12">
+            <form method="POST" action="/task1">
+                <div class="flex flex-left" style="margin-top: 40px">
+                    <div class="btn-group">
+                        <button class="btn " id="on-btn" name="task_status" value="1" onclick="taskson(1)">Enable task</button>
+                        <button class="btn btn--secondary" id="off-btn" name="task_status" value="0" onclick="tasksoff(0)">Disable task</button>
+                    </div>
+                </div>
     </form>
         <h4 class="text-size-28 text-weight-300 panel panel--dark dbl-margin-top">Lab services:</h4>
         <div class="row base-margin-top base-margin-bottom">
