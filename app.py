@@ -5,6 +5,16 @@ import sqlite3
 import os
 import socket
 import subprocess
+import re
+
+read_lab_config= open ('lab_config', 'r')
+dns_server_re= re.findall("^dns_server=.*", read_lab_config.read())
+dns_server=(dns_server_re[0])[11:]
+print (dns_server)
+read_lab_config= open ('lab_config', 'r')
+ntp_server_re= re.findall("ntp_server=.*", read_lab_config.read())
+ntp_server=(ntp_server_re[0])[11:]
+print (ntp_server)
 
 
 # Definition for GET request to get status of task >>> TO BE DELETED
