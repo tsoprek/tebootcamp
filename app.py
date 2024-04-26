@@ -196,7 +196,7 @@ def home():
         IPAddr = get_ip()
         sshconn = 'href=ssh://tetraining@' + IPAddr
         status = return_status(tasks_tbl, task_id)
-        return render_template('home.html', sshconn=sshconn, status=status)
+        return render_template('home.html', sshconn=sshconn, status=status, dns_server, ntp_server)
 
 
 @app.route('/task1/', methods=['POST', 'GET'])
