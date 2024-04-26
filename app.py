@@ -7,14 +7,14 @@ import socket
 import subprocess
 import re
 
-read_lab_config= open ('lab_config', 'r')
-dns_server_re= re.findall("^dns_server=.*", read_lab_config.read())
-dns_server=(dns_server_re[0])[11:]
-print (dns_server)
-read_lab_config= open ('lab_config', 'r')
-ntp_server_re= re.findall("ntp_server=.*", read_lab_config.read())
-ntp_server=(ntp_server_re[0])[11:]
-print (ntp_server)
+read_lab_config = open('lab_config', 'r')
+dns_server_re = re.findall("^dns_server=.*", read_lab_config.read())
+dns_server = (dns_server_re[0])[11:]
+print(dns_server)
+read_lab_config = open('lab_config', 'r')
+ntp_server_re = re.findall("ntp_server=.*", read_lab_config.read())
+ntp_server = (ntp_server_re[0])[11:]
+print(ntp_server)
 
 
 # Definition for GET request to get status of task >>> TO BE DELETED
@@ -196,7 +196,7 @@ def home():
         IPAddr = get_ip()
         sshconn = 'href=ssh://tetraining@' + IPAddr
         status = return_status(tasks_tbl, task_id)
-        return render_template('home.html', sshconn=sshconn, status=status, dns_server, ntp_server)
+        return render_template('home.html', sshconn=sshconn, status=status, dns_server=dns_server, ntp_server=ntp_server)
 
 
 @app.route('/task1/', methods=['POST', 'GET'])
