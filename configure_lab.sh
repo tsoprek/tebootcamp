@@ -8,7 +8,7 @@ sudo ./install_thousandeyes.sh -b -l /var/log k4qcugs8yvi8bmhulm9fflz4al0kt138
 #Run apt update for the first time to create metadata
 sudo apt update
 #Install Python-pip, Flask, NTP
-sudo apt install -y python3-pip ntp sqlite3 traceroute te-agent-utils
+sudo apt install -y python3-pip ntp sqlite3 traceroute te-agent-utils snmp
 sudo pip install flask_sqlalchemy
 #Replace network config file, apply config file and refresh DHCP
 sudo cp 50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml
@@ -18,10 +18,12 @@ sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.
 #Change of default DNS server to configured DNS server
 sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 #Addin block for UDP port 53 default gateway as CML is resolving DNS requests
-if ! iptables -S | grep 192.168.255.1;
+dg_raw=`ip route show default`
+dg=$(echo $dg| cut -d' ' -f3)
+if ! iptables -S | grep $dg;
   then
-  sudo iptables -A INPUT -s 192.168.255.1 -p udp --sport 53 -j DROP
-  sudo iptables -A INPUT -s 192.168.255.1 -p tcp --sport 53 -j DROP
+  sudo iptables -A INPUT -s $dg -p udp --sport 53 -j DROP
+  sudo iptables -A INPUT -s $dg -p tcp --sport 53 -j DROP
 fi
 #Apply config and refresh
 sudo netplan apply
