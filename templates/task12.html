@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<div class="panel panel--dark">
+<div class="panel panel--dark" xmlns="http://www.w3.org/1999/html">
     <h1 class="display-3 flex flex-center" style="margin-top: 75px;"></h1>
 </div>
 <div class="row base-margin-top flex flex-center">
     <div class="col-md-6">
         <div class="steps">
-            <div class="step visited">
+            <div class="step">
                 <div class="step__icon">
-                    <span class="icon-check"></span>
+                  <span class="icon-check"></span>
                 </div>
                 <div class="step__label">Instructions</div>
             </div>
             <div class="step visited">
-                <div class="step__icon">1</div>
+                <span class="step__icon">1</span>
                 <div class="step__label">TASK 1</div>
             </div>
             <div class="step visited">
@@ -33,41 +33,42 @@
                 <div class="step__icon">5</div>
                 <div class="step__label">TASK 5</div>
             </div>
-            <div class="step active">
+            <div class="step visited">
                 <div class="step__icon">6</div>
                 <div class="step__label">TASK 6</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">7</div>
                 <div class="step__label">TASK 7</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">8</div>
                 <div class="step__label">TASK 8</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">9</div>
                 <div class="step__label">TASK 9</div>
             </div>
-            <div class="step">
+
+            <div class="step visited">
                 <div class="step__icon">10</div>
                 <div class="step__label">TASK 10</div>
             </div>
-            <div class="step">
+            <div class="step visited">
                 <div class="step__icon">11</div>
                 <div class="step__label">TASK 11</div>
             </div>
-            <div class="step">
+            <div class="step active">
                 <div class="step__icon">END</div>
                 <div class="step__label">TASK 12</div>
             </div>
-
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block body%}
+
 <div class="row">
     <div class="col-md-2">
         <ul id="vleft" class="tabs tabs--vertical">
@@ -89,7 +90,7 @@
             <li id="vleft-6" class="tab">
                 <a tabindex="0" href="/task5">TASK 5</a>
             </li>
-            <li id="vleft-7" class="tab active">
+            <li id="vleft-7" class="tab">
                 <a tabindex="0" href="/task6">TASK 6</a>
             </li>
             <li id="vleft-8" class="tab">
@@ -107,13 +108,13 @@
             <li id="vleft-12" class="tab">
                 <a tabindex="0" href="/task11">TASK 11</a>
             </li>
-            <li id="vleft-13" class="tab">
+            <li id="vleft-13" class="tab active">
                 <a tabindex="0" href="/task12">TASK 12</a>
+            </li>
             </li>
             <li id="vleft-14" class="tab">
                 <a tabindex="0">SOLUTIONS</a>
             </li>
-
         </ul>
     </div>
     <div class="col-md-9">
@@ -134,24 +135,44 @@
             <div id="vleft-6-content" class="tab-pane">
                 <p>TASK 5</p>
             </div>
-            <div id="vleft-7-content" class="tab-pane active">
-                <p class="text-size-28 text-weight-300">TASK 6</p>
+            <div id="vleft-7-content" class="tab-pane">
+                <p>TASK 6</p>
             </div>
             <div id="vleft-8-content" class="tab-pane">
+                <p>TASK 7</p>
+            </div>
+            <div id="vleft-9-content" class="tab-pane">
+                <p>TASK 8</p>
+            </div>
+            <div id="vleft-10-content" class="tab-pane">
+                <p>TASK 9</p>
+            </div>
+            <div id="vleft-11-content" class="tab-pane">
+                <p >TASK 10</p>
+            </div>
+            <div id="vleft-12-content" class="tab-pane">
+                <p class="text-size-28 text-weight-300">TASK 11</p>
+            </div>
+            <div id="vleft-13-content" class="tab-pane active">
+                <p class="text-size-28 text-weight-300">TASK 12</p>
+            </div>
+            <div id="vleft-14-content" class="tab-pane">
                 <p>SOLUTIONS</p>
             </div>
         </div>
     </div>
 </div>
-<h4 class="text-size-28 text-weight-300 panel panel--dark">Agent status offline</h4>
+
+    <h4 class="text-size-28 text-weight-300 panel panel--dark">Device monitoring</h4>
     <p class="text-size-18 text-weight-300 base-margin-top text-justify">
-    Diagnose and provide proof what is the issues with the agent status.<br>
-        In this task, you need to diagnose the issue only. Do not resolve the issue, but point to the customer what is the problem. Task status is here just to tell you if the task is enabled or disabled.
-        Once you have diagnosed the issue, click disable the task.
+    The customer would like to monitor network devices. Discover devices from 10.255.0.0/24 network using credentials 'public'.
+        You should discover 6 devices and all devices should be able to pull interface details. Diagnose the issue with interface MIB.<br>
     </p>
+
+
     <div class="row base-margin-top base-margin-bottom">
         <div class="col-md-12">
-            <form method="POST" action="/task6">
+            <form method="POST" action="/task1">
                 <div class="flex flex-left" style="margin-top: 40px">
                     <div class="btn-group">
                         <button class="btn " id="on-btn" name="task_status" value="1" onclick="taskson(1)">Enable task</button>
@@ -161,10 +182,11 @@
             </form>
             <div class="flex flex-right">
                 <button class="btn btn--secondary--right">
-                    <a style="color: black" href="/solutionsT6" class="qtr-margin-top text-size-16">SOLUTION</a>
+                    <a style="color: black" href="/solutionsT12" class="qtr-margin-top text-size-16">SOLUTION</a>
                     <span class="icon-arrow-right-tail text-size-18 text-weight-300 base-margin-center text-justify qtr-margin-bottom"></span>
                 </button>
             <div>
         </div>
     </div>
+
 {% endblock %}

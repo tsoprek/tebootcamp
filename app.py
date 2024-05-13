@@ -7,17 +7,18 @@ import socket
 import subprocess
 import re
 
+# Read lab config file and get DNS NTP server. Used to return DNS&NTP server to Home Page, Lab Services
 read_lab_config = open('lab_config', 'r')
 dns_server_re = re.findall("^dns_server=.*", read_lab_config.read())
 dns_server = (dns_server_re[0])[11:]
-print(dns_server)
+#print(dns_server)
 read_lab_config = open('lab_config', 'r')
 ntp_server_re = re.findall("ntp_server=.*", read_lab_config.read())
 ntp_server = (ntp_server_re[0])[11:]
-print(ntp_server)
+#print(ntp_server)
 
 
-# Definition for GET request to get status of task >>> TO BE DELETED
+# Definition for GET request to get status of task
 def get_task_status(table, taskID):
     conn = sqlite3.connect('tasks.db')
     cursor = conn.cursor()
@@ -100,7 +101,7 @@ def task_validation_status(return_status):
     else:
         print('Failed to get task status!')
 
-
+# Get local IP address for SSH connection - Home Page
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.settimeout(0)
@@ -113,7 +114,7 @@ def get_ip():
     finally:
         s.close()
     return IP
-print(get_ip())
+#print(get_ip())
 
 # Flask init
 app = Flask(__name__)
@@ -192,7 +193,7 @@ def home():
             os.system('./fixLab.sh')
         return redirect('/')
     elif request.method == 'GET':
-        host=socket.gethostname()
+        #host=socket.gethostname() #To be deleted
         IPAddr = get_ip()
         sshconn = 'href=ssh://tetraining@' + IPAddr
         status = return_status(tasks_tbl, task_id)
@@ -467,6 +468,23 @@ def task11():
         status = return_status(tasks_tbl, task_id)
         return render_template('task11.html', status=status)
 
+@app.route('/task12/', methods=['POST', 'GET'])
+def task12():
+    task_id = '12'
+    if request.method == 'POST':
+        task_status = request.form.get('task_status')
+        task_status = str(task_status)
+        # update_task_status(tasks_tbl, task_id, task_status)
+        if task_status == '0':
+            master_task=get_task_status(tasks_tbl, '0')
+            if master_task == '1':
+                update_task_status(tasks_tbl, '0', '0')
+        # elif task_status == '1':
+            # os.system('./breakTask11.sh')
+        return redirect('/task12/')
+    elif request.method == 'GET':
+        status = return_status(tasks_tbl, task_id)
+        return render_template('task12.html')
 
 @app.route('/solutionsT1/', methods=['POST', 'GET'])
 def solutionT1():
@@ -562,6 +580,9 @@ def solutionT10():
 def solutionT11():
     return render_template('solutionT11.html')
 
+@app.route('/solutionsT12', methods=['POST','GET'])
+def solutionT12():
+    return render_template('solutionT12.html')
 
 if __name__ == "__main__":
     app.run(debug=True, ssl_context='adhoc')
