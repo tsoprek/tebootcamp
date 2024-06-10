@@ -2,7 +2,7 @@
 #call lab_config source to import variables
 source lab_config
 #Install TE agent
-apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
+sudo apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
 systemctl enable te-agent
 systemctl start te-agent
 #Run apt update for the first time to create metadata

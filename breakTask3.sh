@@ -7,6 +7,9 @@ source lab_config
 
 sed -i "s/$dns_server/$wrong_dns_server/g" /etc/netplan/50-cloud-init.yaml
 netplan apply
+if ! iptables -S | grep "udp --sport 53 -j DROP";
+  then sudo iptables -A INPUT -p udp --sport 53 -j DROP
+fi
 if grep "$wrong_dns_server" /etc/netplan/50-cloud-init.yaml 1>/dev/null ;
   then
   echo 'DNS Broken'
