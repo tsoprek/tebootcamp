@@ -2,15 +2,10 @@
 #call lab_config source to import variables
 source lab_config
 
-#Add TE repo
-echo 'deb https://apt.thousandeyes.com focal main' > /etc/apt/sources.list.d/thousandeyes.list
-sudo apt-add-repository https://apt.thousandeyes.com
-sudo wget -q https://apt.thousandeyes.com/thousandeyes-apt-key.pub -O- | sudo apt-key add -
-
 #Install TE agent
-apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
-systemctl enable te-agent
-systemctl start te-agent
+curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh
+chmod +x install_thousandeyes.sh
+sudo ./install_thousandeyes.sh -b k4qcugs8yvi8bmhulm9fflz4al0kt138
 
 #Run apt update for the first time to create metadata
 sudo apt update
@@ -28,16 +23,6 @@ sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.
 
 #Change of default DNS server to configured DNS server
 sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
-#Addin block for UDP port 53 default gateway as CML is resolving DNS requests!! >> This is commented out as block DNS port53
-# is added with only permitting configured DNS server on port 53
-#dg_raw=`ip route show default`
-#dg=$(echo $dg_raw| cut -d' ' -f3)
-#if ! iptables -S | grep $dg;
-#  then
-#  sudo iptables -A INPUT -s $dns_server -p udp --sport 53 -j ACCEPT
-#  sudo iptables -A INPUT -s $dns_server -p tcp --sport 53 -j ACCEPT
-#  sudo iptables -A INPUT -p udp --sport 53 -j DROP
-#fi
 
 #Apply config and refresh
 sudo netplan apply
