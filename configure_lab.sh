@@ -18,13 +18,14 @@ sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.
 #Change of default DNS server to configured DNS server
 sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 #Addin block for UDP port 53 default gateway as CML is resolving DNS requests
-dg_raw=`ip route show default`
-dg=$(echo $dg_raw| cut -d' ' -f3)
-if ! iptables -S | grep $dg;
-  then
-  sudo iptables -A INPUT -s $dg -p udp --sport 53 -j DROP
-  sudo iptables -A INPUT -s $dg -p tcp --sport 53 -j DROP
-fi
+#dg_raw=`ip route show default`
+#dg=$(echo $dg_raw| cut -d' ' -f3)
+#if ! iptables -S | grep $dg;
+#  then
+  sudo iptables -A INPUT -s $dns_server -p udp --sport 53 -j ACCEPT
+  sudo iptables -A INPUT -s $dns_server -p tcp --sport 53 -j ACCEPT
+  sudo iptables -A INPUT -p udp --sport 53 -j DROP
+#fi
 #Apply config and refresh
 sudo netplan apply
 sudo dhclient
@@ -47,3 +48,4 @@ if ! grep install_dir lab_config;
   else
     echo "*** install_dir already set to $install_dir VALIDATE MANUALLY ***"
 fi
+./runlab.sh
