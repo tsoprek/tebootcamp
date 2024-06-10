@@ -2,9 +2,9 @@
 #call lab_config source to import variables
 source lab_config
 #Install TE agent
-curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh
-sudo chmod +x install_thousandeyes.sh
-sudo ./install_thousandeyes.sh -b -l /var/log k4qcugs8yvi8bmhulm9fflz4al0kt138
+apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
+systemctl enable te-agent
+systemctl start te-agent
 #Run apt update for the first time to create metadata
 sudo apt update
 #Install Python-pip, Flask, NTP
