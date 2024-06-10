@@ -2,7 +2,7 @@
 #call lab_config source to import variables
 source lab_config
 #Install TE agent
-sudo apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
+apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
 systemctl enable te-agent
 systemctl start te-agent
 #Run apt update for the first time to create metadata
@@ -22,9 +22,9 @@ sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
 #dg=$(echo $dg_raw| cut -d' ' -f3)
 #if ! iptables -S | grep $dg;
 #  then
-  sudo iptables -A INPUT -s $dns_server -p udp --sport 53 -j ACCEPT
-  sudo iptables -A INPUT -s $dns_server -p tcp --sport 53 -j ACCEPT
-  sudo iptables -A INPUT -p udp --sport 53 -j DROP
+#  sudo iptables -A INPUT -s $dns_server -p udp --sport 53 -j ACCEPT
+#  sudo iptables -A INPUT -s $dns_server -p tcp --sport 53 -j ACCEPT
+#  sudo iptables -A INPUT -p udp --sport 53 -j DROP
 #fi
 #Apply config and refresh
 sudo netplan apply
