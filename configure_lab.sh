@@ -5,7 +5,7 @@ source lab_config
 #Install TE agent
 curl -Os https://downloads.thousandeyes.com/agent/install_thousandeyes.sh
 chmod +x install_thousandeyes.sh
-sudo ./install_thousandeyes.sh -b k4qcugs8yvi8bmhulm9fflz4al0kt138
+sudo ./install_thousandeyes.sh -l /var/log -b k4qcugs8yvi8bmhulm9fflz4al0kt138
 
 #Run apt update for the first time to create metadata
 sudo apt update
