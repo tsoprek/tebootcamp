@@ -23,8 +23,10 @@ sudo sed -i "s/52:54:00:13:85:fd/${macaddr:15:18}/g" /etc/netplan/50-cloud-init.
 
 #Change of default DNS server to configured DNS server
 sudo sed -i "s/8.8.8.8/$dns_server/g" /etc/netplan/50-cloud-init.yaml
-#Addin block for UDP port 53 default gateway as CML is resolving DNS requests!! >> This is commented out as block DNS port53
-# is added with only permitting configured DNS server on port 53
+
+# This got outdated by adding additional DNS servers with DHCP >> Last version is permit
+# only DNS server from lab_config file
+
 #dg_raw=`ip route show default`
 #dg=$(echo $dg_raw| cut -d' ' -f3)
 #if ! iptables -S | grep $dg;
