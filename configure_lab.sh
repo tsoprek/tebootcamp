@@ -12,7 +12,7 @@ sudo apt update
 
 #Install Python-pip, Flask, NTP
 sudo apt install -y python3-pip ntp sqlite3 traceroute te-agent-utils snmp
-sudo pip install flask flask_sqlalchemy
+sudo pip install flask flask_sqlalchemy livereload
 
 #Replace network config file, apply config file and refresh DHCP
 sudo cp 50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml

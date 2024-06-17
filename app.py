@@ -6,6 +6,8 @@ import os
 import socket
 import subprocess
 import re
+from livereload import Server
+
 
 # Read lab config file and get DNS NTP server. Used to return DNS&NTP server to Home Page, Lab Services
 read_lab_config = open('lab_config', 'r')
@@ -586,3 +588,5 @@ def solutionT12():
 
 if __name__ == "__main__":
     app.run(debug=True, ssl_context='adhoc')
+    server = Server(app.wsgi_app)
+    server.serve()
