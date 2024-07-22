@@ -6,6 +6,7 @@
 network:
     ethernets:
         ens2:
+            link-local: [ ipv4  ]
             dhcp4: true
             dhcp4-overrides:
                 use-dns: false
