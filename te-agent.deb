@@ -1,0 +1,3647 @@
+Package: te-agent-utils-dbg
+Source: te-agent-utils
+Version: 1.54.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 942788
+Depends: te-agent-utils (= 1.54.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Agent Utilities - debug symbols
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+ .
+ This package contains the debugging symbols for te-agent-utils.
+Filename: pool/main/t/te-agent-utils-dbg/te-agent-utils-dbg_1.54.0-1~jammy_amd64.deb
+SHA1: af4dca70430e86513ee1fb2ada3c76b574fd7398
+SHA256: 8848fc725de5e45ecacb6cecda38f9e6c4576eaac67b2a3bb22adf30fbeaea47
+Size: a237841628
+
+Package: te-agent-utils
+Version: 1.54.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 64358
+Depends: libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libcap2 (>= 1:2.10), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libmnl0 (>= 1.0.3-4~), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Agent Utilities
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+Filename: pool/main/t/te-agent-utils/te-agent-utils_1.54.0-1~jammy_amd64.deb
+SHA1: f636c04bc71c2efd5962808f0720551329951cba
+SHA256: 41de008051687328820b2365ab206c3f34d75b0621cb25c89802b2709dc2cdef
+Size: 9018974
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.187.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 295832
+Depends: te-agent (= 1.187.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.187.0-1~jammy_amd64.deb
+SHA1: 55289a7906fc6a2384d4fccf5e1d84d3206dfd53
+SHA256: de08257453044f0faee2d0711dc942c272b56be14aea1282acacca2397fea72f
+Size: 75913010
+
+Package: te-agent
+Version: 1.187.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18169
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.187.0-1~jammy_amd64.deb
+SHA1: 307f7fa01fc40317cd8592cddd6bff4b2e837c73
+SHA256: 51b58907143f1f638329a7fdeab29dac5370340b7cb5ca93b7c4674025ef3919
+Size: 5415706
+
+Package: te-browserbot-dual
+Version: 2.26.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 899055
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.26.0-1~jammy_amd64.deb
+SHA1: 7dd96c5aaed2ecce3ebb67053417873da0b04602
+SHA256: 76a3f635ec0107a5c8c92406fde66cede4e11b913ef7e5f7f58a89e8089bd04a
+Size: 893662222
+
+Package: te-browserbot
+Version: 2.26.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 454255
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.26.0-1~jammy_amd64.deb
+SHA1: 92d6fca1f5b36c41a2733eceac8727bc3da5459d
+SHA256: 87c6ea48beffad3147c5f660056a340217215591e42f4afa63e915c54e9511f1
+Size: 447725392
+
+Package: te-browserbot-dual
+Version: 2.26.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 899636
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.26.1-1~jammy_amd64.deb
+SHA1: c6cfc1dfb4d46277b3603191cbcb966f301a3439
+SHA256: cb98c724c677fcfe5516f6066e53b4a382724b344dd342a2cbf187d7a6fda6fa
+Size: 894089618
+
+Package: te-browserbot
+Version: 2.26.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 454533
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.26.1-1~jammy_amd64.deb
+SHA1: 19161d61ba9eb262d3a7df7d0c81d89b9e8338af
+SHA256: ba9d2f5879194d9c4ee5754135f0346f236dc25c7644e192815a42005ef7a89b
+Size: 447880092
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.188.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 301018
+Depends: te-agent (= 1.188.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.188.0-1~jammy_amd64.deb
+SHA1: a8d3387b62c2c6d038f521414ec124566262ceba
+SHA256: 38cc1a7a45c5796f0739c419b6bd077ede4e2b8f12d84265aa06d13f82dec9b5
+Size: 77380762
+
+Package: te-agent
+Version: 1.188.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18293
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.188.0-1~jammy_amd64.deb
+SHA1: fd9db7b8cf33274442e7f23c44f3127d2ef7a42c
+SHA256: 6a68005c3e1f06cca243b56b01125bcc0557fef2a7d13fbf4986115447e4b8c0
+Size: 5458846
+
+Package: te-browserbot-dual
+Version: 2.26.2-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 899630
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.26.2-1~jammy_amd64.deb
+SHA1: 682c2a34db6661cf0fd6aa4bdf62ba48f12637db
+SHA256: 9aa95eefef2516cf4e82a728cccaaa410fe209f2904bca890c6aa72c6b105cb2
+Size: 894058872
+
+Package: te-browserbot
+Version: 2.26.2-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 454537
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.26.2-1~jammy_amd64.deb
+SHA1: ef887fb23f51a0ae6b667eac6fe562b99ae09b4f
+SHA256: 4c0750a50176b83b1323b3001dcbd6e10a44e50f49c4a65a7306ac84b9a982a4
+Size: 447752890
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.189.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 301411
+Depends: te-agent (= 1.189.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.189.0-1~jammy_amd64.deb
+SHA1: 850a05bcc4bd6b8cd80594837e4181be905ddb09
+SHA256: 4bbc53de249118481fb7cf799ab41adbf573f64a29b07bd9e6bf3d48f7351d95
+Size: 77474888
+
+Package: te-agent
+Version: 1.189.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18309
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.189.0-1~jammy_amd64.deb
+SHA1: a9d20e3a98bf678b648725455818be6f85ed5241
+SHA256: 331a35f29e730aed18339a0e21e259e3414f00fe9f7aafa3734b149ff66db238
+Size: 5467954
+
+Package: te-cntlm
+Version: 0.92.3~3
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 167
+Depends: adduser, libgssapi-krb5-2 (>= 1.17), libc6 (>= 2.34)
+Replaces: ntlmaps
+Section: misc
+Priority: optional
+Homepage: http://cntlm.sourceforge.net/
+Description: Fast NTLM authentication proxy with tunneling
+ Cntlm is a fast and efficient NTLM proxy, with support for TCP/IP tunneling,
+ authenticated connection caching, ACLs, proper daemon logging and behaviour
+ and much more. It has up to ten times faster responses than similar NTLM
+ proxies, while using by orders or magnitude less RAM and CPU. Manual page
+ contains detailed information.
+Filename: pool/main/t/te-cntlm/te-cntlm_0.92.3~3~jammy_amd64.deb
+SHA1: dd917d4e86ae565d1ff49fc08c5659a9aef9f5fb
+SHA256: 8a3f576ca2822eaad80ee97ab229bcd2f880fdbacd4e8ac9299115f9e44e6e5b
+Size: 69654
+
+Package: te-browserbot-dual
+Version: 2.28.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 1065095
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.28.0-1~jammy_amd64.deb
+SHA1: a13d7900e7ea15178d6f865c68a1028473658a12
+SHA256: 73663e5abfb30ad7f51e0f273c331216a1542a05690b3868682fec574315f82e
+Size: 1060658954
+
+Package: te-browserbot
+Version: 2.28.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 537272
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.28.0-1~jammy_amd64.deb
+SHA1: 6fb76e0c563f53bf98462086dedeaba56738695f
+SHA256: 062eea19cef760203e05bd695c3c4abb9489e6dec1a95bca462f2da28a203ae5
+Size: 531212070
+
+Package: te-chromium-internal
+Version: 120.0.6099.224-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: ca-certificates,
+         fonts-liberation,
+         libasound2 (>= 1.0.17),
+         libatk-bridge2.0-0 (>= 2.5.3),
+         libatk1.0-0 (>= 2.2.0),
+         libatspi2.0-0 (>= 2.9.90),
+         libc6 (>= 2.17),
+         libcairo2 (>= 1.6.0),
+         libcups2 (>= 1.6.0),
+         libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3,
+         libdbus-1-3 (>= 1.9.14),
+         libdrm2 (>= 2.4.75),
+         libexpat1 (>= 2.0.1),
+         libgbm1 (>= 17.1.0~rc2),
+         libglib2.0-0 (>= 2.39.4),
+         libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~),
+         libnss3 (>= 2:3.26),
+         libpango-1.0-0 (>= 1.14.0),
+         libu2f-udev, libvulkan1,
+         libx11-6 (>= 2:1.4.99.1),
+         libxcb1 (>= 1.9.2),
+         libxcomposite1 (>= 1:0.4.4-1),
+         libxdamage1 (>= 1:1.1),
+         libxext6,
+         libxfixes3,
+         libxkbcommon0 (>= 0.5.0),
+         libxrandr2,
+         wget,
+         xdg-utils (>= 1.0.2)
+Section: web
+Priority: optional
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains the web browser component.
+Filename: pool/main/t/te-chromium-internal/te-chromium-internal_120.0.6099.224-1~jammy.deb
+SHA1: a20c444467355193be58a73eecdf0785c6ddc4c2
+SHA256: eb9079e6a83de7a8ca9210d00e1084b898650d38ea0de94194ef3ed61630a7b3
+Size: 116861284
+
+Package: containernetworking-plugins
+Version: 1.2.0-4~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 49534
+Depends: libc6 (>= 2.34)
+Conflicts: rkt
+Section: golang
+Priority: optional
+Homepage: https://github.com/containernetworking/plugins
+Description: standard networking plugins - binaries
+ This package contains binaries of the Container Networking Initiative's
+ official plugins:
+ .
+ Interfaces
+  - bridge: Creates a bridge, adds the host and the container to it.
+  - ipvlan: Adds an [ipvlan] interface in the container.
+  - loopback: Set the state of loopback interface to up.
+  - macvlan: Creates a new MAC address, forwards all traffic
+             to that to the container.
+  - ptp: Creates a veth pair.
+  - vlan: Allocates a vlan device.
+  - host-device: Move an already-existing device into a container.
+ .
+ IPAM: IP Address Management
+  - dhcp: Runs a daemon to make DHCP requests on behalf of the container.
+  - host-local: Maintains a local database of allocated IPs
+  - static: Allocates a static IPv4/IPv6 address.
+ .
+ Other
+  - flannel: Generates an interface corresponding to a flannel config file
+  - tuning: Tweaks sysctl parameters of an existing interface
+  - portmap: An iptables-based portmapping plugin.
+             Maps ports from the host's address space to the container.
+  - bandwidth: Allows bandwidth-limiting through use of traffic control tbf.
+  - sbr: Configures source based routing for an interface.
+  - firewall: Uses iptables or firewalld to add rules to allow traffic
+              to/from the container.
+Filename: pool/main/c/containernetworking-plugins/containernetworking-plugins_1.2.0-4~jammy_amd64.deb
+SHA1: e305eb9694f0e8dee2c6603ecc64e30870ea6aa6
+SHA256: 3e4d5ecbd6e1ef90b72ff688cf9c120e74738d6bea5c8e6338db2e14791b2856
+Size: 7421594
+
+Package: containers-common
+Version: 0.40.0-3~jammy
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 113
+Conflicts: skopeo-containers
+Replaces: containers-golang, containers-image, skopeo-containers
+Provides: skopeo-containers
+Section: devel
+Priority: optional
+Homepage: https://github.com/containers/common
+Description: Configuration files for working with image signatures.
+Filename: pool/main/c/containers-common/containers-common_0.40.0-3~jammy_all.deb
+SHA1: 5a914d43f1c134f27662d4c65cca78b593b0751c
+SHA256: 182d862926a2e8f693de55ab340ba24411b281424938889bf9e4f72733e352b8
+Size: 50586
+
+Package: podman
+Version: 4.4.4-4~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 71434
+Depends: libseccomp2 (>= 2.4.3-1), libdevmapper1.02.1, libgpgme11, catatonit, conmon (>= 2.0.24), containers-common, dbus-user-session, iptables, containernetworking-plugins (>= 0.9.1), crun (>= 0.12.1)
+Recommends: slirp4netns (>= 100:1.1.8-3), uidmap, fuse-overlayfs
+Conflicts: podman-rootless
+Section: devel
+Priority: optional
+Description: Manage pods, containers and container images.
+Filename: pool/main/p/podman/podman_4.4.4-4~jammy_amd64.deb
+SHA1: 1fa84f801b6d74892ca63381bcde1ecf1999ce0e
+SHA256: 8bf7cd43bd59cefd2d1076e5bd219acbd78a8b98cd721955187ec9ca5507d5ad
+Size: 22061942
+
+Package: crun
+Version: 1.8.3-3~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 1500
+Depends: libyajl2
+Section: devel
+Priority: optional
+Description: OCI runtime written in C
+Filename: pool/main/c/crun/crun_1.8.3-3~jammy_amd64.deb
+SHA1: fba6699119d1f4560f1c2225357e7c4b4a1916dd
+SHA256: 4b9a1e97ad845f6c8f2966d1a661495ab7e3230dbbdf20ce02e981dd85dd0d4c
+Size: 355818
+
+Package: conmon
+Version: 2.0.28-5~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 164
+Depends: libc6 (>= 2.34), libglib2.0-0 (>= 2.35.8), libsystemd0
+Section: admin
+Priority: optional
+Description: OCI container runtime monitor
+ Conmon is a monitoring program and communication tool between a container
+ manager (like podman or CRI-O) and an OCI runtime (like runc or crun) for a
+ single container.
+ .
+ Upon being launched, it double-forks to daemonize and detach from the parent
+ that launched it. It then launches the runtime as its child. This allows
+ managing processes to die in the foreground, but still be able to watch over
+ and connect to the child process (the container).
+ .
+ While the container runs, conmon does two things:
+ .
+ - Provides a socket for attaching to the container, holding open the
+   container's standard streams and forwarding them over the socket.
+ - Writes the contents of the container's streams to a log file (or to the
+   systemd journal) so they can be read after the container's death.
+ .
+ Finally, upon the containers death, conmon will record its exit time and code
+ to be read by the managing programs.
+ .
+ Written in C and designed to have a low memory footprint, conmon is intended to
+ be run by a container managing library. Essentially, conmon is the smallest
+ daemon a container can have.
+Filename: pool/main/c/conmon/conmon_2.0.28-5~jammy_amd64.deb
+SHA1: eabd295b821ddd6b0f9c1e8591183719b5d3dd3f
+SHA256: a3963cbc34e45612fbf9966193891601db70d89e89d002310bae5ea8bce12f75
+Size: 35198
+
+Package: catatonit
+Version: 0.2.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 837
+Section: admin
+Priority: optional
+Homepage: https://github.com/openSUSE/catatonit
+Description: init process for containers
+ catatonic is a very simple init process for application containers. Its
+ purpose is to support only the usage by container managers such as docker and
+ podman, which is /dev/init -- <your program>. No other use cases will be
+ supported.
+Filename: pool/main/c/catatonit/catatonit_0.2.0-1~jammy_amd64.deb
+SHA1: 76101292b94b0dfba81d71991b6c1d3295d108c6
+SHA256: 29b7a4db43407ae023da8264f5e87f4f519e8cce06574036e62564c4da87d869
+Size: 313576
+
+Package: te-chromium-internal
+Version: 118.0.5993.70-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: ca-certificates,
+         fonts-liberation,
+         libasound2 (>= 1.0.17),
+         libatk-bridge2.0-0 (>= 2.5.3),
+         libatk1.0-0 (>= 2.2.0),
+         libatspi2.0-0 (>= 2.9.90),
+         libc6 (>= 2.17),
+         libcairo2 (>= 1.6.0),
+         libcups2 (>= 1.6.0),
+         libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3,
+         libdbus-1-3 (>= 1.9.14),
+         libdrm2 (>= 2.4.75),
+         libexpat1 (>= 2.0.1),
+         libgbm1 (>= 17.1.0~rc2),
+         libglib2.0-0 (>= 2.39.4),
+         libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~),
+         libnss3 (>= 2:3.26),
+         libpango-1.0-0 (>= 1.14.0),
+         libu2f-udev, libvulkan1,
+         libx11-6 (>= 2:1.4.99.1),
+         libxcb1 (>= 1.9.2),
+         libxcomposite1 (>= 1:0.4.4-1),
+         libxdamage1 (>= 1:1.1),
+         libxext6,
+         libxfixes3,
+         libxkbcommon0 (>= 0.5.0),
+         libxrandr2,
+         wget,
+         xdg-utils (>= 1.0.2)
+Section: web
+Priority: optional
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains the web browser component.
+Filename: pool/main/t/te-chromium-internal/te-chromium-internal_118.0.5993.70-1~jammy.deb
+SHA1: 884ec3e41b817563d4b96da21b77815b81b8218b
+SHA256: ba91fa9583012698573a730f7e1de7c7ba1796bc4db2c258179201d61b63a659
+Size: 115675090
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.190.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 301759
+Depends: te-agent (= 1.190.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.190.0-1~jammy_amd64.deb
+SHA1: 14d40f7917c9df6fab006ca43a22dbd685e40e35
+SHA256: 30f2409fc08b37f99c44497b0836fd7991c4f9ea0acd431db390850c3408bead
+Size: 77553194
+
+Package: te-agent
+Version: 1.190.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18329
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.190.0-1~jammy_amd64.deb
+SHA1: f22da6a1904315c638bff66e71c9e127cc460261
+SHA256: 0464449790202e16009688b29dc96f01ddea71268972c142643ee1393dcabac6
+Size: 5473964
+
+Package: te-appliance-sidecar
+Version: 0.51-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 67
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.51-1_all.deb
+SHA1: 1d7e87393c623fa729cc14b9c2d0f3dc6c8fa403
+SHA256: f26518ecd1a2be9b3056ee735b6e893352cf6102c0c9dda1d7e577caabcff752
+Size: 13848
+
+Package: te-appliance-sidecar
+Version: 0.52-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 67
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.52-1_all.deb
+SHA1: 0d7e9bf7ed16f7c8ddcf18485e734ed8a189a5c6
+SHA256: 53917cbac2f7c6ba121490e2aec673ce5e0d9e7fa53f63b8afe9332b2bc1f63d
+Size: 13850
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.191.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 301923
+Depends: te-agent (= 1.191.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.191.0-1~jammy_amd64.deb
+SHA1: eb108637262a0875ba0c25fc6a663436f5b358e1
+SHA256: 313b92d69690250bf87741638701eb2a26e4a375eee6518b534546c84b5dd8e0
+Size: 77608212
+
+Package: te-agent
+Version: 1.191.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18337
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.191.0-1~jammy_amd64.deb
+SHA1: 644b897614222e260bb793edc2baa64b86ed124e
+SHA256: b494b19fac67b0e3570154fa3688754e19dc7949ec15b9f5c25f7f05e3f1c508
+Size: 5475620
+
+Package: te-browserbot-dual
+Version: 2.29.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 994228
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.29.0-1~jammy_amd64.deb
+SHA1: 47fb608187f013497d8264f5e558fb31675afd7f
+SHA256: 29ca0c809ab085585d60cf6d36fbed3487ad15bcf0a15661bbb3c13102513042
+Size: 989103802
+
+Package: te-browserbot
+Version: 2.29.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 501856
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.29.0-1~jammy_amd64.deb
+SHA1: 405bb755a897ffef210a3808c1c7cf8baf41bee1
+SHA256: c948e396624e2d17aaf39ad8e5fe9d75657e4452256172287e92bd0e112e12bb
+Size: 495361486
+
+Package: te-browserbot-dual
+Version: 2.30.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 1065779
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.30.0-1~jammy_amd64.deb
+SHA1: 29ee280a94d85c54152b5d65958a60e22121064f
+SHA256: 619a153e2390e8806a47d7660e6f38fbaf4f4dc5713640e7aa261eec19275a63
+Size: 1061542722
+
+Package: te-browserbot
+Version: 2.30.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 537824
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.30.0-1~jammy_amd64.deb
+SHA1: ee425ee7c69a157648383b7cced206df5930a001
+SHA256: 7e8c4037a0dba3641cd13dd7b900c9fddd4b2ed08aee00c561a41b67f34a9458
+Size: 531925604
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.243-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.243-1~jammy_all.deb
+SHA1: 9166d85e285392c6fb3411930c2e6c7ef2191c97
+SHA256: 1fd4186b013a88de03c1cda57a739fb4af04ed6e60024a01821b3cf1ac7b1e46
+Size: 7436098
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.243-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.243-1~jammy_all.deb
+SHA1: 83c368a0983bbd763944af9cb109ea20a9165758
+SHA256: 147fe051b17ce3c002a96b63fa76a1078757927b5b700c771127d50404c9f05a
+Size: 7436128
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.244-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.244-1~jammy_all.deb
+SHA1: 0c582fe479eb071498d958fc4f21d78626c06274
+SHA256: 47985776e59234615391c4b9d5832bf35b2e947efe6ce136ffc65d1039df7c5e
+Size: 7436202
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.244-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.244-1~jammy_all.deb
+SHA1: 144deee0fa20e4107ff667f1a96451c4a9e34aa3
+SHA256: b50839a411acc98e546b2f98267ac104d308b205c734f2f41982571ba2d135d2
+Size: 7437044
+
+Package: te-appliance-sidecar
+Version: 0.54-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 67
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.54-1_all.deb
+SHA1: f4f833cad230bf3356a54a89a289cad3b02e01cb
+SHA256: 815ff9a7e33284984c5b5ce9c20afe73ffae66146c7cf35af34e077cb8fc1cd0
+Size: 13838
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.192.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302213
+Depends: te-agent (= 1.192.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.192.0-1~jammy_amd64.deb
+SHA1: 10f9c66a822d6249038d110218b1cc0a89dbcc82
+SHA256: 3d8d2abfa9f4270dec2373f9e46a0e678af1179bf6de02e487d3d9e3729e5bbb
+Size: 77705538
+
+Package: te-agent
+Version: 1.192.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18318
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.192.0-1~jammy_amd64.deb
+SHA1: f0a7c27db2c014f8c4fba518bb5a23007b5a2c51
+SHA256: b0ba735349ad9ca63a21c166a8ffdb914b5587ecdd1197a5581258cbbcd34809
+Size: 5478562
+
+Package: te-browserbot-dual
+Version: 2.31.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 994489
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.31.0-1~jammy_amd64.deb
+SHA1: 8d9d423494ee927f728c81f535e2acc01d525273
+SHA256: 7e008422c12a7045b6b8bca0c34a372cbb59bd75b46c0c25a384132f42da67a1
+Size: 989234836
+
+Package: te-browserbot
+Version: 2.31.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 502175
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.31.0-1~jammy_amd64.deb
+SHA1: 4ba0af4f2ddde0f38d27a8061cb1982c51c4011c
+SHA256: cd5b8d38274c4b45ecaafddf339a0b857283d2b5fd1d2168650d36d631a713c9
+Size: 495719208
+
+Package: te-va-unlock
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Version: 0.244.7-1~jammy
+Description: ThousandEyes Appliance Unlocker
+	Package to unlock the ThousandEyes Appliance
+Filename: pool/main/t/te-va-unlock/te-va-unlock_0.244.7-1~jammy_all.deb
+SHA1: 16804fd687aeca9d85e394c468cd894c55cce716
+SHA256: cf5d65e8c2fae44330220ce0eb8cc2c594ce62b199921c6233ff52d0e4a0c014
+Size: 752
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.246.0-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.246.0-1~jammy_all.deb
+SHA1: 965df4bee707375f3109bab1c771268f6031e423
+SHA256: c05651ae78c4eb61633aab90908df40f560feaa7f33de149364aa8161a41c384
+Size: 7438986
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.246.0-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.246.0-1~jammy_all.deb
+SHA1: ce03ef33bc2fdbb3724db9a4361bc6a829cdc365
+SHA256: 811483d7bd69624afdeb3ce5abc160f5182df827c9281cda9acf76dd27215ebf
+Size: 7438680
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.193.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302191
+Depends: te-agent (= 1.193.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.193.0-1~jammy_amd64.deb
+SHA1: 67bea2456307224ddfeea09f23938c9e077e9ae6
+SHA256: 045ce0a28f8bebd856118cc7ac8fdbac7bd94205a447fa430449d4e145462e6b
+Size: 77711134
+
+Package: te-agent
+Version: 1.193.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18314
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.193.0-1~jammy_amd64.deb
+SHA1: 4508cf0e83c01676edbc57b07547198c5b010d4f
+SHA256: b92bb76dd2ea44d5000048053c1e0884c096d0859782b319dda0b660e85ee950
+Size: 5481564
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.194.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302191
+Depends: te-agent (= 1.194.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.194.0-1~jammy_amd64.deb
+SHA1: 049c626c2a42d022fd9350bba5aa6f830d96d160
+SHA256: d9031cc787720f3dc5eaaa7a28c0b869f9fa9be31d2ff28ba8ce7e9e39654433
+Size: 77712150
+
+Package: te-agent
+Version: 1.194.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18314
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.194.0-1~jammy_amd64.deb
+SHA1: 5291cc9cb5c6964ce6ad040cb1ed5517ae857da7
+SHA256: 140496c389de72780746ea8b9ffb9a35c6b05d5e5954cd37117420508e5fd761
+Size: 5481578
+
+Package: te-browserbot-dual
+Version: 2.32.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 994705
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.32.0-1~jammy_amd64.deb
+SHA1: 1e6f233118e9b326ac859349cb6c02c5fcd45151
+SHA256: 885fd2e88180c82ecaff4db4998643b9616b58b36f463ba07e54b34266c6f052
+Size: 989702726
+
+Package: te-browserbot
+Version: 2.32.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 502351
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.32.0-1~jammy_amd64.deb
+SHA1: 4cdf26f022d7b46d195709324056b212b419ae0a
+SHA256: 7723283773653f94e9eb2ed9d1d1e298f45f4f09afcabad060fb20515fc3a347
+Size: 496014662
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.195.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302191
+Depends: te-agent (= 1.195.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.195.0-1~jammy_amd64.deb
+SHA1: 7781de4b95801b8891087bd3c34113a533e460a3
+SHA256: 832ab81315eb48c944b02549eb58950cb0dd8c8c1ea14236e69ba68715be674d
+Size: 77712910
+
+Package: te-agent
+Version: 1.195.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18314
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.195.0-1~jammy_amd64.deb
+SHA1: c7061f91135b6a55cef4327e2aac8349d58a00d3
+SHA256: 232391ceb9810d3b303dfe0b2a65fc74534da887b3e005a796ed09c249812ab4
+Size: 5481632
+
+Package: te-agent-utils-dbg
+Source: te-agent-utils
+Version: 1.55.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 938668
+Depends: te-agent-utils (= 1.55.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Agent Utilities - debug symbols
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+ .
+ This package contains the debugging symbols for te-agent-utils.
+Filename: pool/main/t/te-agent-utils-dbg/te-agent-utils-dbg_1.55.0-1~jammy_amd64.deb
+SHA1: d12affcad1705aac4184f62a25bf49864e53e4cb
+SHA256: 28e9ca69b26f07bdaa8843ed72d00068c3ad3cce4454f7770a509e5a3ca69472
+Size: 236706506
+
+Package: te-agent-utils
+Version: 1.55.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 64369
+Depends: libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libcap2 (>= 1:2.10), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libmnl0 (>= 1.0.3-4~), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Agent Utilities
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+Filename: pool/main/t/te-agent-utils/te-agent-utils_1.55.0-1~jammy_amd64.deb
+SHA1: 14269979b2fc9c7c3858405090c05259a3cd0129
+SHA256: a95cc64b2695b4cdef85a1cfd0655d146c64aef2bfb5d10b1303f25dc7a7b660
+Size: 9069194
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.196.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302191
+Depends: te-agent (= 1.196.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.196.0-1~jammy_amd64.deb
+SHA1: 64df9dd516656b3c4368858aad192b623b6f9ccf
+SHA256: f8e3a8f8b3a56669f68bcea9c9ea54a081636774c6baf45edc3b1c3e641892db
+Size: 77704828
+
+Package: te-agent
+Version: 1.196.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18314
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.196.0-1~jammy_amd64.deb
+SHA1: d323173023abd65fca159bd3ba45c9163eb9bd34
+SHA256: 2de0b8cd18339fb5c44de3f1c65adf4848e57f8b71c2bf67f8b7c61638137190
+Size: 5481628
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.247.0-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.247.0-1~jammy_all.deb
+SHA1: 6e8f19bed2e4394f822110a49f56c535847600a0
+SHA256: 44d3d1dd3143f362c642fe5a97c8d9203ad248f409524a51b1138312144ece4a
+Size: 7325386
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.247.0-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.247.0-1~jammy_all.deb
+SHA1: 84f74b8bb6b62ee291c4417b6d6f1c87c91e2642
+SHA256: 689f1d6c6d6b1caf42d37e2173e0afdaba898d73b6ef76dfef98bde73b86ec51
+Size: 7325778
+
+Package: te-browserbot-dual
+Version: 2.33.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 994826
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_2.33.0-1~jammy_amd64.deb
+SHA1: feaa3a3d9b13a3f91edea45b4492434e61bfc5a3
+SHA256: 38c294e99fb79100c19d9e5ce7bae73905e50f9b6f20e96956c8a7216b103f6a
+Size: 989437170
+
+Package: te-browserbot
+Version: 2.33.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 502400
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_2.33.0-1~jammy_amd64.deb
+SHA1: eb00cff5a13597f45dcec7b00f49ed5048226b56
+SHA256: 7022bc77c6d6d51671d3446f24caf924486f1f1492d1e39bf80a2783c8d8b8b1
+Size: 495736264
+
+Package: te-browserbot-dual
+Version: 3.0.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 956009
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.0.0-1~jammy_amd64.deb
+SHA1: a19502162fd6646dd6ccd6ac7e135c841f5f3d6f
+SHA256: dc50b65d48ba7d09ef024d0d8e2dde7e0903d7d2c0d424d2e891dab199d53a14
+Size: 955424612
+
+Package: te-browserbot
+Version: 3.0.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509001
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.0.0-1~jammy_amd64.deb
+SHA1: f533795f0f346f4fd7c499ff4cea937a06fd67d2
+SHA256: d6dd2eedb8d81c31893c05b7b53ff17671b9685ed878d831009c93d6edae4121
+Size: 505192774
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.197.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302317
+Depends: te-agent (= 1.197.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.197.0-1~jammy_amd64.deb
+SHA1: e02aabc9af3fe508bbe6ae461b370ad4b9036760
+SHA256: 23ddff64611c3147f8803156a3c5aaea92d78e49c3041a30d1881728bc465dfb
+Size: 77749010
+
+Package: te-agent
+Version: 1.197.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18318
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.197.0-1~jammy_amd64.deb
+SHA1: 3cce826249c2d4db3e653f6a2134f72fc0e0d91c
+SHA256: 829d5942104ef9b6868fc9b7e674392d022aa668e0d210b7d9afc631e09a5bc5
+Size: 5477990
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.198.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302409
+Depends: te-agent (= 1.198.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.198.0-1~jammy_amd64.deb
+SHA1: 437e6b42ae8f2baec12a5f6f0e11df426d251e13
+SHA256: e7b6af6cb1a639c9cb88e27534600b78ae7a128a0842c450ce7d735d1c6df751
+Size: 77775750
+
+Package: te-agent
+Version: 1.198.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18326
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.198.0-1~jammy_amd64.deb
+SHA1: 15ad9577199422402b75474a259d5572eeeb4520
+SHA256: 0e02e70f3ca5b0953a008242df07e2d0f07ae7c8fecbdee35f922c1fc1dba422
+Size: 5480262
+
+Package: NessusAgent 
+Version: 10.7.3
+Section:
+Priority: extra
+Architecture: amd64
+Maintainer: Mr. Packages <mrpackage@nessus.org>
+Description: The Nessus Client Agent
+Conflicts: nessusd (<< 3.0)
+Replaces: nessusd (<< 3.0)
+Filename: pool/main/N/NessusAgent-latest-ubuntu1604/NessusAgent-latest-ubuntu1604_amd64.deb
+SHA1: 404a99ae53cb53add9173ec78f1aa80d8f491dd1
+SHA256: 38f9ae88a8ccd21ac2cc806b7b1dcfd75ea96bb0fa6f29d8ee0a4fe354cf6a45
+Size: 26180598
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.199.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 300068
+Depends: te-agent (= 1.199.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.199.0-1~jammy_amd64.deb
+SHA1: db4805ba8162e2e2338b392db2fb3621f0fce6f4
+SHA256: 5033dc243f2552ac909e20c0c7389a30e9a1f01b91746ba1e56901a1ff52a034
+Size: 77236288
+
+Package: te-agent
+Version: 1.199.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18330
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.199.0-1~jammy_amd64.deb
+SHA1: b26e40cf2d0ae96fbb1e0b005f3eeeb32c3d201e
+SHA256: 782af5bca2dd20db0f1b43d0a67d774493b2701908265a633f7a49306f766250
+Size: 5482622
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.200.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 299405
+Depends: te-agent (= 1.200.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.200.0-1~jammy_amd64.deb
+SHA1: c344de8ecb5af71d6ac808e0bd1de51c5567fd61
+SHA256: f6c606e9076232a7abd1b9e122cbc2f08b838b0facdad633d2a1de93d82e6da7
+Size: 77177106
+
+Package: te-agent
+Version: 1.200.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18322
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.200.0-1~jammy_amd64.deb
+SHA1: 4f01e8b160321c02a60c81dda94be8ce61d8dde2
+SHA256: 65dd304b7b8be05f7ab6614344df5b23aa59d6a5291e3f7849f7c2d3d7ce9f59
+Size: 5482780
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.248.0-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.248.0-1~jammy_all.deb
+SHA1: 750e402123dcf23b1dc7266c178175f28de97e7a
+SHA256: 79b95d0404c62564b180f9e57f8d96301672642d4324e924bc5470570c32c59e
+Size: 7335358
+
+Package: te-appliance-sidecar
+Version: 0.56-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 67
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.56-1_all.deb
+SHA1: e8fd36ddaef9cf59e7da14aeb02d02fc88a14e5e
+SHA256: 97a8fe257c27f7bf0295ff652011b3d790efbe553e369add830631ddf2c046dd
+Size: 13820
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.201.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 299519
+Depends: te-agent (= 1.201.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.201.0-1~jammy_amd64.deb
+SHA1: 55216be24e2d20e3c88c6b67bf4c28e4ff66658d
+SHA256: c69d110ea2dd360a38661ba64fa285828fa7666bc8dc973560a39f6c6b408a0c
+Size: 77203632
+
+Package: te-agent
+Version: 1.201.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18330
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.201.0-1~jammy_amd64.deb
+SHA1: d645ea93b34e2e40a0635470e486275f83f044af
+SHA256: 73ecc1c2e77bf9c69d4ed78375c5a163ba9143dc3afc1020e44795840cf94ffa
+Size: 5484764
+
+Package: te-browserbot-dual
+Version: 3.1.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 955681
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.1.0-1~jammy_amd64.deb
+SHA1: 152a5ad9a5308eafb7bd912a985dce46a8266efa
+SHA256: 885199c9a2bb8b5475d67aee83444e3188042568502c5c0d478b0d300afe04a5
+Size: 955577150
+
+Package: te-browserbot
+Version: 3.1.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 508636
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.1.0-1~jammy_amd64.deb
+SHA1: d959aaf9ff24caf23aabab195d69622fefcf7aec
+SHA256: ed8c0da345105e13bba75677463ab316b62c36be8f1a8513798bd340edde310a
+Size: 505380738
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.202.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 299660
+Depends: te-agent (= 1.202.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.202.0-1~jammy_amd64.deb
+SHA1: 3384d35e0757ef8bfd03a3e7079b5e508afe40d0
+SHA256: d59d38b8a2f2ef6f8d91f3940e1e813bbe9815e10cd7fad183867a02dd3587aa
+Size: 77220924
+
+Package: te-agent
+Version: 1.202.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18330
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.202.0-1~jammy_amd64.deb
+SHA1: 1dee4b186eb2c5bccba9cb1e45e0a60646f4a22c
+SHA256: 537abb9ddbcfdac755faf703596c51f8262d0925c2f7bdef76300aa3cdc7bc17
+Size: 5485098
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.202.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 299670
+Depends: te-agent (= 1.202.1-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.202.1-1~jammy_amd64.deb
+SHA1: cf050eea9c6fc9a37997573dbb0ed7d3f67b6b57
+SHA256: e255eedbf15fc7446acafa84be17b41b9a6c218822b7c57018704f2066b622a0
+Size: 77235884
+
+Package: te-agent
+Version: 1.202.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18334
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.202.1-1~jammy_amd64.deb
+SHA1: d7a659481f8edb97ba6273bed28a71f482519c7e
+SHA256: f3d8be08b962de785b1cf72ec3b365c97db4ae01c11f3c50c1712b069602b577
+Size: 5487450
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 0.5.0-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6247
+Depends: te-etm-agent (= 0.5.0-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 651b35d1c5c571b11270b57d32b86e9ccdef4ca3 ca074cc45b213098c52dfcf46e257afc2468cfa2
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_0.5.0-1~jammy_amd64.ddeb
+SHA1: e51bad0554f609e60aeefe47cb418392361bbaa4
+SHA256: 2c0f3138bcbe880711fd0c588e8b56a89e6a70f52874485dda87d2a21f77074a
+Size: 4973636
+
+Package: te-etm-agent
+Version: 0.5.0-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13469
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_0.5.0-1~jammy_amd64.deb
+SHA1: 12e31af4a0e446b471d07115bb64fe3f174a52b9
+SHA256: 190e792ca1a2f8aefde757ba1d694ae8de7e99092953fb632f107612c876c5a7
+Size: 4348666
+
+Package: te-appliance-sidecar
+Version: 0.58-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 67
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.58-1_all.deb
+SHA1: 14e1ec759b55c1b615cd868bc54328a73be4ee6e
+SHA256: 2c470ee7addc0d982e389834adde071ccde2937efdab5368b49aa4dfd2564fef
+Size: 13868
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.203.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 299667
+Depends: te-agent (= 1.203.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.203.0-1~jammy_amd64.deb
+SHA1: c66a2b49310588fd2ff7273d03439d6909b664d6
+SHA256: 7013cbffb5163dabd0e2de0617e0425ebbdf1962f2ee3110fbb5e063d7d4e0c8
+Size: 77246674
+
+Package: te-agent
+Version: 1.203.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18338
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.203.0-1~jammy_amd64.deb
+SHA1: 9bcae75b970d5ff21900de762090426295ebaef5
+SHA256: e2144ccf5209ea34ccb2bcb9f6ddf41e7e45562482146cb6148ae355b3a51508
+Size: 5488114
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.250.0-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.250.0-1~jammy_all.deb
+SHA1: 175b2eda974d6f7684594403924b9292f3946a86
+SHA256: 3f98d5260c861a9431b30f26704255165fcc4e9d57d2187251c6200da1c23ed9
+Size: 7336548
+
+Package: te-browserbot-dual
+Version: 3.2.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 955742
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.2.0-1~jammy_amd64.deb
+SHA1: eeafdc7a016c2a16926653983f9bd6ef59058d38
+SHA256: d831ff0cce7be1df57f7394fd52b1a983fd854b4a5cdebf7f5586d6e5c28ee00
+Size: 955899706
+
+Package: te-browserbot
+Version: 3.2.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 508679
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.2.0-1~jammy_amd64.deb
+SHA1: 2d5ec267defec9b7f89fffd76d6e731ef1626093
+SHA256: 281f29fe33b5f3ad92ae2c08dd387313c030354d4b28471fbe751802eccf227a
+Size: 505514776
+
+Package: te-browserbot-dual
+Version: 3.2.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 955751
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.2.1-1~jammy_amd64.deb
+SHA1: aca99350dd2addba57fa404ae0a207d902ad944c
+SHA256: fe7ba444f46778c1fd369560e39d7b6e2bc1ad7099d1747cfff8ae790f5dd125
+Size: 955692028
+
+Package: te-browserbot
+Version: 3.2.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 508697
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.2.1-1~jammy_amd64.deb
+SHA1: 96a5ab54b54460fee32d0fb53473ff7512ea1cee
+SHA256: 02caf91d91aef5dd16cbe3a209dc092853c965dc0ca97747a0d4daf0bbbd799c
+Size: 505339590
+
+Package: te-browserbot-dual
+Version: 3.2.2-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 955743
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.2.2-1~jammy_amd64.deb
+SHA1: 1248a230aac9f3826c0d4169de6ef6fcc89b3190
+SHA256: 821cbac2cb1c3b3e518af8045e3b0d55d16dd1e35ce52a96d57e3c1a99a01e99
+Size: 955685170
+
+Package: te-browserbot
+Version: 3.2.2-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 508681
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.2.2-1~jammy_amd64.deb
+SHA1: f83cced8cae7e9e51fdc35cb71bb7dec4954867c
+SHA256: de35fb422284ac8be0cbbddddbd32dabc328aa8402f5995074904c19c6bacd83
+Size: 505521922
+
+Package: te-browserbot-dual
+Version: 3.3.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 955803
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.3.0-1~jammy_amd64.deb
+SHA1: baf053c4c1250227842979c70f3d2f11cfaf528c
+SHA256: 4a5e3c3a2935c342db24614d826edd7badb750ef46af6256383206e38017d946
+Size: 955699672
+
+Package: te-browserbot
+Version: 3.3.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 508741
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.3.0-1~jammy_amd64.deb
+SHA1: 305ad41eb43aa483ab1aa667fc6f9cbba9c53cef
+SHA256: dcae9808f118324853b3360783d9b7f5d4d53f0df454d64517c28f1f54005895
+Size: 505625988
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.204.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 299476
+Depends: te-agent (= 1.204.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.204.0-1~jammy_amd64.deb
+SHA1: d385f1c9d0132be37140ec7f2cd3ac0abc0f80ca
+SHA256: 0a90d82017bd058024a42d99af56c5600c34acdee16722fb8e7253e01abae244
+Size: 77167224
+
+Package: te-agent
+Version: 1.204.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18334
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.204.0-1~jammy_amd64.deb
+SHA1: c86e97ae923389561a4dc718ac78018b84bc6e62
+SHA256: 933c52625b4cfb12f2f465f2c422f5f0d3decf83c448cb3b06a3e70f92b96033
+Size: 5483440
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.250.0-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.250.0-1~jammy_all.deb
+SHA1: c65bba3905def95d805686a515f9883b6db40ace
+SHA256: 3b3aad5266de8adb9f41f44e59edec3bb5f2436346443100250a4f0cafbd3efa
+Size: 7336368
+
+Package: te-appliance-sidecar
+Version: 0.60-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 67
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.60-1_all.deb
+SHA1: 87030570b685e59b5a82b50f86d43e53f6356b0e
+SHA256: ce12539453f9ca1218d385c20f8979b693b79b11114f24507d4c3db1cdb617b3
+Size: 13878
+
+Package: te-browserbot-dual
+Version: 3.4.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 956080
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.4.0-1~jammy_amd64.deb
+SHA1: 85e7f16a869e19d4560df85d05ffc320caafec9d
+SHA256: 460e33cbb948ce7f341fa3049ed6ab922e6ba47c2eb790904c093cbe02297891
+Size: 955882978
+
+Package: te-browserbot
+Version: 3.4.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509034
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.4.0-1~jammy_amd64.deb
+SHA1: 6414603c14710fafb58ee9e61ab232ce6034d789
+SHA256: 288b1d5039326a71b64b5c0698b939a68d1fff0dcb56ba718c0b48a6b471054c
+Size: 505771748
+
+Package: te-browserbot-dual
+Version: 3.4.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 956087
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.4.1-1~jammy_amd64.deb
+SHA1: fcfe9cc15c7360e9cb7ea43335aa1a106d73ef79
+SHA256: 8f43e0c7a97f05483fbaa03f68e7d3358f8b6beb49ae249593c0ae4de2950083
+Size: 956107818
+
+Package: te-browserbot
+Version: 3.4.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509039
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.4.1-1~jammy_amd64.deb
+SHA1: 3d20c1c5a66d59364e51223045218c4ce9e534ca
+SHA256: 8b5d623946cd5a8bcab7c2cef3321a8b1e583c10651adc3be1a26145f3759101
+Size: 505801918
+
+Package: te-browserbot-dual
+Version: 3.4.2-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 956091
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.4.2-1~jammy_amd64.deb
+SHA1: 37a98384f01ae77345c133f17426b155420fa370
+SHA256: d782e465aa9d98a230cf8ec95fdfc15cabd797bbfd4de1af1f2d7e9ee027bf85
+Size: 955975900
+
+Package: te-browserbot
+Version: 3.4.2-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509034
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.4.2-1~jammy_amd64.deb
+SHA1: d0e7e3fd326d38b31eccb99eef94558979d23d77
+SHA256: 9b3cbce1a069f87681b75c835eafbcc42e1ef9cbabbefeb388114f0d9afb6928
+Size: 505910668
+
+Package: te-browserbot-dual
+Version: 3.4.3-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 956088
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.4.3-1~jammy_amd64.deb
+SHA1: 2b7bc083645c9e048e0b92e46c39795e7477df24
+SHA256: 3b2ca904084453e21fd8b5b693decc5f379e05e5e98e22b612ae0325b2c6a88f
+Size: 956150634
+
+Package: te-browserbot
+Version: 3.4.3-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509046
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.4.3-1~jammy_amd64.deb
+SHA1: a0d9c45c880460eaa9f940ce34d47d063d805512
+SHA256: fd771bd745ada52d70ae4ffdd1dcaae2df145c81903cd9a376e96312c5fe65c6
+Size: 505769244
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 0.5.1-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6247
+Depends: te-etm-agent (= 0.5.1-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: c598cc54d6fcf3130f94e9c84889fb9289b391f3 c80441006451509fcac8afca2fd5c14cb13ca231
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_0.5.1-1~jammy_amd64.ddeb
+SHA1: 4a7d767e8788587925e4b736100a6c069528a540
+SHA256: 7a31d622edad16517aebfda6dd127724f4c5e94ce751ac46ced18d3cc2cc159d
+Size: 4971872
+
+Package: te-etm-agent
+Version: 0.5.1-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13469
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_0.5.1-1~jammy_amd64.deb
+SHA1: c74d59e54bc627d55037877685eaf08520ec5dbb
+SHA256: 6a53d3e6c677adc5d92abde21d36a63094f61e4116639ffe0776ebb045122289
+Size: 4348598
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.205.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 300744
+Depends: te-agent (= 1.205.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.205.0-1~jammy_amd64.deb
+SHA1: 0f228e44e5fa6dc29fac44a6a79af081398e0338
+SHA256: 5d7ad683251c577947370aede5614811a1c9f619cb4778f499f0151ed8a41a31
+Size: 77334388
+
+Package: te-agent
+Version: 1.205.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 19368
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.205.0-1~jammy_amd64.deb
+SHA1: 8b57db41971bf9a7faa88cdf4afdd7e342d99355
+SHA256: 408fdc2663b17789363437d66b290253d2fc012adf57bd4fffb22fab02042b84
+Size: 5741634
+
+Package: te-appliance-sidecar
+Version: 0.62-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 70
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.62-1_all.deb
+SHA1: da8e2ee3b04200603523fe330249c86ef31cfe33
+SHA256: a5efa1fa7f1515e077be15126c9d19e1a33a0fe874aebca829c7879619a9b403
+Size: 14116
+
+Package: te-browserbot-dual
+Version: 3.5.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 956078
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.5.0-1~jammy_amd64.deb
+SHA1: 2ef2b7f8253d9e74bdbabb19a74f94bec99b20cf
+SHA256: 28ceb855d47bcf714160ebe5df243cc087ce31a19573b10e55e4594a0665f291
+Size: 956349206
+
+Package: te-browserbot
+Version: 3.5.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509038
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.5.0-1~jammy_amd64.deb
+SHA1: 175333bb787dbe3d2befa6b40453817dd03fbe4c
+SHA256: c1a6fbdb531732f92a734ed88b614db18b6dcca6d7f6631b63b32001f8b21f40
+Size: 505864994
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 0.6.0-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6234
+Depends: te-etm-agent (= 0.6.0-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 2eec1689b093e036b5d9d0bef5c9c408aea8a84f a29580527c8b9fd0e3d8a67097a8ae7dd830f06d
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_0.6.0-1~jammy_amd64.ddeb
+SHA1: 3e236148e787d8c356700844da22ba2381cd6b50
+SHA256: f659637708e4ae7c173fbc5691da5f606aa133595c00f13987ba94912f8bae4e
+Size: 4962266
+
+Package: te-etm-agent
+Version: 0.6.0-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13440
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_0.6.0-1~jammy_amd64.deb
+SHA1: 3dc6e402bfa4ece59c799ad30b4dce0ad5b35e37
+SHA256: 0b74146d441f7dcc513b183d30208376ead4b342337dbef7019704258ccc3e8d
+Size: 4340934
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.206.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302335
+Depends: te-agent (= 1.206.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.206.0-1~jammy_amd64.deb
+SHA1: 2b9b69f03b9d6b12217e2cbae559b4fb77869fc6
+SHA256: e59f464ab03412111f20574c433264291e8fa4b4c39841a2fd1e5d6188381bc4
+Size: 77841584
+
+Package: te-agent
+Version: 1.206.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 19384
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.206.0-1~jammy_amd64.deb
+SHA1: ff9e4e14c7a0f7ccfe8290ecf19dc2d179edbb35
+SHA256: 5446696b01a88a8d33c3cc23851792d1abc6246f800ea1bef93e681283d4af52
+Size: 5747706
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.206.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 302338
+Depends: te-agent (= 1.206.1-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.206.1-1~jammy_amd64.deb
+SHA1: 54c1bf679c45a4ce144138eee1b525db6caa3ddf
+SHA256: a602e9b884a00f12dd0d9f451f9553ec9e075662ebd971ebd71da3eec9d5fa11
+Size: 77843786
+
+Package: te-agent
+Version: 1.206.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 19387
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.206.1-1~jammy_amd64.deb
+SHA1: 421aca958889ff37ac87f8578b7d2b43ee79477e
+SHA256: 7b791799b2d543e879bb5c9912f69a00be57b71649502df4c2233a660e64ec31
+Size: 5750702
+
+Package: te-chromium-internal
+Version: 132.0.6834.159-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: ca-certificates,
+         fonts-liberation,
+         libasound2 (>= 1.0.17),
+         libatk-bridge2.0-0 (>= 2.5.3),
+         libatk1.0-0 (>= 2.2.0),
+         libatspi2.0-0 (>= 2.9.90),
+         libc6 (>= 2.17),
+         libcairo2 (>= 1.6.0),
+         libcups2 (>= 1.6.0),
+         libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3,
+         libdbus-1-3 (>= 1.9.14),
+         libdrm2 (>= 2.4.75),
+         libexpat1 (>= 2.0.1),
+         libgbm1 (>= 17.1.0~rc2),
+         libglib2.0-0 (>= 2.39.4),
+         libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~),
+         libnss3 (>= 2:3.26),
+         libpango-1.0-0 (>= 1.14.0),
+         libu2f-udev, libvulkan1,
+         libx11-6 (>= 2:1.4.99.1),
+         libxcb1 (>= 1.9.2),
+         libxcomposite1 (>= 1:0.4.4-1),
+         libxdamage1 (>= 1:1.1),
+         libxext6,
+         libxfixes3,
+         libxkbcommon0 (>= 0.5.0),
+         libxrandr2,
+         wget,
+         xdg-utils (>= 1.0.2)
+Section: web
+Priority: optional
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains the web browser component.
+Filename: pool/main/t/te-chromium-internal/te-chromium-internal_132.0.6834.159-1~jammy.deb
+SHA1: ea9320243835263611b59adb4a33ee217accdba0
+SHA256: f50bec7117f841388508db099704faa9ddaa15bb05a8dc23d9fcc06345713fcd
+Size: 121774388
+
+Package: te-chromium-internal
+Version: 133.0.6943.53-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: ca-certificates,
+         fonts-liberation,
+         libasound2 (>= 1.0.17),
+         libatk-bridge2.0-0 (>= 2.5.3),
+         libatk1.0-0 (>= 2.2.0),
+         libatspi2.0-0 (>= 2.9.90),
+         libc6 (>= 2.17),
+         libcairo2 (>= 1.6.0),
+         libcups2 (>= 1.6.0),
+         libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3,
+         libdbus-1-3 (>= 1.9.14),
+         libdrm2 (>= 2.4.75),
+         libexpat1 (>= 2.0.1),
+         libgbm1 (>= 17.1.0~rc2),
+         libglib2.0-0 (>= 2.39.4),
+         libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~),
+         libnss3 (>= 2:3.26),
+         libpango-1.0-0 (>= 1.14.0),
+         libu2f-udev, libvulkan1,
+         libx11-6 (>= 2:1.4.99.1),
+         libxcb1 (>= 1.9.2),
+         libxcomposite1 (>= 1:0.4.4-1),
+         libxdamage1 (>= 1:1.1),
+         libxext6,
+         libxfixes3,
+         libxkbcommon0 (>= 0.5.0),
+         libxrandr2,
+         wget,
+         xdg-utils (>= 1.0.2)
+Section: web
+Priority: optional
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains the web browser component.
+Filename: pool/main/t/te-chromium-internal/te-chromium-internal_133.0.6943.53-1~jammy.deb
+SHA1: 3c5f40996c4ab3449ad7204fa51037612fd909b1
+SHA256: 46c1ae2480ed2758aa96bee217f7d8920d694db40c14eb61f6194cefb867d198
+Size: 123083204
+
+Package: te-agent-utils-dbg
+Source: te-agent-utils
+Version: 1.57.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 927549
+Depends: te-agent-utils (= 1.57.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Agent Utilities - debug symbols
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+ .
+ This package contains the debugging symbols for te-agent-utils.
+Filename: pool/main/t/te-agent-utils-dbg/te-agent-utils-dbg_1.57.0-1~jammy_amd64.deb
+SHA1: f57ca90298f44d2961aff44131d82ef83e9caccd
+SHA256: 7a99de54605b1af411a6dcdb8c4d43adda2fa3680e68bf505a025601f025b924
+Size: 234851874
+
+Package: te-agent-utils
+Version: 1.57.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 64125
+Depends: libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libcap2 (>= 1:2.10), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libmnl0 (>= 1.0.3-4~), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Agent Utilities
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+Filename: pool/main/t/te-agent-utils/te-agent-utils_1.57.0-1~jammy_amd64.deb
+SHA1: 289d67154903e6407262b9fd54d834b48b8b3aec
+SHA256: 823c763de59b2fac0626d177fd4d6a799c1d0be9448741e00df9878a17e3c7b9
+Size: 9004062
+
+Package: te-browserbot-dual
+Version: 3.6.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 950555
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.6.0-1~jammy_amd64.deb
+SHA1: 1c96832e96e661516853eff228b11ebeb67ee1f3
+SHA256: 759ce45769e75fb59517fa976a87f320b70af07baa3ddcf4caa2469e4e3bb184
+Size: 952404426
+
+Package: te-browserbot
+Version: 3.6.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509001
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.6.0-1~jammy_amd64.deb
+SHA1: 414e533c64d10d35e0f1875064a616655e987558
+SHA256: 6b26fecd924da0ce31990248549229c9265426ca5cf3aaa954fbc6688f95a096
+Size: 506030634
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 0.6.1-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6233
+Depends: te-etm-agent (= 0.6.1-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 50aeaaee54f3e956e9f53c38319936125e7eeab6 b439efd2c9fbf8f10b3307f05799b461e1afb38f
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_0.6.1-1~jammy_amd64.ddeb
+SHA1: 02bb40f6f9d8114b5d96e7543b7c20723462e6da
+SHA256: 2c0bda95c2fff220c41ee21e696e1238784926d5268129e85990a51b22508df8
+Size: 4962452
+
+Package: te-etm-agent
+Version: 0.6.1-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13440
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_0.6.1-1~jammy_amd64.deb
+SHA1: 0ca2973bab680dc1a3eae8e660b616639665a129
+SHA256: 5e68a8bafe0101d79d0cbaec5ffdc40d182bf874ccb89aee99d43c86f68925e7
+Size: 4340666
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.207.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 304723
+Depends: te-agent (= 1.207.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.207.0-1~jammy_amd64.deb
+SHA1: 9d2dc9fc9ca77b7f853a9ddbb7cc4bf546423e81
+SHA256: 1b94ef86a6859a422c3314ddf4b572edfdcd1b173a0a436489f04208b6a88e04
+Size: 78446766
+
+Package: te-agent
+Version: 1.207.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 19477
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.207.0-1~jammy_amd64.deb
+SHA1: 861efc462caf7fb9c6561a13f5e9702a03c8714c
+SHA256: df3419178be080871dd54b0c6242305a3ca816eec39ce3fe2211eb0b2f800104
+Size: 5770202
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.208.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 304159
+Depends: te-agent (= 1.208.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.208.0-1~jammy_amd64.deb
+SHA1: 5e3e760f70f45bb02639b8140415c7661ed0b650
+SHA256: 8ff29fb75cf1aecd44311c8d9f2b588f218665657cc22a37e4cecf6f13a971fb
+Size: 78479808
+
+Package: te-agent
+Version: 1.208.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 18604
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.208.0-1~jammy_amd64.deb
+SHA1: 9639bb9fad8e19de2759d965ed493afdb5606167
+SHA256: 155d8e80681be8297746fbdca1db18276754e92a3bee610fdcbf0418eac220ee
+Size: 5573704
+
+Package: te-browserbot-dual
+Version: 3.7.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 950680
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.7.0-1~jammy_amd64.deb
+SHA1: b5696796339491846a6e3f72dbe0b85108654343
+SHA256: 4354c9634c5e65ab658c5920954e39f89e0f4e01168b9958b2014e2a887a1046
+Size: 952207148
+
+Package: te-browserbot
+Version: 3.7.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509111
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.7.0-1~jammy_amd64.deb
+SHA1: 2b8501cd22feaa02a59c9a9fbe54095102887065
+SHA256: 5c50979ef9731c55e9a964c6ca88d4116684c5939c8e6bec6407333cb24a605c
+Size: 505904420
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.209.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 340327
+Depends: te-agent (= 1.209.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.209.0-1~jammy_amd64.deb
+SHA1: f329943ff9f18d73fe1301ca0c6177ef6cd6017a
+SHA256: 452c4df61c2c8cfa43c946add396f37eb7c6b26d71b5121c3033807cc05592b8
+Size: 88807054
+
+Package: te-agent
+Version: 1.209.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 22016
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.209.0-1~jammy_amd64.deb
+SHA1: 1a0f39b126c9465f60aae379e84b160e04de0703
+SHA256: 624c5e5985cec10be29f94abd959fe74d0b045e8e047490e0b2945abf5764731
+Size: 6952192
+
+Package: cisco-core-trsb
+Version: 1.5
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 64
+Section: default
+Priority: optional
+Description: Cisco root certificate bundle
+Filename: pool/main/c/cisco-core-trsb/cisco-core-trsb_1.5_all.deb
+SHA1: 2909f61f44ec50cc13fd77156cc436a0392b38ec
+SHA256: df6096fa151f5ce35740ebe5d633b8f7c0cc0627190b99e2bced10387cae7bf0
+Size: 29246
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 0.7.0-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6237
+Depends: te-etm-agent (= 0.7.0-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 746ab6ee6d94cfb5c850ccfeefb65dd51105462d e98b06b1e2d7137f62bbe566bfcf8f21c6817972
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_0.7.0-1~jammy_amd64.ddeb
+SHA1: 7595b1858e303fea304d0490e2e7157e4835b0bf
+SHA256: 63877ab9304d83b1c86cac8ee8805b2ed5f70f2611c6e79aa9b5d13b0193ab44
+Size: 4963034
+
+Package: te-etm-agent
+Version: 0.7.0-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13444
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_0.7.0-1~jammy_amd64.deb
+SHA1: fd64e1f1fe27aa69af214704d1d80caf457efae3
+SHA256: 0d8b4a7f9fe62eaa2a7a96c3bb4cdbf1f92684b218cb8a149d30bf2653ed0247
+Size: 4343142
+
+Package: te-browserbot-dual
+Version: 3.8.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 950991
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.8.0-1~jammy_amd64.deb
+SHA1: 5b8d2abe35d5ccc6dde4b50cb1f7c2c7577381ec
+SHA256: 5c199c003a5203685c28e62350564f5482e6f5a589b0a588bb7b4ebd638429ef
+Size: 952591272
+
+Package: te-browserbot
+Version: 3.8.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509426
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.8.0-1~jammy_amd64.deb
+SHA1: f9439e89501e1a6db145a92771eb480a867149f6
+SHA256: 7c1e237785e6814f261848395e2955ef250b3ead7d0ff9f0ae24610257d1d47e
+Size: 506198762
+
+Package: podman
+Version: 4.9.4-4~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 79734
+Depends: libseccomp2 (>= 2.4.3-1), libdevmapper1.02.1, libgpgme11, catatonit, conmon (>= 2.0.24), containers-common, dbus-user-session, iptables, containernetworking-plugins (>= 0.9.1), crun (>= 0.12.1)
+Recommends: slirp4netns (>= 100:1.1.8-3), uidmap, fuse-overlayfs
+Conflicts: podman-rootless
+Section: devel
+Priority: optional
+Description: Manage pods, containers and container images.
+Filename: pool/main/p/podman/20250325-154101/podman_4.9.4-4~jammy_amd64.deb
+SHA1: c00986cffca3da02f7f8007860f51fdd7994275a
+SHA256: dc86645ae4f1ce735eca420dff080e43e2766251fae9045dc32021f09392f6e9
+Size: 24854552
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.210.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 341440
+Depends: te-agent (= 1.210.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.210.0-1~jammy_amd64.deb
+SHA1: a25355693c2f4cf08b4af7c01cb7246635cdb61a
+SHA256: 9b81d899f832fb63ec75ad0e47eaa2500c06b445db82025d9597d0a96cc8686b
+Size: 89085074
+
+Package: te-agent
+Version: 1.210.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 22124
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.210.0-1~jammy_amd64.deb
+SHA1: a26074de62ea7c32e3d28d1b3666ea950a67116f
+SHA256: 4600478a2dbda0123132231c2ed82d97261b0c9aa4f2de77873d45cc8a3629db
+Size: 6974326
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 0.7.1-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6237
+Depends: te-etm-agent (= 0.7.1-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 8355ecfc0687d0b8a9f5e8e0871e247b8e285f6a b17bbe02ab9398e2c550f1484a1983b0709ce1bd
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_0.7.1-1~jammy_amd64.ddeb
+SHA1: c341c8948e35670394e6784f49570e6d7404540e
+SHA256: c4f3ece1666ad844af718005859b84efa36854393359ba2d78aa651155c60b23
+Size: 4962576
+
+Package: te-etm-agent
+Version: 0.7.1-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13444
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_0.7.1-1~jammy_amd64.deb
+SHA1: 374498a8e9b7c7c7ff1e68b123a438221cca05b0
+SHA256: 0d043878a1ad5339698987031d2d3e331d68cd9e9c724797b6217663115557f3
+Size: 4341660
+
+Package: te-agent-utils-dbg
+Source: te-agent-utils
+Version: 1.58.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 1305367
+Depends: te-agent-utils (= 1.58.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Agent Utilities - debug symbols
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+ .
+ This package contains the debugging symbols for te-agent-utils.
+Filename: pool/main/t/te-agent-utils-dbg/te-agent-utils-dbg_1.58.0-1~jammy_amd64.deb
+SHA1: f0c7c75c270f44b09772df69a964393d418d15a3
+SHA256: 391a963649d8575aa0e8ebfc0a9f7d5542780d05414a08ecf8c168b8f4e406c9
+Size: 335341104
+
+Package: te-agent-utils
+Version: 1.58.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 72399
+Depends: libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libcap2 (>= 1:2.10), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libmnl0 (>= 1.0.3-4~), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Agent Utilities
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+Filename: pool/main/t/te-agent-utils/te-agent-utils_1.58.0-1~jammy_amd64.deb
+SHA1: 051a7a70a8458a27fcb17d24a9b8e420eaa9ad68
+SHA256: 1a4ef86ec63e360a24a74af5a9053da181269d37e96026f4b3650eed4d6d9a9b
+Size: 10404628
+
+Package: te-chromium-internal
+Version: 135.0.7049.42-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: ca-certificates,
+         fonts-liberation,
+         libasound2 (>= 1.0.17),
+         libatk-bridge2.0-0 (>= 2.5.3),
+         libatk1.0-0 (>= 2.2.0),
+         libatspi2.0-0 (>= 2.9.90),
+         libc6 (>= 2.17),
+         libcairo2 (>= 1.6.0),
+         libcups2 (>= 1.6.0),
+         libcurl3-gnutls | libcurl3-nss | libcurl4 | libcurl3,
+         libdbus-1-3 (>= 1.9.14),
+         libdrm2 (>= 2.4.75),
+         libexpat1 (>= 2.0.1),
+         libgbm1 (>= 17.1.0~rc2),
+         libglib2.0-0 (>= 2.39.4),
+         libgtk-3-0 (>= 3.9.10) | libgtk-4-1, libnspr4 (>= 2:4.9-2~),
+         libnss3 (>= 2:3.26),
+         libpango-1.0-0 (>= 1.14.0),
+         libu2f-udev, libvulkan1,
+         libx11-6 (>= 2:1.4.99.1),
+         libxcb1 (>= 1.9.2),
+         libxcomposite1 (>= 1:0.4.4-1),
+         libxdamage1 (>= 1:1.1),
+         libxext6,
+         libxfixes3,
+         libxkbcommon0 (>= 0.5.0),
+         libxrandr2,
+         wget,
+         xdg-utils (>= 1.0.2)
+Section: web
+Priority: optional
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains the web browser component.
+Filename: pool/main/t/te-chromium-internal/te-chromium-internal_135.0.7049.42-1~jammy.deb
+SHA1: 5d0894ceb33778a49b5695928ece0e4b2b070f6a
+SHA256: cec98c2aeeb25658088432e01a3eda8b7396776e32d048db9619b58480f7dbda
+Size: 124492062
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.211.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 341917
+Depends: te-agent (= 1.211.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.211.0-1~jammy_amd64.deb
+SHA1: 06db7367d783d987d99eca3e20f174127edbd907
+SHA256: 12c0cf5ba448240555fbe55a51463321583cea42b20c5ef73f10c01461e5ca8e
+Size: 89255684
+
+Package: te-agent
+Version: 1.211.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 22137
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.211.0-1~jammy_amd64.deb
+SHA1: f84d5d32379779c7a6a971899c4343774c408c81
+SHA256: e4df9fa99ff3a4fc59aa9429816e2e28104ff3ef05699864bca6a65c9ff481e8
+Size: 6975274
+
+Package: te-browserbot-dual
+Version: 3.9.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 951012
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.9.0-1~jammy_amd64.deb
+SHA1: 4e860e03a098d171e26800f30d81252aae4654d4
+SHA256: 1745b03a913bdab7859fb5375a78e0d0899e161ba75aaf7df6984cab9272de5a
+Size: 952749368
+
+Package: te-browserbot
+Version: 3.9.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 509451
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.9.0-1~jammy_amd64.deb
+SHA1: 378aadd0eb3d2322628ff31a65689f1e0f681c60
+SHA256: 8a1be79ae2e7f1d1657a669a3dc3a9f9be9d0ab36ceaef6cd6d0ae823571a052
+Size: 506431772
+
+Package: te-pa
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-va
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.252.0-1~jammy
+Description: ThousandEyes Physical Appliance
+	The configuration framework for the ThousandEyes Physical Appliance.
+Filename: pool/main/t/te-pa/te-pa_0.252.0-1~jammy_all.deb
+SHA1: 35267d057e27d4463fb0e5c2e0a83925b341117b
+SHA256: 5fa879242f0969127567fe34003759bb7b4ad24b8c714a9a5329578f2836c267
+Size: 7337346
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.252.0-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.252.0-1~jammy_all.deb
+SHA1: 794e6e29e707258f77856725d6a46e3ee7cdedbd
+SHA256: 9d64bc37a22750730a3e565cf7f802928ddae8ce92ccd59518ed7831ab0ef2d6
+Size: 7336920
+
+Package: te-va
+Maintainer: ThousandEyes <tevabuilder@thousandeyes.com>
+Architecture: all
+Depends: build-essential,
+         debconf-utils,
+         dialog (>= 1.1-20111020-1),
+         intltool,
+         libapt-pkg-dev,
+         libcurl4,
+         libnss3-tools,
+         lsof,
+         nginx,
+         openssh-server,
+         openssl,
+         psmisc,
+         python3.10,
+         python3-apt,
+         python3-dev,
+         python3-markupsafe,
+         python3-netifaces,
+         python3-pycurl,
+         python3-sqlalchemy,
+         python3-tornado,
+         python3-virtualenv,
+         rdnssd,
+         setserial,
+         resolvconf,
+         ifupdown,
+         te-appliance-sidecar,
+         te-cntlm
+Conflicts: te-pa
+Replaces: plymouth-theme-ubuntu-text
+Version: 0.248.0-1~jammy
+Description: ThousandEyes Virtual Appliance
+	The configuration framework for the ThousandEyes Virtual Appliance.
+Filename: pool/main/t/te-va/te-va_0.248.0-1~jammy_all.deb
+SHA1: 9c5715db1093006555006637e42479b633d04928
+SHA256: 32671edba50dbcda3097d21f288e63ce8e70227ba70987929121916c584c7f9c
+Size: 7335686
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.212.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 376538
+Depends: te-agent (= 1.212.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.212.0-1~jammy_amd64.deb
+SHA1: 486ff2679f18e53f4a3684021a9759687ec8e732
+SHA256: 21930ab9db122413238f76aaf1791c9aa11b76a8ba0fc3bc6df74640d43e05b7
+Size: 98251436
+
+Package: te-agent
+Version: 1.212.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 24463
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.212.0-1~jammy_amd64.deb
+SHA1: 882a397effa2c2179cc18c062cd5980d676866cd
+SHA256: eed598d05c3449713597e8cde98066191b4d8f15c6fe07b11091895fe9d4c941
+Size: 7434640
+
+Package: te-appliance-sidecar
+Version: 0.64-1
+Architecture: all
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 70
+Depends: cron, openssh-server
+Section: default
+Priority: optional
+Description: System upgrades to ThousandEyes appliances
+Filename: pool/main/t/te-appliance-sidecar/te-appliance-sidecar_0.64-1_all.deb
+SHA1: 05c4e1d3f70801b8aae715efd3461756a6c43163
+SHA256: baf48217545a6c8136147632d87539c82bf74823ae0a0b4324a28b9bd18ff601
+Size: 14108
+
+Package: te-browserbot-dual
+Version: 3.10.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 952051
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.10.0-1~jammy_amd64.deb
+SHA1: 93e4dc92ece92173b4d4bf21cb9a2561e43a3ed9
+SHA256: f8412090ed15fbf02cc8df2d54015ab5149e515f613e09db308ad30e63f2ebb8
+Size: 953458950
+
+Package: te-browserbot
+Version: 3.10.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 510490
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.10.0-1~jammy_amd64.deb
+SHA1: 02344a27d73b6bf5ea649a880c67d3f7863b9161
+SHA256: 339c14f40d59a582a3717412e9e9b261c25e8c0d7513f7520684a5ec53a45fda
+Size: 507012284
+
+Package: te-browserbot-dual
+Version: 3.10.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 951664
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.10.1-1~jammy_amd64.deb
+SHA1: 1273b1f93b157ce3666eb2aa7610b39f531a0834
+SHA256: a5a74bbe4a9547cb70a078d2bbfe05098ed10b045442cf1dfa8bed1779349836
+Size: 953034456
+
+Package: te-browserbot
+Version: 3.10.1-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 510107
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.10.1-1~jammy_amd64.deb
+SHA1: e71e6865cedac56615ad79119d45a0e8a4f16eba
+SHA256: a9a5a8989e9a26fdbd2184e98d3012f306446aa5cb91633fc34bdb525ecdd1fb
+Size: 506602160
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 1.0.0~0-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6237
+Depends: te-etm-agent (= 1.0.0~0-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 18ec51f3f3397f25bf9d4f128f1df69e0eb6fa9d 5719d779aafaf19a5f8efb5981335714edf7f400
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_1.0.0~0-1~jammy_amd64.ddeb
+SHA1: fc4734a54e53604719d644f16b84776a924d67d9
+SHA256: ad5110db1817b4c18e7ea2cad85a684f1383a9659bc6479cce13a77313351e18
+Size: 4963066
+
+Package: te-etm-agent
+Version: 1.0.0~0-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13444
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_1.0.0~0-1~jammy_amd64.deb
+SHA1: 8d6c80174a01518751b9073ef521999c8e102749
+SHA256: 6c49e55716e47ff5d099f67cb138f0c7178ce678c917372527286f13bbf60efe
+Size: 4342626
+
+Package: te-etm-agent-dbgsym
+Package-Type: ddeb
+Source: te-etm-agent
+Version: 1.0.1-1~jammy
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 6237
+Depends: te-etm-agent (= 1.0.1-1~jammy)
+Section: debug
+Priority: optional
+Description: debug symbols for te-etm-agent
+Build-Ids: 58c8761417e9e25f758dec7aecac833c930b25fe c82c118faeb5e5c3d962c2275c325966cdd2ae23
+Filename: pool/main/t/te-etm-agent-dbgsym/te-etm-agent-dbgsym_1.0.1-1~jammy_amd64.ddeb
+SHA1: 72b2be7e8f415f308d16146f07b75f79558fd76a
+SHA256: 56708c47d038c1289f63ea7e94f442d2f07d7f3eeb9b2e81de808414ad6e0bd5
+Size: 4964716
+
+Package: te-etm-agent
+Version: 1.0.1-1~jammy
+Architecture: amd64
+Essential: no
+Maintainer: Adan Alper <adalper@cisco.com>
+Installed-Size: 13444
+Description: ETM udp to HTTP proxy
+Filename: pool/main/t/te-etm-agent/te-etm-agent_1.0.1-1~jammy_amd64.deb
+SHA1: 43f19b9c5ab7e2b5969323eee53e96c8f973f389
+SHA256: be41b85d214427b434310bea393d303ca3bb9b75c724f159d335de3cd95fa824
+Size: 4341606
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.213.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 425311
+Depends: te-agent (= 1.213.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.213.0-1~jammy_amd64.deb
+SHA1: 4ae996d82ac785511d3d653587759908697f3310
+SHA256: 79e6693144990edf39716a507490a8ca541498aa63f01a5d6c656b6985f7706c
+Size: 111420244
+
+Package: te-agent
+Version: 1.213.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 26622
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.213.0-1~jammy_amd64.deb
+SHA1: 2a3db88d34878992a10479e690f30fd06ee1288e
+SHA256: 0de2b37bb3192b9fa09b02dde2716b5fb1e5091eeeb339518811c39d6a059a94
+Size: 8236820
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.214.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 425321
+Depends: te-agent (= 1.214.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.214.0-1~jammy_amd64.deb
+SHA1: e2146f2fa1eb2af7158b5e5190383898b9ec3939
+SHA256: 1499cd55c668f881969426dec44d7b83e7e4eec190ed24b2ae2dc00c7dd1cdc1
+Size: 111416408
+
+Package: te-agent
+Version: 1.214.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 26611
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.214.0-1~jammy_amd64.deb
+SHA1: 662af1aa5abdca40cff128b5273c5ab18e5ff662
+SHA256: 2fca5a6db146c7e9f2e7046af0e5dcffceebb205574eeadf24a107d25b89350c
+Size: 8238584
+
+Package: te-browserbot-dual
+Version: 3.11.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 952155
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot-dual/te-browserbot-dual_3.11.0-1~jammy_amd64.deb
+SHA1: 18292f05bd1914f39df69019fc66cf8d800fe9e3
+SHA256: a7bf54a2fd0a0ed87ef9dafd153cd5ab2c857d3d6203b76133edacfa90996f49
+Size: 954925652
+
+Package: te-browserbot
+Version: 3.11.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 507164
+Depends: podman (>= 3.2.3), containernetworking-plugins (>= 0.9.0), crun (>= 0.12.1)
+Recommends: nftables
+Breaks: te-browserbot-cisco, te-sandboxd, te-txfs
+Replaces: te-browserbot-cisco, te-sandboxd, te-txfs
+Section: misc
+Priority: optional
+Description: ThousandEyes BrowserBot
+        An extension to the ThousandEyes agent package that performs periodic
+        measurements from a real browser.
+Filename: pool/main/t/te-browserbot/te-browserbot_3.11.0-1~jammy_amd64.deb
+SHA1: 1432b27a382c1e3af36fdd607479b282d4da27bf
+SHA256: 5cf24cf2de388b03351060915ba79891a9f526554e9c8634190b1328b9a9bab7
+Size: 505074728
+
+Package: te-agent-dbg
+Source: te-agent
+Version: 1.215.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 425760
+Depends: te-agent (= 1.215.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Core - debug symbols
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+ .
+ This package contains the debugging symbols for te-agent.
+Filename: pool/main/t/te-agent-dbg/te-agent-dbg_1.215.0-1~jammy_amd64.deb
+SHA1: 0d701c713a8821050b2b0d78382b34c8ba1fe03b
+SHA256: 16f3d4df30ce96b0c01833a72d2674dbffcff325d77f6e922619f6d4201efc93
+Size: 111592966
+
+Package: te-agent
+Version: 1.215.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 26699
+Depends: ca-certificates, libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libkrb5-3 (>= 1.10+dfsg~), libmnl0 (>= 1.0.3-4~), libsqlite3-0 (>= 3.6.5), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Core
+ The ThousandEyes Core package is a software agent that performs
+ periodic, synthetic network measurements to predefined targets.
+Filename: pool/main/t/te-agent/te-agent_1.215.0-1~jammy_amd64.deb
+SHA1: f72cfb5ae791fe7ae7e7a3fe0f678b680d61f09d
+SHA256: 2c94192dba8cf4fa2372633f77f8abd48f9b466a33858fbe0f0d586ac7b81f90
+Size: 8265954
+
+Package: te-agent-utils-dbg
+Source: te-agent-utils
+Version: 1.59.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 1305367
+Depends: te-agent-utils (= 1.59.0-1~jammy)
+Section: debug
+Priority: extra
+Description: ThousandEyes Agent Utilities - debug symbols
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+ .
+ This package contains the debugging symbols for te-agent-utils.
+Filename: pool/main/t/te-agent-utils-dbg/te-agent-utils-dbg_1.59.0-1~jammy_amd64.deb
+SHA1: 7d4def9bfabfd0b68a1190614c07a4fc295cdc76
+SHA256: 09d026090a6dad64aa62fc4dfe9b735a076ef74a311d5f526db79c562885a777
+Size: 335340924
+
+Package: te-agent-utils
+Version: 1.59.0-1~jammy
+Architecture: amd64
+Maintainer: ThousandEyes <support@thousandeyes.com>
+Installed-Size: 72399
+Depends: libapr1 (>= 1.4.8-2~), libaprutil1 (>= 1.2.7+dfsg), libc6 (>= 2.34), libcap2 (>= 1:2.10), libgcc-s1 (>= 3.4), libgssapi-krb5-2 (>= 1.17), libmnl0 (>= 1.0.3-4~), libssh2-1 (>= 1.7.0), libssl3 (>= 3.0.0~~alpha1), libstdc++6 (>= 12), zlib1g (>= 1:1.1.4)
+Section: misc
+Priority: optional
+Description: ThousandEyes Agent Utilities
+ Various stand-alone binaries that replicate the functionality of tests
+ performed by ThousandEyes agents.
+Filename: pool/main/t/te-agent-utils/te-agent-utils_1.59.0-1~jammy_amd64.deb
+SHA1: e66d48a3c1dd945f5ff5e47e982f4c7cd6c6f018
+SHA256: c5c6f4e4a491a5eb1143b7c33d158ef1bcc8e72d20dbee7434d9144c1b780525
+Size: 10404628
+
