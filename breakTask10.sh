@@ -1,9 +1,9 @@
 #!/bin/bash
 source lab_config
-if ! te-agent -v | grep '1.147.0';
+if ! te-agent -v | grep '1.224.0';
 then
   apt remove te-agent -y
-  apt install $install_dir/te-agent_1.147.0-1~focal_amd64.deb -y
+  apt install $install_dir/te-agent_1.224.0-1~jammy_amd64.deb -y
   systemctl enable te-agent
   systemctl start te-agent
 fi
